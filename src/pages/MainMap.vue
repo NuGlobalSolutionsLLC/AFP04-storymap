@@ -1,5 +1,6 @@
 <template>
   <q-page class="flex flex-center" ref="pageRef">
+    <div class="debug" v-if="false">{{ geoJsons }}</div>
     <l-map ref="mapRef"
         :style="`height: ${height};`"
         :zoom="14"
@@ -17,8 +18,11 @@
           attribution="AFP4 WebGIS"
           :maxZoom="22"
           />
-      <l-geo-json :geojson="geojson" :options="geojsonOptions" />
+      <l-geo-json v-for="geojson, index in geoJsons" :key="index"
+          :geojson="geojson" :options="geojsonOptions"
+          />
     </l-map>
+
   </q-page>
 </template>
 
@@ -44,12 +48,59 @@ export default defineComponent({
     let map = null
     let leftDrawerOpen = true
 
+    const getActiveGroups = () => {
+      return $store.layers.map(group => {
+        const activeLayers = group.childs.filter(layer => layer.active)
+        if (activeLayers.length > 0) {
+          const newGroup = Object.assign({}, group)
+          newGroup.childs = activeLayers
+          return newGroup
+        }
+        return false
+      }).filter(group => group)
+    }
+
+    const geoJsons = computed(() => {
+      const layers = getActiveGroups().reduce((previous, group) => {
+        return previous.concat(...group.childs)
+      }, [])
+      const geojsons = layers.map(layer => {
+        if (layer.data) {
+          return Object.assign({}, layer.data)
+        } else {
+          return {
+            type: 'FeatureCollection',
+            features: [],
+          }
+        }
+      })
+      console.log("geojsons", geojsons)
+      return geojsons
+    })
+
+    const getGeoJsons = async () => {
+      $store.layers.forEach(group => {
+        group.childs.forEach(layer => {
+          const url = 'data/' + layer.file
+          fetch(url).then(response => {
+            if (response.ok) return response.json()
+            else throw response
+          }).then(json => {
+            layer.data = json
+          }).catch(error => {
+            // console.log(error)
+          })
+        })
+      })
+    }
+
     onMounted(() => {
       setTimeout(() => {
         height.value = getComputedStyle(pageRef.value.$el).height
         setTimeout(() => {
           map = mapRef.value.leafletObject
           map.invalidateSize()
+          getGeoJsons()
         }, 100)
       }, 1)
     })
@@ -79,6 +130,7 @@ export default defineComponent({
         type: 'FeatureCollection',
         features: [],
       },
+      geoJsons,
       geojsonOptions: {},
       height,
       mapRef,
@@ -87,3 +139,13 @@ export default defineComponent({
   }
 })
 </script>
+
+<style type="scss" scoped>
+.debug {
+  position: fixed;
+  background: black;
+  color: white;
+  padding: 20px;
+  z-index: 99999;
+}
+</style>

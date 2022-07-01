@@ -49,6 +49,12 @@ export const useMapStore = defineStore('map-store', {
             file: 'TranLine4DView17.json',
             active: false,
             class: 'transects'
+          },
+          {
+            label: 'Test',
+            file: 'TranLine4DView17s.json',
+            active: false,
+            class: 'transects'
           }
         ]
       },
