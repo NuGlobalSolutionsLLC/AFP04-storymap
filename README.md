@@ -44,6 +44,20 @@ quasar dev
 
 This will automatically open up a new browser window with the app. You will still need Internet connection for the base maps and login.
 
+### Download the new developments
+
+As development progresses new features will be available. To update the code in your local computer and see those features, you only need to open a terminal window, navigate to the code root directory and execute the following command:
+
+```bash
+git pull
+```
+
+If the new developments include the use of new software, you may eventually need to install these new dependencies using the same command as before:
+
+```bash
+npm install
+```
+
 ## Development
 
 This section contains additional information for developers.
