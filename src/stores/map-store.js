@@ -3,13 +3,19 @@ import { defineStore } from 'pinia';
 const TEMPLATES = {
   tce: {
     label: 'Trichloroethylene',
-    stroke: 'black',
+    color: 'black',
     opacity: 1,
     limits: [5, 50, 100, 400, 1000, 5000, 10000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(0,255,197,1.0)', 'rgba(233,255,190,1.0)', 'rgba(255,255,0,1.0)',
              'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
     tooltip: feature => {
-      `Well ID: ${feature.properties.Well_ID}<br>Result: ${feature.properties.Result} μg/L<br/>Date: ${feature.properties.SDate}`
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
     }
   }
 }
@@ -18,6 +24,7 @@ const TEMPLATES = {
 export const useMapStore = defineStore('map-store', {
   state: () => ({
     leftDrawerOpen: true,
+    templates: TEMPLATES,
     layers: [
       {
         label: 'Layer List',

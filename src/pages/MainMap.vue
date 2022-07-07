@@ -7,7 +7,7 @@
         :center="[32.7713,-97.4366]"
         :min-zoom="12"
         :max-zoom="19"
-        :options="{ attributionControl: false }"
+        :options="mapOptions"
         >
       <l-control-attribution
           position="bottomright"
@@ -19,7 +19,7 @@
           :maxZoom="22"
           />
       <l-geo-json v-for="geojson, index in geoJsons" :key="index"
-          :geojson="geojson" :options="geojsonOptions"
+          :geojson="geojson" :options="geojson.options"
           />
     </l-map>
 
@@ -28,7 +28,8 @@
 
 <script>
 import 'leaflet/dist/leaflet.css'
-import { defineComponent, onMounted, computed, ref, inject, watchEffect } from 'vue'
+import * as L from 'leaflet'
+import { defineComponent, onBeforeMount, onMounted, computed, ref, inject, watchEffect } from 'vue'
 import { LMap, LGeoJson, LTileLayer, LControlAttribution } from '@vue-leaflet/vue-leaflet'
 import { useMapStore } from 'src/stores/map-store'
 
@@ -43,10 +44,17 @@ export default defineComponent({
   setup () {
     const pageRef = ref(null)
     const mapRef = ref(null)
-    const $store = useMapStore()
+    let geojsonOptions = ref({})
     let height = ref(0)
+    let circle
+    let template
+    const $store = useMapStore()
     let map = null
     let leftDrawerOpen = true
+    const mapOptions = {
+      // preferCanvas: true,
+      attributionControl: false
+    }
 
     const getActiveGroups = () => {
       return $store.layers.map(group => {
@@ -60,6 +68,20 @@ export default defineComponent({
       }).filter(group => group)
     }
 
+    const getFeatureStyle = (feature, template) => {
+      const step = template.limits.find(limit => {
+        return feature.properties.Result < limit
+      })
+      const index = template.limits.indexOf(step)
+      const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
+      return Object.assign(template, {
+        fillColor: color,
+        fillOpacity: 1,
+        radius: 6,
+        weight: 1
+      })
+    }
+
     const geoJsons = computed(() => {
       const layers = getActiveGroups().reduce((previous, group) => {
         return previous.concat(...group.childs)
@@ -71,10 +93,37 @@ export default defineComponent({
           return {
             type: 'FeatureCollection',
             features: [],
+            options: {
+              pointToLayer: function (feature, latLng) {
+                const params = getFeatureStyle(feature, layer.template)
+                params.riseOnHover = true
+                return circle(latLng, params);
+              },
+              onEachFeature: function(feature, leafletLayer) {
+                let popup
+                leafletLayer.on('mouseover', function (event) {
+                  // console.log(event.target)
+                  this.setStyle(event.target.options.hoverStyle)
+                  event.target.bringToFront()
+                  popup = L.popup()
+                    .setLatLng(event.target._latlng)
+                    .setContent(event.target.options.tooltip({feature}))
+                    .openOn(map)
+                })
+                leafletLayer.on('mouseout', function (event) {
+                  this.setStyle(getFeatureStyle(feature, layer.template))
+                  popup.close()
+                })
+                // leafletLayer.bindTooltip(layer.template.tooltip)
+                leafletLayer.on('click', function () {
+                  // Let's say you've got a property called url in your geojsonfeature:
+                  window.location = feature.properties.url
+                })
+              }
+            }
           }
         }
       })
-      console.log("geojsons", geojsons)
       return geojsons
     })
 
@@ -93,6 +142,11 @@ export default defineComponent({
         })
       })
     }
+
+    onBeforeMount(async () => {
+      const { circleMarker } = await import("leaflet/dist/leaflet-src.esm");
+      circle = circleMarker
+    })
 
     onMounted(() => {
       setTimeout(() => {
@@ -131,8 +185,9 @@ export default defineComponent({
         features: [],
       },
       geoJsons,
-      geojsonOptions: {},
+      geojsonOptions,
       height,
+      mapOptions,
       mapRef,
       pageRef
     }
