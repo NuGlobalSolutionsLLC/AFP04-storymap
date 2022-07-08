@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center" ref="pageRef">
+  <q-page class="flex flex-center column" ref="pageRef">
     <div class="debug" v-if="false">{{ geoJsons }}</div>
     <l-map ref="mapRef"
         :style="`height: ${height};`"
@@ -29,12 +29,19 @@
 
     </l-map>
 
+    <LineChart v-if="selected"
+        :class="selected && 'active chart' || 'chart'"
+        :height="180"
+        :width="getWidth"
+        />
+
   </q-page>
 </template>
 
 <script>
 import 'leaflet/dist/leaflet.css'
 import * as L from 'leaflet'
+import LineChart from 'src/components/LineChart.vue'
 import { defineComponent, onBeforeMount, onMounted, computed, ref, inject, watchEffect } from 'vue'
 import { LMap, LGeoJson, LTileLayer, LControlAttribution } from '@vue-leaflet/vue-leaflet'
 import { useMapStore } from 'src/stores/map-store'
@@ -42,6 +49,7 @@ import { useMapStore } from 'src/stores/map-store'
 export default defineComponent({
   name: 'MainMap',
   components: {
+    LineChart,
     LControlAttribution,
     LMap,
     LGeoJson,
@@ -61,6 +69,18 @@ export default defineComponent({
     let template
     let map
     let leftDrawerOpen = true
+
+    const selected = computed(() => {
+      return $store.selectedFeature
+    })
+
+    const getWidth = computed(() => {
+      if (pageRef.value) {
+        return parseInt(getComputedStyle(pageRef.value.$el).width) - 40
+        return width
+      }
+      return 0
+    })
 
     const getActiveGroups = () => {
       return $store.layers.map(group => {
@@ -123,8 +143,11 @@ export default defineComponent({
                   this.setStyle(getFeatureStyle(feature, layer.template))
                   popup.close()
                 })
-                leafletLayer.on('click', function () {
-
+                leafletLayer.on('click', function (event) {
+                  event.target.layer = layer
+                  $store.selectedFeature = event.target
+                  resizeMap()
+                  move(300)
                 })
               }
             }
@@ -133,6 +156,14 @@ export default defineComponent({
       })
       return geojsons
     })
+
+    const resizeMap = () => {
+      let mapHeight = parseInt(getComputedStyle(pageRef.value.$el).height)
+      if (selected.value) {
+        mapHeight -= 180
+      }
+      height.value = mapHeight + 'px'
+    }
 
     const legends = computed(() => {
       const layers = getActiveLayers()
@@ -147,8 +178,9 @@ export default defineComponent({
             >= ${layer.template.limits[layer.template.limits.length - 1]}
           </li>
         `)
+        const title = `<li class="title">${layer.template.label}</li>`
         const units = `<li>Units: ${layer.template.units}</li>`
-        return `<ul class="legend">${units}${categories.join("")}</ul>`
+        return `<ul class="legend">${title}${units}${categories.join("")}</ul>`
       })
       return html
     })
@@ -163,7 +195,7 @@ export default defineComponent({
           }).then(json => {
             layer.data = json
           }).catch(error => {
-            // console.log(error)
+            console.warn(error)
           })
         })
       })
@@ -176,12 +208,12 @@ export default defineComponent({
 
     onMounted(() => {
       setTimeout(() => {
-        height.value = getComputedStyle(pageRef.value.$el).height
+        resizeMap()
         setTimeout(() => {
           map = mapRef.value.leafletObject
           map.invalidateSize()
           getGeoJsons()
-        }, 100)
+        }, 200)
       }, 1)
     })
 
@@ -206,6 +238,7 @@ export default defineComponent({
     return  {
       leftDrawerOpen,
       attributionPrefix: '<a href="http://www.newfieldsgovernmentservices.com/" title="NewFields Government Services, LLC" target="_blank">NGS</a>',
+      getWidth,
       geojson: {
         type: 'FeatureCollection',
         features: [],
@@ -216,13 +249,29 @@ export default defineComponent({
       legends,
       mapOptions,
       mapRef,
-      pageRef
+      pageRef,
+      selected
     }
   }
 })
 </script>
 
 <style type="scss" scoped>
+.q-page-container, :deep(.q-page-container), .q-page, .leaflet-container {
+  overflow: hidden;
+}
+.leaflet-container {
+  cursor: default;
+  transition: height 0.3s ease-in;
+}
+.chart {
+  height: 0px;
+  overflow: hidden;
+}
+.chart.active {
+  height: 180px;
+  transition: height 0.3s ease-in;
+}
 .debug {
   position: fixed;
   background: black;
@@ -235,20 +284,32 @@ export default defineComponent({
   z-index: 400;
   right: 5px;
   top: 5px;
+  transition: none;
 }
 :deep(.legends) .legend {
   background: white;
   border-radius: 8px;
   margin: 5px;
   padding: 10px;
+  transition: opacity 0.3s ease-out;
+  opacity: 0.8;
+}
+:deep(.legends) .legend:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
 }
 :deep(.legends) ul {
   list-style: none;
+  transition: none;
 }
 :deep(.legends) ul li {
   display: flex;
   align-items: center;
   font-size: 1.2em;
+  transition: none;
+}
+:deep(.legends) ul li.title {
+  font-weight: bold;
 }
 :deep(.legends) span {
   display: inline-block;
@@ -257,5 +318,6 @@ export default defineComponent({
   border: 1px solid black;
   border-radius: 50%;
   margin-right: 10px;
+  transition: none;
 }
 </style>

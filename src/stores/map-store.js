@@ -26,6 +26,7 @@ export const useMapStore = defineStore('map-store', {
   state: () => ({
     leftDrawerOpen: true,
     templates: TEMPLATES,
+    selectedFeature: null,
     layers: [
       {
         label: 'Layer List',
@@ -37,6 +38,7 @@ export const useMapStore = defineStore('map-store', {
             file: 'GWTCE46.json',
             class: 'chemdata',
             active: true,
+            matrix: 'GW',
             template: TEMPLATES.tce
           },
           {
@@ -44,6 +46,7 @@ export const useMapStore = defineStore('map-store', {
             file: 'GWTCEafter199045.json',
             class: 'chemdata',
             active: false,
+            matrix: 'GW',
             template: TEMPLATES.tce
           }
         ]
@@ -89,10 +92,24 @@ export const useMapStore = defineStore('map-store', {
         childs: []
       }
     ]
-  })
-  // getters: {
-  //   doubleCount: (state) => state.counter * 2,
-  // },
+  }),
+  getters: {
+    getSelectedFeatureStyle: (state) => {
+      const feature = state.selectedFeature.feature
+      const template = state.selectedFeature.options
+      const step = template.limits.find(limit => {
+        return feature.properties.Result < limit
+      })
+      const index = template.limits.indexOf(step)
+      const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
+      return Object.assign(template, {
+        fillColor: color,
+        fillOpacity: 1,
+        radius: 6,
+        weight: 1
+      })
+    }
+  },
   // actions: {
   //   increment() {
   //     this.counter++;

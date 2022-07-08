@@ -67,4 +67,7 @@ export default {
     align-items: center;
     column-gap: 10px;
   }
+  .q-layout, :deep(.q-page-container), .q-page, .leaflet-container {
+    overflow: hidden;
+  }
 </style>

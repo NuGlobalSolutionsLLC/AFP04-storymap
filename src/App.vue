@@ -9,3 +9,9 @@ export default defineComponent({
   name: 'App'
 })
 </script>
+
+<style>
+#q-app, html, body {
+  overflow: hidden;
+}
+</style>
