@@ -12,6 +12,7 @@ const TEMPLATES = {
       const props = feature.feature.properties
       return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
     },
+    units: 'μg/L',
     hoverStyle: {
       // fillColor: '#CCCCFF',
       fillOpacity: .8,

@@ -138,7 +138,8 @@ export default defineComponent({
       const layers = getActiveLayers()
       const html = layers.map(layer => {
         const categories = layer.template.limits.map((limit, index) => {
-          return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span> < ${limit}</li>`
+          const previous = index === 0 ? 0 : layer.template.limits[index - 1]
+          return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span> ${previous} - ${limit}</li>`
         })
         categories.push(`
           <li>
@@ -146,7 +147,8 @@ export default defineComponent({
             >= ${layer.template.limits[layer.template.limits.length - 1]}
           </li>
         `)
-        return `<ul class="legend">${categories.join("")}</ul>`
+        const units = `<li>Units: ${layer.template.units}</li>`
+        return `<ul class="legend">${units}${categories.join("")}</ul>`
       })
       return html
     })
