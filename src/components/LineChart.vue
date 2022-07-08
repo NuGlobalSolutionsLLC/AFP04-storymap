@@ -92,8 +92,7 @@ export default defineComponent({
         datasets: [
           {
             label: $store.selectedFeature.options.label,
-            data: data.map(item => item.close),
-            yAxisID: 'yAxis'
+            data: data.map(item => item.close)
           }
         ]
       }

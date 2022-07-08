@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center column" ref="pageRef">
+  <q-page class="flex flex-center" ref="pageRef">
     <div class="debug" v-if="false">{{ geoJsons }}</div>
     <l-map ref="mapRef"
         :style="`height: ${height};`"
