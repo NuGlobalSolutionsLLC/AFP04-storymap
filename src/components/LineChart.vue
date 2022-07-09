@@ -1,5 +1,6 @@
 <template>
   <Line
+    ref="chart"
     :chart-options="chartOptions"
     :chart-data="chartData"
     :chart-id="chartId"
@@ -9,11 +10,12 @@
     :styles="styles"
     :width="width"
     :height="height"
+    :style="style"
   />
 </template>
 
 <script>
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, ref } from 'vue'
 import getValueStyle from 'src/utils.js'
 import { Line } from 'vue-chartjs'
 import { useMapStore } from 'src/stores/map-store'
@@ -68,6 +70,9 @@ export default defineComponent({
       type: Object,
       default: () => {}
     },
+    style: {
+      type: String
+    },
     styles: {
       type: Object,
       default: () => {}
@@ -79,6 +84,7 @@ export default defineComponent({
   },
   setup (props) {
     const $store = useMapStore()
+    const chart = ref(null)
 
     const chartData = computed(() => {
       const wellID = $store.selectedFeature.feature.properties.Well_ID
@@ -99,6 +105,7 @@ export default defineComponent({
     })
 
     return {
+      chart,
       chartData,
       chartOptions: {
         responsive: true,

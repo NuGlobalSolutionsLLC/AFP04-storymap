@@ -24,15 +24,17 @@
       <l-geo-json v-for="geojson, index in geoJsons" :key="index"
           :geojson="geojson" :options="geojson.options"
           />
+      <l-geo-json :geojson="selected.feature" v-if="selected" />
 
       <div class="legends" v-html="legends"></div>
 
     </l-map>
 
-    <LineChart v-if="selected"
+    <LineChart v-if="selected" ref="chartRef"
         :class="selected && 'active chart' || 'chart'"
         :height="180"
         :width="getWidth"
+        :style="'width:' + getWidth + 'px !important;'"
         />
 
   </q-page>
@@ -58,6 +60,7 @@ export default defineComponent({
   setup () {
     const pageRef = ref(null)
     const mapRef = ref(null)
+    const chartRef = ref(null)
     const mapOptions = {
       preferCanvas: true,
       attributionControl: false
@@ -74,9 +77,20 @@ export default defineComponent({
       return $store.selectedFeature
     })
 
+    const refreshChart = () => {
+      if (chartRef.value) {
+        chartRef.value.chart.updateChart()
+      }
+    }
+
     const getWidth = computed(() => {
       if (pageRef.value) {
-        return parseInt(getComputedStyle(pageRef.value.$el).width) - 40
+        const node = pageRef.value.$el.parentNode.parentNode
+        let width = parseInt(getComputedStyle(node).width) - 340
+        if (!$store.leftDrawerOpen) {
+          width = parseInt(getComputedStyle(node).width) - 40
+        }
+        refreshChart()
         return width
       }
       return 0
@@ -238,6 +252,7 @@ export default defineComponent({
     return  {
       leftDrawerOpen,
       attributionPrefix: '<a href="http://www.newfieldsgovernmentservices.com/" title="NewFields Government Services, LLC" target="_blank">NGS</a>',
+      chartRef,
       getWidth,
       geojson: {
         type: 'FeatureCollection',

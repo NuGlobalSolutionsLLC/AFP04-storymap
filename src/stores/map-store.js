@@ -48,6 +48,70 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             matrix: 'GW',
             template: TEMPLATES.tce
+          },
+          {
+            label: 'TCE > 2000 in GW',
+            file: 'GWTCEafter200044.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.tce
+          },
+          {
+            label: 'TCE > 2016 in GW',
+            file: 'GWTCEafter201654.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.tce
+          },
+          {
+            label: 'TCE Max in GW',
+            file: 'GWTCEMax43.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.tce
+          },
+          {
+            label: 'TCE Terrace Alluvial in GW',
+            file: 'GWTCETerrace42.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.tce
+          },
+          {
+            label: 'TCE Walnut in GW',
+            file: 'GWTCEWalnut41.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.tce
+          },
+          {
+            label: 'TCE Upper Paluxy in GW',
+            file: 'GWTCEUpperP40.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.tce
+          },
+          {
+            label: 'TCE Middle Paluxy in GW',
+            file: 'GWTCEMiddleP39.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.tce
+          },
+          {
+            label: 'TCE Lower Paluxy in GW',
+            file: 'GWTCELowerP38.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.tce
           }
         ]
       },
