@@ -140,7 +140,7 @@ export default defineComponent({
             layer: layer,
             options: {
               pointToLayer: function (feature, latLng) {
-                const params = getFeatureStyle(feature, layer.template)
+                const params = getFeatureStyle(feature, feature.properties.layer.template)
                 params.riseOnHover = true
                 return circle(latLng, params);
               },
