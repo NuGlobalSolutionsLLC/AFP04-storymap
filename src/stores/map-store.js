@@ -39,6 +39,26 @@ const TEMPLATES = {
       fillOpacity: .8,
       radius: 10
     }
+  },
+  vinyl: {
+    label: 'Vinyl chloride',
+    analyte:  'Vinyl chloride',
+    color: 'black',
+    opacity: 1,
+    limits: [2, 20, 200, 1000, 20000, 100000],
+    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
+             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
   }
 }
 
@@ -149,6 +169,22 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             matrix: 'GW',
             template: TEMPLATES.cis
+          },
+          {
+            label: 'Vinyl chloride in GW',
+            file: 'GWVC35.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.vinyl
+          },
+          {
+            label: 'Vinyl chloride > 2000 in GW',
+            file: 'GWVCafter200034.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.vinyl
           }
         ]
       },
