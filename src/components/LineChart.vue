@@ -87,9 +87,10 @@ export default defineComponent({
     const chart = ref(null)
 
     const chartData = computed(() => {
+      const layer = $store.selectedFeature.feature.properties.layer
       const wellID = $store.selectedFeature.feature.properties.Well_ID
-      const analyte = $store.selectedFeature.options.label
-      const matrix = $store.selectedFeature.layer.matrix
+      const analyte = layer.template.analyte
+      const matrix = layer.matrix
       const data = tcedata.filter(item => {
         return item.Well_ID === wellID && item.Analyte === analyte && item.Matrix === matrix
       })
@@ -97,7 +98,7 @@ export default defineComponent({
         labels: data.map(item => item.date),
         datasets: [
           {
-            label: $store.selectedFeature.options.label,
+            label: layer.template.label,
             data: data.map(item => item.close)
           }
         ]
@@ -119,7 +120,7 @@ export default defineComponent({
         backgroundColor: '#e0e5d0',
         pointBackgroundColor: (context) => {
           const value = context.dataset.data[context.dataIndex]
-          const style = getValueStyle(value, $store.selectedFeature.options)
+          const style = getValueStyle(value, $store.selectedFeature.feature.properties.layer.template)
           return style.fillColor
         },
         scales: {

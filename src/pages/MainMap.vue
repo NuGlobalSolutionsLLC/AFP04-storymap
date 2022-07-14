@@ -137,6 +137,7 @@ export default defineComponent({
           return {
             type: 'FeatureCollection',
             features: [],
+            layer: layer,
             options: {
               pointToLayer: function (feature, latLng) {
                 const params = getFeatureStyle(feature, layer.template)
@@ -201,13 +202,18 @@ export default defineComponent({
 
     const getGeoJsons = async () => {
       $store.layers.forEach(group => {
-        group.childs.forEach(layer => {
+        group.childs.forEach(async layer => {
           const url = 'data/' + layer.file
-          fetch(url).then(response => {
+          const data = await fetch(url).then(response => {
             if (response.ok) return response.json()
             else throw response
           }).then(json => {
+            json.features = json.features.map(feature => {
+              feature.properties.layer = layer
+              return feature
+            })
             layer.data = json
+            return json
           }).catch(error => {
             console.warn(error)
           })
@@ -227,7 +233,7 @@ export default defineComponent({
           map = mapRef.value.leafletObject
           map.invalidateSize()
           getGeoJsons()
-        }, 200)
+        }, 300)
       }, 1)
     })
 

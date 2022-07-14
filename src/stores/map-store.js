@@ -3,11 +3,32 @@ import { defineStore } from 'pinia';
 const TEMPLATES = {
   tce: {
     label: 'Trichloroethylene',
+    analyte: 'Trichloroethylene',
     color: 'black',
     opacity: 1,
     limits: [5, 50, 100, 400, 1000, 5000, 10000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(0,255,197,1.0)', 'rgba(233,255,190,1.0)', 'rgba(255,255,0,1.0)',
              'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  cis: {
+    label: 'Dichloroethylene',
+    analyte:  'cis-1,2-Dichloroethylene',
+    color: 'black',
+    opacity: 1,
+    limits: [5, 70, 700, 7000, 10000, 70000, 140000],
+    colors: ['rgba(0,255,0,1.0)', 'rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
+             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
     tooltip: feature => {
       const props = feature.feature.properties
       return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
@@ -112,6 +133,22 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             matrix: 'GW',
             template: TEMPLATES.tce
+          },
+          {
+            label: 'Cis 1,2-DCE in GW',
+            file: 'GWcis12DCE37.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.cis
+          },
+          {
+            label: 'Cis 1,2-DCE > 2000 in GW',
+            file: 'GWcis12DCEafter200036.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.cis
           }
         ]
       },
