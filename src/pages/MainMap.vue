@@ -155,7 +155,7 @@ export default defineComponent({
                     .openOn(map)
                 })
                 leafletLayer.on('mouseout', function (event) {
-                  this.setStyle(getFeatureStyle(feature, layer.template))
+                  this.setStyle(getFeatureStyle(feature, feature.properties.layer.template))
                   popup.close()
                 })
                 leafletLayer.on('click', function (event) {
