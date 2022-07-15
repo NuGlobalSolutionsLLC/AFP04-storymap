@@ -1,0 +1,827 @@
+ 	{"type": "FeatureCollection",
+		"crs": {
+			"type": "name",
+			"properties": {
+				"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+			}
+		},
+		"features": [
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "BK-011",
+					"SDate": "1997-09-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5259785947,32.7750795163]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "BK-012",
+					"SDate": "1997-09-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5209128928,32.7767954263]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "BK-013",
+					"SDate": "1997-09-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5252738644,32.775928475]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-001",
+					"SDate": "1997-08-26",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5219716106,32.772549467]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-002",
+					"SDate": "1997-08-26",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5219817755,32.7724242542]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-003",
+					"SDate": "1997-08-26",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.521989975,32.7722884153]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-004",
+					"SDate": "1997-08-26",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5219956079,32.7722290019]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-006",
+					"SDate": "1997-08-26",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5219981817,32.7721401242]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-007",
+					"SDate": "1997-08-26",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5220049038,32.7720822587]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-008",
+					"SDate": "1997-08-26",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5220064284,32.7719498035]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-009",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5216564674,32.7720170088]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW1-010",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5214059043,32.7714972079]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW2-001",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5198693259,32.7743277508]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW2-002",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5183298021,32.7743416931]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW2-003",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5170773424,32.7741192577]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW3-001",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5198266761,32.7724062128]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW3-002",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5177996575,32.7726809368]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW3-003",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5170765162,32.7736239075]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW4-001",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5169787033,32.7722847992]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW4-002",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5169871802,32.7735757835]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW5-001",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5160272907,32.7737691053]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW5-002",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5156149296,32.7743362015]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW5-003",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.514810796,32.7739367468]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW5-004",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5146488284,32.7741443215]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW6-001",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5179399655,32.7756795611]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW6-002",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.51658447,32.7756275607]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW7-001",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5209530248,32.7748211583]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "DW9-002",
+					"SDate": "1997-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5209041075,32.7754917958]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "EUHGL101",
+					"SDate": "2001-02-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4178434849,32.7704411927]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "EUHGL102",
+					"SDate": "2001-02-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.417138687,32.7696026405]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "EUHGL103",
+					"SDate": "2001-02-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4165676862,32.7690843403]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "EUHGL104",
+					"SDate": "2001-02-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4155952449,32.7682078761]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "EUHGLSWMU5401",
+					"SDate": "2000-12-08",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4198389934,32.7717704196]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "EUHGLSWMU5501",
+					"SDate": "2000-12-08",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.41947077,32.7718585106]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "EUHGLSWMU55N01",
+					"SDate": "2000-09-07",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4196031536,32.7716241918]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "JEFB001",
+					"SDate": "1996-11-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4469469136,32.7604234534]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "JEFB002",
+					"SDate": "1996-11-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.452822338,32.75932405]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "JEFB003",
+					"SDate": "1996-11-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4619807983,32.7584442455]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "JEFB004",
+					"SDate": "1996-11-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4656920639,32.7582222802]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "JEFB005",
+					"SDate": "1996-11-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4689357386,32.7568033176]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "JEFB006",
+					"SDate": "1996-11-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4759161702,32.7529301309]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "JEFB007",
+					"SDate": "1996-11-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4795334894,32.7551974553]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "JEFB008",
+					"SDate": "1996-11-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4802208671,32.7519979154]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LW-01",
+					"SDate": "1991-10-18",
+					"Result": 160.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4605091551,32.7825722221]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LW-02",
+					"SDate": "1991-10-18",
+					"Result": 44.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4538277079,32.7777116645]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LW-05",
+					"SDate": "1991-10-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4539020512,32.7792362084]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LW-08",
+					"SDate": "1991-10-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4526877887,32.7831213835]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LW-11",
+					"SDate": "1991-10-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4517442203,32.7867851529]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LW-12",
+					"SDate": "1991-10-17",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4489014425,32.7868793878]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LW-18",
+					"SDate": "1991-10-24",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4460839961,32.7870705877]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LW-21",
+					"SDate": "1991-10-21",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4438258842,32.7844265067]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RV-009JEFB",
+					"SDate": "1998-04-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4505116883,32.7602199416]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RV-010JEFB",
+					"SDate": "1998-04-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4558742682,32.7587394686]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RV-011JEFB",
+					"SDate": "1998-04-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4590093069,32.7591093673]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RV-012JEFB",
+					"SDate": "1998-04-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.468063105,32.7585498568]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RV-013JEFB",
+					"SDate": "1998-04-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4714422361,32.757791682]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RV-014JEFB",
+					"SDate": "1998-04-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4731859342,32.7575119668]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SP-001",
+					"SDate": "1998-02-13",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5202599848,32.7710258818]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SP-002",
+					"SDate": "1998-02-13",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5186651848,32.7707769041]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SP-003",
+					"SDate": "1998-02-12",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5149453581,32.7732022191]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SP-004",
+					"SDate": "1998-02-13",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.5239621466,32.7722562463]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SW-01",
+					"SDate": "1991-05-02",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4644276503,32.7664666127]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SW-02",
+					"SDate": "1991-05-02",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4604453208,32.7696349352]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SW-03",
+					"SDate": "1991-05-02",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.458635614,32.7704224895]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SW-04",
+					"SDate": "1991-05-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4551540195,32.772084058]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SW-05",
+					"SDate": "1991-05-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4547139323,32.7738565971]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SW-06",
+					"SDate": "1991-05-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4545182439,32.7748596641]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "SW-07",
+					"SDate": "1991-05-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4540294995,32.7763023944]
+				}
+			} 	    
+		]
+	}
+	    

@@ -1,0 +1,59 @@
+ 	{"type": "FeatureCollection",
+		"crs": {
+			"type": "name",
+			"properties": {
+				"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+			}
+		},
+		"features": [
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RW-1U",
+					"SDate": "1993-01-19",
+					"Result": 380.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4459151997,32.7715673069]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RW-2U",
+					"SDate": "1993-01-20",
+					"Result": 56.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4461239639,32.769892621]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RW-3UR",
+					"SDate": "1993-01-21",
+					"Result": 11.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4471913775,32.7693313547]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W-154",
+					"SDate": "2010-02-16",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4536639048,32.7679501719]
+				}
+			} 	    
+		]
+	}
+	    

@@ -1,0 +1,2051 @@
+ 	{"type": "FeatureCollection",
+		"crs": {
+			"type": "name",
+			"properties": {
+				"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+			}
+		},
+		"features": [
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "AR-1",
+					"SDate": "2017-12-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4544752135,32.7737312758]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "AR-2",
+					"SDate": "2017-12-21",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.454499613,32.7737039922]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW10",
+					"SDate": "2017-11-28",
+					"Result": 2360.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4532218919,32.7683458626]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW11",
+					"SDate": "2017-11-28",
+					"Result": 31300.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4531466262,32.7682418988]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW12",
+					"SDate": "2020-10-20",
+					"Result": 9960.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4532286014,32.7680887071]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW13",
+					"SDate": "2017-11-28",
+					"Result": 52900.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.453225255,32.7682179584]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW15",
+					"SDate": "2017-11-28",
+					"Result": 45500.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4534219346,32.7681875897]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW16",
+					"SDate": "2017-07-25",
+					"Result": 3870.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4534874641,32.7682950174]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW17",
+					"SDate": "2020-10-20",
+					"Result": 6640.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4535049188,32.7681860891]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW3",
+					"SDate": "2017-11-28",
+					"Result": 6140.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4534021513,32.7682925675]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW5",
+					"SDate": "2020-10-20",
+					"Result": 20.8
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4530250332,32.7684658427]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW6",
+					"SDate": "2020-10-20",
+					"Result": 315.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4529857825,32.7683179528]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "CRP3-MW8",
+					"SDate": "2017-11-28",
+					"Result": 1890.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4529996921,32.7683882486]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "F-214",
+					"SDate": "2017-12-20",
+					"Result": 114.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4544376055,32.7737280183]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "F-218",
+					"SDate": "2020-02-26",
+					"Result": 918.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.449213889,32.7681807969]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "F-220",
+					"SDate": "2020-10-15",
+					"Result": 28300.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4532384883,32.7682876713]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "FT09-12C",
+					"SDate": "2020-03-03",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4353290951,32.7586278447]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "FT09-12E",
+					"SDate": "2017-09-15",
+					"Result": 7.73
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4351628537,32.758931629]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "GMI-22-02M",
+					"SDate": "2020-02-27",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.433795567,32.7751854591]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "GMI-22-03M",
+					"SDate": "2020-02-28",
+					"Result": 0.658
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4261612348,32.7739846985]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "GMI-22-05M",
+					"SDate": "2020-03-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4232298088,32.7759347203]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "GMI-22-07M",
+					"SDate": "2018-01-10",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4267711585,32.7816802231]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-100",
+					"SDate": "2020-10-13",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4550621914,32.7673314772]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-102",
+					"SDate": "2020-10-15",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4563601799,32.7701358918]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-112",
+					"SDate": "2020-02-26",
+					"Result": 186.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.443781584,32.7686713775]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-113",
+					"SDate": "2018-01-15",
+					"Result": 1.44
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4437922435,32.7699300677]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-115",
+					"SDate": "2018-01-11",
+					"Result": 36.5
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4386018595,32.7705577226]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-116",
+					"SDate": "2020-02-27",
+					"Result": 83.5
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4399931708,32.7746681086]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-119",
+					"SDate": "2020-02-27",
+					"Result": 0.601
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4399580853,32.7810324691]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-120",
+					"SDate": "2020-02-27",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.436447791,32.7830964791]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-121",
+					"SDate": "2020-02-27",
+					"Result": 5.68
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4367262504,32.7773332069]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-123",
+					"SDate": "2020-02-27",
+					"Result": 14.7
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4369329289,32.7615220359]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-125",
+					"SDate": "2020-02-27",
+					"Result": 11.1
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4369644768,32.7732145151]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-127",
+					"SDate": "2020-02-27",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.438302326,32.7613943967]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-17",
+					"SDate": "2020-10-13",
+					"Result": 0.987
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4525403705,32.7681218077]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-26",
+					"SDate": "2017-12-20",
+					"Result": 26.2
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4546231753,32.7726612298]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-29",
+					"SDate": "2020-03-06",
+					"Result": 2.2
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.451629438,32.7736770229]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-35",
+					"SDate": "2017-12-18",
+					"Result": 1.57
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4548349377,32.7718454683]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-36",
+					"SDate": "2020-03-06",
+					"Result": 17.7
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4546593413,32.7722399121]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-37",
+					"SDate": "2017-12-20",
+					"Result": 0.355
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4544669058,32.7733482607]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-40",
+					"SDate": "2020-10-13",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.455281281,32.7685149208]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-50",
+					"SDate": "2020-10-15",
+					"Result": 2.19
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.453612352,32.7746410135]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-65",
+					"SDate": "2020-03-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4529355064,32.7759387206]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-79",
+					"SDate": "2020-03-05",
+					"Result": 0.298
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4478407816,32.7754644189]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-88",
+					"SDate": "2020-02-29",
+					"Result": 450.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4477520234,32.7694235972]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-89",
+					"SDate": "2018-01-10",
+					"Result": 139.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4472152666,32.7693910701]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-93",
+					"SDate": "2020-02-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4468355797,32.7710489165]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-95",
+					"SDate": "2020-02-26",
+					"Result": 194.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4436947148,32.7720364712]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "HM-98",
+					"SDate": "2020-02-26",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4434622852,32.777465858]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF03-3D",
+					"SDate": "2020-02-27",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4434322739,32.7627107174]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF04-4C",
+					"SDate": "2018-01-08",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4326731671,32.758637014]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF04-4D",
+					"SDate": "2020-03-02",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4332411348,32.7592663791]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF04-4F",
+					"SDate": "2020-03-02",
+					"Result": 1.45
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4343950744,32.7599108536]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF04-4G",
+					"SDate": "2018-01-08",
+					"Result": 30.9
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4324379368,32.7603401517]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF05-02",
+					"SDate": "2018-01-11",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4368788254,32.7643116565]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF05-19",
+					"SDate": "2020-03-03",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4298163362,32.7603796553]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF05-5B",
+					"SDate": "2020-03-03",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4343064763,32.7622177228]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LF05-5G",
+					"SDate": "2020-03-02",
+					"Result": 14.7
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4328284514,32.7613261461]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRPU001",
+					"SDate": "2018-01-11",
+					"Result": 0.408
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4399814721,32.7746281666]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRPU002",
+					"SDate": "2018-01-11",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4386005058,32.7705204693]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRPU003",
+					"SDate": "2018-01-11",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4399659809,32.7642905064]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRPU004",
+					"SDate": "2017-12-21",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4545183872,32.773102972]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRPU005",
+					"SDate": "2020-10-14",
+					"Result": 1230.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4529150484,32.7681688438]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRPU006",
+					"SDate": "2020-10-14",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4524056601,32.7672076623]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA001",
+					"SDate": "2018-01-08",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4343580233,32.7586566954]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA002",
+					"SDate": "2018-01-09",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4349062806,32.7580324802]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA003",
+					"SDate": "2018-01-08",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4338102927,32.7575783146]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA004",
+					"SDate": "2017-12-20",
+					"Result": 41.8
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4537450438,32.7726200468]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA005",
+					"SDate": "2017-12-20",
+					"Result": 15.3
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4533737644,32.7722920332]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA006",
+					"SDate": "2017-12-20",
+					"Result": 34.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4537428282,32.7724809216]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA007",
+					"SDate": "2017-12-19",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.454070152,32.7749419575]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA008",
+					"SDate": "2020-10-20",
+					"Result": 4.93
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4537727977,32.7683974061]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA009",
+					"SDate": "2020-10-20",
+					"Result": 214000.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4529197622,32.7681986813]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA010",
+					"SDate": "2020-10-13",
+					"Result": 264.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4536543149,32.7688326166]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA011",
+					"SDate": "2020-10-13",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4533977921,32.7672523301]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA012",
+					"SDate": "2020-10-14",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4551455884,32.7699397302]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA013",
+					"SDate": "2020-10-14",
+					"Result": 1.82
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4542931696,32.7693952698]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRTA014",
+					"SDate": "2020-10-14",
+					"Result": 1.14
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4543691861,32.7677676424]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "LKRWN001",
+					"SDate": "2017-12-18",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4533116372,32.7729787528]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "MW-10R-URS",
+					"SDate": "2020-10-16",
+					"Result": 5270.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4511729818,32.7679597252]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "MW-11",
+					"SDate": "2020-10-16",
+					"Result": 203.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4508114286,32.7679775388]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "MW-12",
+					"SDate": "2020-03-03",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4209450258,32.7737835162]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "MW-53",
+					"SDate": "2020-02-28",
+					"Result": 8.51
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.433827575,32.7690217902]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "OW-1-3",
+					"SDate": "2017-12-20",
+					"Result": 52.5
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4545001471,32.7724102131]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-10U",
+					"SDate": "2017-12-18",
+					"Result": 0.362
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4547436505,32.7756679677]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-11M",
+					"SDate": "2020-03-06",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4466363409,32.765693467]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-11U",
+					"SDate": "2020-03-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4466001944,32.7656797738]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-12UN",
+					"SDate": "2018-01-09",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4483250302,32.765655561]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-14US",
+					"SDate": "2018-01-12",
+					"Result": 9.37
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.446068889,32.7704480314]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-17US",
+					"SDate": "2018-01-15",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.443629174,32.7759737582]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-18US",
+					"SDate": "2018-01-15",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4436954657,32.7719815825]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P1M",
+					"SDate": "2020-03-06",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4549483864,32.7773339369]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P1U",
+					"SDate": "2020-03-06",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4549821843,32.7773375745]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-22U",
+					"SDate": "2020-10-17",
+					"Result": 0.39
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4542412459,32.7735479653]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-24U",
+					"SDate": "2017-12-18",
+					"Result": 0.901
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4539069712,32.7760169656]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-26M",
+					"SDate": "2018-04-13",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4506745798,32.7657514736]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-26U",
+					"SDate": "2020-03-06",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4506679393,32.7657214823]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-27U",
+					"SDate": "2020-10-16",
+					"Result": 0.662
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4524942079,32.7724907508]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-29M",
+					"SDate": "2017-08-31",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4553754722,32.7740906425]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-30M",
+					"SDate": "2020-03-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4491231529,32.765388384]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-5UN",
+					"SDate": "2017-12-18",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4515632533,32.7738810634]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-8M",
+					"SDate": "2020-03-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4460939751,32.7686615311]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-8UN",
+					"SDate": "2020-03-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4460885002,32.7687609114]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-8US",
+					"SDate": "2020-03-01",
+					"Result": 22.6
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4460913674,32.7688098932]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-9M",
+					"SDate": "2020-03-01",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4490321109,32.7711702543]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-9UN",
+					"SDate": "2020-02-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4490439558,32.7709805447]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "P-9US",
+					"SDate": "2020-10-17",
+					"Result": 408.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.449043924,32.770969494]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "PRBMW8",
+					"SDate": "2017-12-21",
+					"Result": 2.12
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4547596707,32.7724484602]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RW-10U",
+					"SDate": "2018-01-10",
+					"Result": 141.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4454926246,32.770862074]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "RW-2U",
+					"SDate": "2018-01-10",
+					"Result": 290.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4461239639,32.769892621]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "ST14-W15",
+					"SDate": "2020-03-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4217470817,32.7659960514]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "T8",
+					"SDate": "2017-12-19",
+					"Result": 11.7
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4541251424,32.7720660071]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "T9",
+					"SDate": "2017-12-19",
+					"Result": 4.91
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4539817021,32.7724207243]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "USGS06T",
+					"SDate": "2020-02-28",
+					"Result": 1.52
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4294804253,32.767293851]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "VEP-13",
+					"SDate": "2020-10-12",
+					"Result": 20.4
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4548050325,32.7723182151]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "VEP-18B",
+					"SDate": "2020-10-12",
+					"Result": 1.95
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4548009435,32.7727040947]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "VEP-26",
+					"SDate": "2020-10-12",
+					"Result": 34.2
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4545907978,32.7736006316]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "VEP-29",
+					"SDate": "2020-10-12",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4544503848,32.7736928027]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "VEP-30",
+					"SDate": "2017-12-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4543903666,32.7737192095]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "VEP-35",
+					"SDate": "2020-10-17",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4542607158,32.773969421]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "VEP-39",
+					"SDate": "2017-12-19",
+					"Result": 62.8
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4542317931,32.7741844968]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "VEP-4",
+					"SDate": "2020-10-12",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4544678417,32.7737935857]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W-149",
+					"SDate": "2020-03-01",
+					"Result": 1080.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4459717113,32.7714033759]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W-150L",
+					"SDate": "2017-11-29",
+					"Result": 11800.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4531097398,32.7683404102]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W-150U",
+					"SDate": "2017-11-29",
+					"Result": 41800.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4530907352,32.7683407175]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W-152",
+					"SDate": "2020-02-29",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4477676521,32.772219141]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W-154",
+					"SDate": "2020-10-15",
+					"Result": 936.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4536639048,32.7679501719]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W-157",
+					"SDate": "2020-03-03",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4517730361,32.7652134385]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W21WNITC",
+					"SDate": "2017-12-19",
+					"Result": 228000.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.453953541,32.7734159086]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W3TAITC",
+					"SDate": "2017-12-21",
+					"Result": 71.7
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.453956371,32.7734049369]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "W3WNITC",
+					"SDate": "2017-12-18",
+					"Result": 450000.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4536367522,32.7737885466]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WCHMHTA008",
+					"SDate": "2020-02-27",
+					"Result": 0.475
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4356774918,32.7786939718]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WCHMHTA010",
+					"SDate": "2020-02-27",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4330880002,32.7779746669]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WCHMHTA013",
+					"SDate": "2020-03-03",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4220987554,32.7740731662]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WETPU001",
+					"SDate": "2020-02-29",
+					"Result": 0.711
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4528957292,32.773237345]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WETTA002",
+					"SDate": "2018-01-08",
+					"Result": 514.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4490338609,32.7711131475]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WETUS001",
+					"SDate": "2018-01-08",
+					"Result": 117.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4488915417,32.7709402774]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WHGLTA054",
+					"SDate": "2018-01-11",
+					"Result": 112.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4360907689,32.7590654992]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WHGLTA055",
+					"SDate": "2018-01-11",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.435691697,32.7592305623]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WHGLTA056",
+					"SDate": "2018-01-16",
+					"Result": 5.92
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4351586815,32.7591655229]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WITCPU003",
+					"SDate": "2017-12-20",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4527243184,32.7718092097]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WITCPU006",
+					"SDate": "2020-10-17",
+					"Result": 0.418
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4537434834,32.773329806]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WITCTA004",
+					"SDate": "2020-02-28",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4294721307,32.7815227651]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WITCTA010",
+					"SDate": "2018-01-10",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4254060702,32.7780656463]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WITCTA017",
+					"SDate": "2020-03-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4236206767,32.7769612644]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WITCTA026",
+					"SDate": "2020-03-05",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4231157226,32.7718967562]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WITCTA040",
+					"SDate": "2020-03-03",
+					"Result": 26.5
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.423077711,32.7658588143]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WITCUS001",
+					"SDate": "2020-02-26",
+					"Result": 717.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4437941097,32.7675778166]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WJETA043",
+					"SDate": "2018-01-10",
+					"Result": 59.6
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4467367192,32.7699286829]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WJETA061",
+					"SDate": "2020-10-16",
+					"Result": 823.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4511694665,32.7678992753]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WJETA077",
+					"SDate": "2018-01-15",
+					"Result": 259.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.443793314,32.7676036768]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WJEUS001",
+					"SDate": "2018-01-15",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4445196411,32.7749632471]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WJEUS002",
+					"SDate": "2020-02-26",
+					"Result": 1.82
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4459645123,32.7720232408]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WJEUS008",
+					"SDate": "2020-03-05",
+					"Result": 303.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4445852758,32.7686370239]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-001JEPM",
+					"SDate": "2020-02-26",
+					"Result": 1.93
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4433990827,32.7669665742]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-013JEUS",
+					"SDate": "2020-02-26",
+					"Result": 415.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4437457802,32.7700285775]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-101JEUS",
+					"SDate": "2018-01-09",
+					"Result": 2900.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4441688447,32.7668949901]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-101PJEUS",
+					"SDate": "2017-09-13",
+					"Result": 2910.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.446292504,32.7675165208]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-104JETA",
+					"SDate": "2018-01-15",
+					"Result": 323.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4446025069,32.7692373319]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-104JEUS",
+					"SDate": "2018-01-10",
+					"Result": 433.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4466745335,32.7680679108]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-106PJETA",
+					"SDate": "2018-01-10",
+					"Result": 332.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4477510756,32.7692263575]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-119JETA",
+					"SDate": "2017-09-20",
+					"Result": 311.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4444911883,32.7689100406]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WL-122JETA",
+					"SDate": "2017-09-19",
+					"Result": 456.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4441178208,32.7683205631]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WP07-10B",
+					"SDate": "2020-03-03",
+					"Result": 34.5
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4344364991,32.7605116188]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WSAICTA007",
+					"SDate": "2018-01-11",
+					"Result": 104.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4382621941,32.7624484684]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WSAICTA010",
+					"SDate": "2020-02-27",
+					"Result": 154.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4399288547,32.7643428941]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WSAICTA016",
+					"SDate": "2020-03-06",
+					"Result": 33.3
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4244900937,32.7749204879]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WSETAHM31R",
+					"SDate": "2020-10-17",
+					"Result": 9.97
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4491283815,32.7656804685]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WS-H3",
+					"SDate": "2020-10-19",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4458516447,32.7550990545]
+				}
+			},
+	     	    {
+				"type": "Feature",
+				"properties": {
+					"Well_ID": "WSHAWPM007",
+					"SDate": "2020-03-06",
+					"Result": 0.0
+				},
+				"geometry": {
+					"type": "Point",
+					"coordinates": [-97.4536644914,32.7730226422]
+				}
+			} 	    
+		]
+	}
+	    
