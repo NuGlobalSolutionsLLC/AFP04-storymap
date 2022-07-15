@@ -175,6 +175,44 @@ const TEMPLATES = {
       fillOpacity: .8,
       radius: 10
     }
+  },
+  sodce: {
+    label: 'Dichloroethylene',
+    analyte:  'cis-1,2-Dichloroethylene',
+    color: 'black',
+    opacity: 1,
+    limits: [100, 500, 900],
+    colors: ['rgba(0,255,0,1.0)', 'rgba(255,255,0,1.0)',
+             'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  sovinyl: {
+    label: 'Vinyl chloride',
+    analyte:  'Vinyl chloride',
+    color: 'black',
+    opacity: 1,
+    limits: [0, 5],
+    colors: ['rgba(0,200,0,1.0)', 'rgba(255,255,0,1.0)',
+             'rgba(255,0,0,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/kg',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
   }
 }
 
@@ -349,6 +387,22 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             matrix: 'SO',
             template: TEMPLATES.sotce
+          },
+          {
+            label: 'Cis 1,2-DCE in SO',
+            file: 'SOcis12DCE23.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'SO',
+            template: TEMPLATES.sodce
+          },
+          {
+            label: 'Vinyl chloride in SO',
+            file: 'SOVC22.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'SO',
+            template: TEMPLATES.sovinyl
           }
         ]
       },
