@@ -59,6 +59,45 @@ const TEMPLATES = {
       fillOpacity: .8,
       radius: 10
     }
+  },
+  ethane: {
+    label: 'Ethane',
+    analyte:  'Ethane',
+    color: 'black',
+    opacity: 1,
+    limits: [2, 20, 200, 1000, 20000, 100000],
+    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
+             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  ethene: {
+    label: 'Ethene',
+    analyte:  'Ethene',
+    color: 'black',
+    opacity: 1,
+    limits: [60, 259, 586, 1240],
+    colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
   }
 }
 
@@ -185,6 +224,22 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             matrix: 'GW',
             template: TEMPLATES.vinyl
+          },
+          {
+            label: 'Ethane in GW',
+            file: 'GWEthane32.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.ethane
+          },
+          {
+            label: 'Ethene in GW',
+            file: 'GWEthene33.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.ethene
           }
         ]
       },
