@@ -205,9 +205,88 @@ const TEMPLATES = {
              'rgba(255,0,0,1.0)'],
     tooltip: feature => {
       const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/kg<br/>Date: ${props.SDate}`
     },
     units: 'μg/kg',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  setce: {
+    label: 'Trichloroethylene',
+    analyte: 'Trichloroethylene',
+    color: 'black',
+    opacity: 1,
+    limits: [0, 44],
+    colors: ['rgba(0,200,0,1.0)', 'rgba(255,255,0,1.0)',
+             'rgba(255,0,0,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/kg<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/kg',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  swtce: {
+    label: 'Trichloroethylene',
+    analyte: 'Trichloroethylene',
+    color: 'black',
+    opacity: 1,
+    limits: [1000, 10000, 100000, 500000, 10000000],
+    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
+             'rgba(132,0,168,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  swdce: {
+    label: 'Dichloroethylene',
+    analyte:  'cis-1,2-Dichloroethylene',
+    color: 'black',
+    opacity: 1,
+    limits: [70, 100, 140, 260, 430],
+    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
+             'rgba(132,0,168,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  swvinyl: {
+    label: 'Vinyl chloride',
+    analyte:  'Vinyl chloride',
+    color: 'black',
+    opacity: 1,
+    limits: [2, 200, 2000, 20000, 200000],
+    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
+             'rgba(132,0,168,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
     hoverStyle: {
       // fillColor: '#CCCCFF',
       fillOpacity: .8,
@@ -403,6 +482,38 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             matrix: 'SO',
             template: TEMPLATES.sovinyl
+          },
+          {
+            label: 'TCE in SE',
+            file: 'SETCE21.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'SE',
+            template: TEMPLATES.setce
+          },
+          {
+            label: 'TCE in SW',
+            file: 'SWTCE20.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'SW',
+            template: TEMPLATES.swtce
+          },
+          {
+            label: 'Cis 1,2-DCE in SW',
+            file: 'SWcis12DCE19.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'SW',
+            template: TEMPLATES.swdce
+          },
+          {
+            label: 'Vinyl chloride in SW',
+            file: 'SWVC18.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'SW',
+            template: TEMPLATES.swvinyl
           }
         ]
       },
