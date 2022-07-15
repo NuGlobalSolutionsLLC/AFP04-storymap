@@ -98,6 +98,83 @@ const TEMPLATES = {
       fillOpacity: .8,
       radius: 10
     }
+  },
+  chromiumVI: {
+    label: 'Chromium',
+    analyte:  'Chromium (VI)',
+    color: 'black',
+    opacity: 1,
+    limits: [0, 12, 56],
+    colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
+             'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  chromium: {
+    label: 'Chromium',
+    analyte:  'Chromium (Total)',
+    color: 'black',
+    opacity: 1,
+    limits: [100, 3650, 9040, 19000],
+    colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  c13: {
+    label: 'c13',
+    analyte:  null,
+    color: 'black',
+    opacity: 1,
+    limits: [-29, -27, -26, -24, -21],
+    colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
+  },
+  sotce: {
+    label: 'Trichloroethylene',
+    analyte:  'Trichloroethylene',
+    color: 'black',
+    opacity: 1,
+    limits: [12, 100, 1000, 10000, 50000, 100000],
+    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
+             'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
+             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
+    tooltip: feature => {
+      const props = feature.feature.properties
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+    },
+    units: 'μg/L',
+    hoverStyle: {
+      // fillColor: '#CCCCFF',
+      fillOpacity: .8,
+      radius: 10
+    }
   }
 }
 
@@ -240,6 +317,38 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             matrix: 'GW',
             template: TEMPLATES.ethene
+          },
+          {
+            label: 'Chromium VI in GW',
+            file: 'GWChromiumVI28.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.chromiumVI
+          },
+          {
+            label: 'Total Chromium in GW',
+            file: 'GWTotalChromium27.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.chromium
+          },
+          {
+            label: 'C13 Data in GW',
+            file: 'GWC13Data26.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'GW',
+            template: TEMPLATES.c13
+          },
+          {
+            label: 'TCE in SO',
+            file: 'SOTCE24.json',
+            class: 'chemdata',
+            active: false,
+            matrix: 'SO',
+            template: TEMPLATES.sotce
           }
         ]
       },
@@ -290,7 +399,7 @@ export const useMapStore = defineStore('map-store', {
       const feature = state.selectedFeature.feature
       const template = state.selectedFeature.options
       const step = template.limits.find(limit => {
-        return feature.properties.Result < limit
+        return feature.properties.Result <= limit
       })
       const index = template.limits.indexOf(step)
       const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
