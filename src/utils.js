@@ -14,7 +14,7 @@ const getFeatureStyle = (feature, template) => {
 
 const getValueStyle = (value, template) => {
   const step = template.limits.find(limit => {
-    return value < limit
+    return value <= limit
   })
   const index = template.limits.indexOf(step)
   const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]

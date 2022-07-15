@@ -116,7 +116,7 @@ export default defineComponent({
 
     const getFeatureStyle = (feature, template) => {
       const step = template.limits.find(limit => {
-        return feature.properties.Result < limit
+        return feature.properties.Result <= limit
       })
       const index = template.limits.indexOf(step)
       const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
@@ -159,10 +159,12 @@ export default defineComponent({
                   popup.close()
                 })
                 leafletLayer.on('click', function (event) {
-                  event.target.layer = layer
-                  $store.selectedFeature = event.target
-                  resizeMap()
-                  move(300)
+                  // event.target.layer = layer
+                  if (event.target.feature.properties.layer.template.analyte) {
+                    $store.selectedFeature = event.target
+                    resizeMap()
+                    move(300)
+                  }
                 })
               }
             }
@@ -190,7 +192,7 @@ export default defineComponent({
         categories.push(`
           <li>
             <span class="sample" style="background: ${layer.template.colors[layer.template.colors.length - 1]};">&nbsp;</span>
-            >= ${layer.template.limits[layer.template.limits.length - 1]}
+            > ${layer.template.limits[layer.template.limits.length - 1]}
           </li>
         `)
         const title = `<li class="title">${layer.template.label}</li>`
