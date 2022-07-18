@@ -115,60 +115,97 @@ export default defineComponent({
     }
 
     const getFeatureStyle = (feature, template) => {
-      const step = template.limits.find(limit => {
-        return feature.properties.Result <= limit
-      })
-      const index = template.limits.indexOf(step)
-      const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
-      return Object.assign(template, {
-        fillColor: color,
-        fillOpacity: 1,
-        radius: 6,
-        weight: 1
-      })
+      let defaultParams = $store.sections[feature.properties.layer.class]
+      template = feature.properties.layer.template
+      if (template) {
+        defaultParams = Object.assign(defaultParams, template)
+      }
+      if (template && 'limits' in template && 'colors' in template) {
+        const step = template.limits.find(limit => {
+          return feature.properties.Result <= limit
+        })
+        const index = template.limits.indexOf(step)
+        const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
+        return Object.assign(template, {
+          fillColor: color,
+          fillOpacity: 1,
+          radius: 6,
+          weight: 1
+        })
+      }
+      return defaultParams
     }
 
     const geoJsons = computed(() => {
       const layers = getActiveLayers()
+      const commonFeatures = {
+        options: {
+          pointToLayer: function (feature, latLng) {
+            const params = getFeatureStyle(feature, feature.properties.layer.template)
+            params.riseOnHover = true
+            return circle(latLng, params);
+          },
+          onEachFeature: function(feature, leafletLayer) {
+            let popup, tooltip
+            leafletLayer.on('mouseover', function (event) {
+              this.setStyle(event.target.options.hoverStyle)
+              event.target.bringToFront()
+              if (event.target.options.tooltip) {
+                tooltip = L.popup()
+                  .setLatLng(event.target._latlng)
+                  .setContent(event.target.options.tooltip({feature}))
+                  .openOn(map)
+              }
+            })
+            leafletLayer.on('mouseout', function (event) {
+              this.setStyle(getFeatureStyle(feature, feature.properties.layer.template))
+              if (event.target.options.tooltip) {
+                tooltip.close()
+              }
+            })
+            leafletLayer.on('click', function (event) {
+              // event.target.layer = layer
+              if (event.target.options.popup) {
+                popup = L.popup({ maxWidth: 'auto', autoPan: true, keepInView: true, closeButton: false })
+                  .setLatLng(event.target._latlng)
+                  // .setContent('<button id="close">x</button>' + event.target.options.popup({feature}))
+                  .setContent(event.target.options.popup({feature}))
+                  .openOn(map)
+                var px = map.project(event.target._latlng)
+                px.y -= popup._container.clientHeight/2
+                map.panTo(map.unproject(px),{ animate: true })
+                // setTimeout(() => {
+                //   try {
+                //   } catch {
+                //     setTimeout(() => {
+                //       // map.panTo(event.target._latlng)
+                //       var px = map.project(event.target._latlng)
+                //       px.y -= popup._container.clientHeight/2
+                //       map.panTo(map.unproject(px),{ animate: true })
+                //     }, 300)
+                //   }
+                // }, 1)
+
+                // popup._container.querySelector('#close').addEventListener('pointerup', event => {
+                //   popup.close()
+                // })
+              } else if (event.target.feature.properties.layer.template.analyte) {
+                $store.selectedFeature = event.target
+                resizeMap()
+                move(300)
+              }
+            })
+          }
+        }
+      }
       const geojsons = layers.map(layer => {
         if (layer.data) {
-          return Object.assign({}, layer.data)
+          return Object.assign(commonFeatures, layer.data)
         } else {
-          return {
+          return Object.assign(commonFeatures, {
             type: 'FeatureCollection',
-            features: [],
-            layer: layer,
-            options: {
-              pointToLayer: function (feature, latLng) {
-                const params = getFeatureStyle(feature, feature.properties.layer.template)
-                params.riseOnHover = true
-                return circle(latLng, params);
-              },
-              onEachFeature: function(feature, leafletLayer) {
-                let popup
-                leafletLayer.on('mouseover', function (event) {
-                  this.setStyle(event.target.options.hoverStyle)
-                  event.target.bringToFront()
-                  popup = L.popup()
-                    .setLatLng(event.target._latlng)
-                    .setContent(event.target.options.tooltip({feature}))
-                    .openOn(map)
-                })
-                leafletLayer.on('mouseout', function (event) {
-                  this.setStyle(getFeatureStyle(feature, feature.properties.layer.template))
-                  popup.close()
-                })
-                leafletLayer.on('click', function (event) {
-                  // event.target.layer = layer
-                  if (event.target.feature.properties.layer.template.analyte) {
-                    $store.selectedFeature = event.target
-                    resizeMap()
-                    move(300)
-                  }
-                })
-              }
-            }
-          }
+            features: []
+          })
         }
       })
       return geojsons
@@ -185,6 +222,8 @@ export default defineComponent({
     const legends = computed(() => {
       const layers = getActiveLayers()
       const html = layers.map(layer => {
+        const classObj = $store.sections[layer.class]
+        if (!classObj.legend) return ''
         const categories = layer.template.limits.map((limit, index) => {
           const previous = index === 0 ? 0 : layer.template.limits[index - 1]
           return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span> ${previous} - ${limit}</li>`
@@ -342,5 +381,23 @@ export default defineComponent({
   border-radius: 50%;
   margin-right: 10px;
   transition: none;
+}
+:deep(.leaflet-popup) #close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  font-size: 2em;
+  line-height: 30px;
+  font-weight: bold;
+  padding: 0px;
+  border-top-right-radius: 12px;
+  cursor: pointer;
+}
+:deep(.leaflet-popup) #close:hover {
+  background-color: #333;
+  color: white;
+  transition: all 0.3s ease-in;
 }
 </style>

@@ -301,6 +301,48 @@ export const useMapStore = defineStore('map-store', {
     leftDrawerOpen: true,
     templates: TEMPLATES,
     selectedFeature: null,
+    sections: {
+      chemdata: {
+        legend: true,
+        color: 'black',
+        opacity: 1,
+        hoverStyle: {
+          // fillColor: '#CCCCFF',
+          fillOpacity: .8,
+          radius: 10
+        },
+        tooltip: feature => {
+          const props = feature.feature.properties
+          return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
+        },
+      },
+      transects: {
+        legend: false,
+        color: '#e0f525',
+        weight: 5,
+        fillColor: '#f4d442',
+        radius: 6,
+        // opacity: 1,
+        fillOpacity: 1,
+        popup: feature => {
+          const props = feature.feature.properties
+          return `
+            <h6>${props.name}</h6>
+            <p><img width="600" height="400" src="${props.urlhtml}" alt="${props.Name}"></p>
+          `
+          return `
+            <table>
+              <tr>
+                  <td><b>${props.name}</b></td>
+              </tr>
+              <tr>
+                  <td><img width="600" height="400" src="${props.urlhtml}" alt="${props.Name}"></td>
+              </tr>
+            </table>
+          `
+        },
+      }
+    },
     layers: [
       {
         label: 'Layer List',
@@ -528,8 +570,26 @@ export const useMapStore = defineStore('map-store', {
             class: 'transects'
           },
           {
-            label: 'Test',
-            file: 'TranLine4DView17s.json',
+            label: 'East Parking Lot & B181 CSM',
+            file: 'TranLineEastParkL15.json',
+            active: false,
+            class: 'transects'
+          },
+          {
+            label: 'Series 1 - Transect',
+            file: 'transectlines0.json',
+            active: false,
+            class: 'transects'
+          },
+          {
+            label: 'Series 2 - Transect',
+            file: 'TranLineSeries214.json',
+            active: false,
+            class: 'transects'
+          },
+          {
+            label: 'Series 3 - Transect',
+            file: 'TranLineSeries313.json',
             active: false,
             class: 'transects'
           }
