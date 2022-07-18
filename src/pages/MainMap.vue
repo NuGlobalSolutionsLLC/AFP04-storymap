@@ -221,20 +221,21 @@ export default defineComponent({
     const legends = computed(() => {
       const layers = getActiveLayers()
       const html = layers.map(layer => {
-        const classObj = $store.sections[layer.class]
-        if (!classObj.legend) return ''
-        const categories = layer.template.limits.map((limit, index) => {
-          const previous = index === 0 ? 0 : layer.template.limits[index - 1]
+        let params = Object.assign({}, $store.sections[layer.class])
+        params = Object.assign(params, layer.template)
+        if (!params.legend) return ''
+        const categories = params.limits.map((limit, index) => {
+          const previous = index === 0 ? 0 : params.limits[index - 1]
           return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span> ${previous} - ${limit}</li>`
         })
         categories.push(`
           <li>
-            <span class="sample" style="background: ${layer.template.colors[layer.template.colors.length - 1]};">&nbsp;</span>
-            > ${layer.template.limits[layer.template.limits.length - 1]}
+            <span class="sample" style="background: ${params.colors[params.colors.length - 1]};">&nbsp;</span>
+            > ${params.limits[params.limits.length - 1]}
           </li>
         `)
-        const title = `<li class="title">${layer.template.label}</li>`
-        const units = `<li>Units: ${layer.template.units}</li>`
+        const title = `<li class="title">${params.label}</li>`
+        const units = `<li>Units: ${params.units}</li>`
         return `<ul class="legend">${title}${units}${categories.join("")}</ul>`
       })
       return html

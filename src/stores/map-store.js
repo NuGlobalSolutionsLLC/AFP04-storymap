@@ -11,183 +11,73 @@ const TEMPLATES = {
   cis: {
     label: 'Dichloroethylene',
     analyte:  'cis-1,2-Dichloroethylene',
-    color: 'black',
-    opacity: 1,
     limits: [5, 70, 700, 7000, 10000, 70000, 140000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
              'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
-             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
   },
   vinyl: {
     label: 'Vinyl chloride',
     analyte:  'Vinyl chloride',
-    color: 'black',
-    opacity: 1,
     limits: [2, 20, 200, 1000, 20000, 100000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
              'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
-             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
   },
   ethane: {
     label: 'Ethane',
     analyte:  'Ethane',
-    color: 'black',
-    opacity: 1,
     limits: [2, 20, 200, 1000, 20000, 100000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
              'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
-             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
   },
   ethene: {
     label: 'Ethene',
     analyte:  'Ethene',
-    color: 'black',
-    opacity: 1,
     limits: [60, 259, 586, 1240],
     colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
   },
   chromiumVI: {
     label: 'Chromium',
     analyte:  'Chromium (VI)',
-    color: 'black',
-    opacity: 1,
     limits: [0, 12, 56],
     colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
-             'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
   },
   chromium: {
     label: 'Chromium',
     analyte:  'Chromium (Total)',
-    color: 'black',
-    opacity: 1,
     limits: [100, 3650, 9040, 19000],
     colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
   },
   c13: {
     label: 'c13',
     analyte:  null,
-    color: 'black',
-    opacity: 1,
     limits: [-29, -27, -26, -24, -21],
     colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
   },
   sotce: {
     label: 'Trichloroethylene',
     analyte:  'Trichloroethylene',
-    color: 'black',
-    opacity: 1,
     limits: [12, 100, 1000, 10000, 50000, 100000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
              'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
-             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
   },
   sodce: {
     label: 'Dichloroethylene',
     analyte:  'cis-1,2-Dichloroethylene',
-    color: 'black',
-    opacity: 1,
     limits: [100, 500, 900],
     colors: ['rgba(0,255,0,1.0)', 'rgba(255,255,0,1.0)',
-             'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
   },
   sovinyl: {
     label: 'Vinyl chloride',
     analyte:  'Vinyl chloride',
-    color: 'black',
-    opacity: 1,
     limits: [0, 5],
     colors: ['rgba(0,200,0,1.0)', 'rgba(255,255,0,1.0)',
              'rgba(255,0,0,1.0)'],
@@ -195,18 +85,11 @@ const TEMPLATES = {
       const props = feature.feature.properties
       return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/kg<br/>Date: ${props.SDate}`
     },
-    units: 'μg/kg',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+    units: 'μg/kg'
   },
   setce: {
     label: 'Trichloroethylene',
     analyte: 'Trichloroethylene',
-    color: 'black',
-    opacity: 1,
     limits: [0, 44],
     colors: ['rgba(0,200,0,1.0)', 'rgba(255,255,0,1.0)',
              'rgba(255,0,0,1.0)'],
@@ -214,72 +97,31 @@ const TEMPLATES = {
       const props = feature.feature.properties
       return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/kg<br/>Date: ${props.SDate}`
     },
-    units: 'μg/kg',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+    units: 'μg/kg'
   },
   swtce: {
     label: 'Trichloroethylene',
     analyte: 'Trichloroethylene',
-    color: 'black',
-    opacity: 1,
     limits: [1000, 10000, 100000, 500000, 10000000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
              'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
-             'rgba(132,0,168,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(132,0,168,1.0)']
   },
   swdce: {
     label: 'Dichloroethylene',
     analyte:  'cis-1,2-Dichloroethylene',
-    color: 'black',
-    opacity: 1,
     limits: [70, 100, 140, 260, 430],
     colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
              'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
-             'rgba(132,0,168,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(132,0,168,1.0)']
   },
   swvinyl: {
     label: 'Vinyl chloride',
     analyte:  'Vinyl chloride',
-    color: 'black',
-    opacity: 1,
     limits: [2, 200, 2000, 20000, 200000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
              'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
-             'rgba(132,0,168,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(132,0,168,1.0)']
   }
 }
 
@@ -312,6 +154,9 @@ export const useMapStore = defineStore('map-store', {
         weight: 5,
         radius: 6,
         fillOpacity: 1,
+        tooltip: feature => {
+          return feature.feature.properties.name
+        },
         popup: feature => {
           const props = feature.feature.properties
           return `
@@ -558,9 +403,6 @@ export const useMapStore = defineStore('map-store', {
             class: 'transects',
             template: {
               fillColor: 'transparent',
-              tooltip: feature => {
-                return feature.feature.properties.name
-              },
               color: '#f56725',
               weight: 5,
               popup: feature => {
@@ -584,7 +426,8 @@ export const useMapStore = defineStore('map-store', {
             label: 'Series 1 - Transect',
             file: 'transectlines0.json',
             active: false,
-            class: 'transects'
+            class: 'transects',
+            tooltip: false
           },
           {
             label: 'Series 2 - Transect',
