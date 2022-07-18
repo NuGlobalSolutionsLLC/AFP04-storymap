@@ -4,21 +4,9 @@ const TEMPLATES = {
   tce: {
     label: 'Trichloroethylene',
     analyte: 'Trichloroethylene',
-    color: 'black',
-    opacity: 1,
     limits: [5, 50, 100, 400, 1000, 5000, 10000],
     colors: ['rgba(0,255,0,1.0)', 'rgba(0,255,197,1.0)', 'rgba(233,255,190,1.0)', 'rgba(255,255,0,1.0)',
-             'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-    },
-    units: 'μg/L',
-    hoverStyle: {
-      // fillColor: '#CCCCFF',
-      fillOpacity: .8,
-      radius: 10
-    }
+             'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
   },
   cis: {
     label: 'Dichloroethylene',
@@ -311,6 +299,7 @@ export const useMapStore = defineStore('map-store', {
           fillOpacity: .8,
           radius: 10
         },
+        units: 'μg/L',
         tooltip: feature => {
           const props = feature.feature.properties
           return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
@@ -319,26 +308,15 @@ export const useMapStore = defineStore('map-store', {
       transects: {
         legend: false,
         color: '#e0f525',
-        weight: 5,
         fillColor: '#f4d442',
+        weight: 5,
         radius: 6,
-        // opacity: 1,
         fillOpacity: 1,
         popup: feature => {
           const props = feature.feature.properties
           return `
             <h6>${props.name}</h6>
             <p><img width="600" height="400" src="${props.urlhtml}" alt="${props.Name}"></p>
-          `
-          return `
-            <table>
-              <tr>
-                  <td><b>${props.name}</b></td>
-              </tr>
-              <tr>
-                  <td><img width="600" height="400" src="${props.urlhtml}" alt="${props.Name}"></td>
-              </tr>
-            </table>
           `
         },
       }
@@ -567,13 +545,40 @@ export const useMapStore = defineStore('map-store', {
             label: '4D View',
             file: 'TranLine4DView17.json',
             active: false,
-            class: 'transects'
+            class: 'transects',
+            hoverStyle: {
+              weight: 7,
+              color: '#e1e3dc'
+            }
           },
           {
             label: 'East Parking Lot & B181 CSM',
             file: 'TranLineEastParkL15.json',
             active: false,
-            class: 'transects'
+            class: 'transects',
+            template: {
+              fillColor: 'transparent',
+              tooltip: feature => {
+                return feature.feature.properties.name
+              },
+              color: '#f56725',
+              weight: 5,
+              popup: feature => {
+                const props = feature.feature.properties
+                return `
+                  <h6>${props.name}</h6>
+                  <p>Click <a href="${props.url}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
+                `
+              },
+              popupOptions: {
+                minWidth: 500,
+                className: 'east-parking-lot-transect'
+              }
+            },
+            hoverStyle: {
+              weight: 7,
+              color: '#e1e3dc'
+            }
           },
           {
             label: 'Series 1 - Transect',

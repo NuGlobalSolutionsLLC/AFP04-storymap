@@ -115,7 +115,7 @@ export default defineComponent({
     }
 
     const getFeatureStyle = (feature, template) => {
-      let defaultParams = $store.sections[feature.properties.layer.class]
+      let defaultParams = Object.assign({}, $store.sections[feature.properties.layer.class])
       template = feature.properties.layer.template
       if (template) {
         defaultParams = Object.assign(defaultParams, template)
@@ -126,7 +126,7 @@ export default defineComponent({
         })
         const index = template.limits.indexOf(step)
         const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
-        return Object.assign(template, {
+        return Object.assign(defaultParams, {
           fillColor: color,
           fillOpacity: 1,
           radius: 6,
@@ -138,7 +138,7 @@ export default defineComponent({
 
     const geoJsons = computed(() => {
       const layers = getActiveLayers()
-      const commonFeatures = {
+      const commonParams = {
         options: {
           pointToLayer: function (feature, latLng) {
             const params = getFeatureStyle(feature, feature.properties.layer.template)
@@ -147,44 +147,42 @@ export default defineComponent({
           },
           onEachFeature: function(feature, leafletLayer) {
             let popup, tooltip
+            let params = Object.assign({}, $store.sections[feature.properties.layer.class])
             leafletLayer.on('mouseover', function (event) {
-              this.setStyle(event.target.options.hoverStyle)
+              params = Object.assign(params, event.target.options)
+              this.setStyle(params.hoverStyle)
               event.target.bringToFront()
-              if (event.target.options.tooltip) {
+              if (params.tooltip) {
                 tooltip = L.popup()
                   .setLatLng(event.target._latlng)
-                  .setContent(event.target.options.tooltip({feature}))
+                  .setContent(params.tooltip({feature}))
                   .openOn(map)
               }
             })
             leafletLayer.on('mouseout', function (event) {
+              params = Object.assign(params, event.target.options)
               this.setStyle(getFeatureStyle(feature, feature.properties.layer.template))
-              if (event.target.options.tooltip) {
+              if (params.tooltip) {
                 tooltip.close()
               }
             })
             leafletLayer.on('click', function (event) {
-              // event.target.layer = layer
-              if (event.target.options.popup) {
-                popup = L.popup({ maxWidth: 'auto', autoPan: true, keepInView: true, closeButton: false })
+              params = Object.assign(params, event.target.options)
+              if (params.popup) {
+                const options = Object.assign({
+                  maxWidth: '900',
+                  autoPan: true,
+                  keepInView: true,
+                  closeButton: false
+                }, params.popupOptions)
+                popup = L.popup(options)
                   .setLatLng(event.target._latlng)
                   // .setContent('<button id="close">x</button>' + event.target.options.popup({feature}))
-                  .setContent(event.target.options.popup({feature}))
+                  .setContent(params.popup({feature}))
                   .openOn(map)
                 var px = map.project(event.target._latlng)
                 px.y -= popup._container.clientHeight/2
                 map.panTo(map.unproject(px),{ animate: true })
-                // setTimeout(() => {
-                //   try {
-                //   } catch {
-                //     setTimeout(() => {
-                //       // map.panTo(event.target._latlng)
-                //       var px = map.project(event.target._latlng)
-                //       px.y -= popup._container.clientHeight/2
-                //       map.panTo(map.unproject(px),{ animate: true })
-                //     }, 300)
-                //   }
-                // }, 1)
 
                 // popup._container.querySelector('#close').addEventListener('pointerup', event => {
                 //   popup.close()
@@ -198,11 +196,12 @@ export default defineComponent({
           }
         }
       }
-      const geojsons = layers.map(layer => {
+      const geojsons = layers.map((layer, idc) => {
+        const params = Object.assign({ id: idc }, commonParams)
         if (layer.data) {
-          return Object.assign(commonFeatures, layer.data)
+          return Object.assign(params, layer.data)
         } else {
-          return Object.assign(commonFeatures, {
+          return Object.assign(params, {
             type: 'FeatureCollection',
             features: []
           })
@@ -301,10 +300,6 @@ export default defineComponent({
       attributionPrefix: '<a href="http://www.newfieldsgovernmentservices.com/" title="NewFields Government Services, LLC" target="_blank">NGS</a>',
       chartRef,
       getWidth,
-      geojson: {
-        type: 'FeatureCollection',
-        features: [],
-      },
       geoJsons,
       geojsonOptions,
       height,
@@ -399,5 +394,11 @@ export default defineComponent({
   background-color: #333;
   color: white;
   transition: all 0.3s ease-in;
+}
+:deep(.leaflet-popup-content) h6 {
+  margin: 5px 0px;
+}
+:deep(.leaflet-popup.east-parking-lot-transect) p {
+  font-size: 1.2em;
 }
 </style>
