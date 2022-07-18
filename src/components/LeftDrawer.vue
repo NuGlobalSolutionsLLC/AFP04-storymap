@@ -52,6 +52,9 @@ export default {
           if (child.label !== layer.label) child.active = false
         })
       }
+      // if (!layer.template.analyte) {
+      //   $store.selectedFeature = null
+      // }
     }
 
     const groups = computed(() => {
