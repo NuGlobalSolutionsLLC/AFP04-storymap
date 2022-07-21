@@ -146,41 +146,57 @@ export default defineComponent({
             return circle(latLng, params);
           },
           onEachFeature: function(feature, leafletLayer) {
+            const layer = feature.properties.layer
             let popup, tooltip
-            let params = Object.assign({}, $store.sections[feature.properties.layer.class])
+            let params = Object.assign({}, $store.sections[layer.class])
             leafletLayer.on('mouseover', function (event) {
               params = Object.assign(params, event.target.options)
               this.setStyle(params.hoverStyle)
               event.target.bringToFront()
-              if (params.tooltip) {
+              let tooltipFunc = params.tooltip
+              if (tooltipFunc) {
+                let latlng
+                if (event.target._latlng) latlng = event.target._latlng
+                else latlng = event.target.getCenter()
+                if (layer.template && layer.template.tooltip) tooltipFunc = layer.template.tooltip
                 tooltip = L.popup()
-                  .setLatLng(event.target._latlng)
-                  .setContent(params.tooltip({feature}))
+                  .setLatLng(latlng)
+                  .setContent(tooltipFunc(event.target))
                   .openOn(map)
               }
             })
             leafletLayer.on('mouseout', function (event) {
               params = Object.assign(params, event.target.options)
-              this.setStyle(getFeatureStyle(feature, feature.properties.layer.template))
+              if (layer.options && layer.options.style) {
+                this.setStyle(layer.options.style(feature))
+              } else {
+                this.setStyle(getFeatureStyle(feature, layer.template))
+              }
               if (params.tooltip) {
                 tooltip.close()
               }
             })
             leafletLayer.on('click', function (event) {
               params = Object.assign(params, event.target.options)
-              if (params.popup) {
+              let popupFunc = params.popup
+              if (popupFunc) {
+                if (layer.template && layer.template.popup) popupFunc = layer.template.popup
                 const options = Object.assign({
                   maxWidth: '900',
                   autoPan: true,
                   keepInView: true,
-                  closeButton: false
+                  closeButton: false,
+                  autoClose: false
                 }, params.popupOptions)
+                let latlng
+                if (event.target._latlng) latlng = event.target._latlng
+                else latlng = event.target.getCenter()
                 popup = L.popup(options)
-                  .setLatLng(event.target._latlng)
+                  .setLatLng(latlng)
                   // .setContent('<button id="close">x</button>' + event.target.options.popup({feature}))
-                  .setContent(params.popup({feature}))
+                  .setContent(popupFunc({feature}))
                   .openOn(map)
-                var px = map.project(event.target._latlng)
+                var px = map.project(latlng)
                 px.y -= popup._container.clientHeight/2
                 map.panTo(map.unproject(px),{ animate: true })
 
@@ -198,6 +214,7 @@ export default defineComponent({
       }
       const geojsons = layers.map((layer, idc) => {
         const params = Object.assign({ id: idc }, commonParams)
+        params.options = Object.assign(params.options, layer.options)
         if (layer.data) {
           return Object.assign(params, layer.data)
         } else {

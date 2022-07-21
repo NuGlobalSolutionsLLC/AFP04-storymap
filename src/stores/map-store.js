@@ -427,19 +427,103 @@ export const useMapStore = defineStore('map-store', {
             file: 'transectlines0.json',
             active: false,
             class: 'transects',
-            tooltip: false
+            options: {
+              style: feature => {
+                let color = feature.properties.Name === 'BB' ? '#f56725' : '#e0f525'
+                return {
+                  color: color,
+                  weight: 5
+                }
+              },
+              hoverStyle: {
+                weight: 7,
+                color: '#e1e1e1'
+              }
+            },
+            template: {
+              tooltip: feature => {
+                return `<p>Transect ${feature.feature.properties.Name}</p>`
+              },
+              popup: feature => {
+                const props = feature.feature.properties
+                return `
+                  <h6>Transect ${props.Name}</h6>
+                  <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
+                `
+              }
+            }
           },
           {
             label: 'Series 2 - Transect',
             file: 'TranLineSeries214.json',
             active: false,
-            class: 'transects'
+            class: 'transects',
+            options: {
+              style: feature => {
+                const props = feature.properties
+                let color = (props.Name === 'AA' ? '#f56725' :
+                             props.Name === 'BB' ? '#e0f525' :
+                             props.Name === 'CC' ? '#1cad21' :
+                             props.Name === 'DD' ? '#1c58ad' :
+                             props.Name === 'EE' ? '#c149c9' :
+                             props.Name === 'FF' ? '#64f5fa' : '#FF0000')
+                return {
+                  color: color,
+                  weight: 5
+                }
+              },
+              hoverStyle: {
+                weight: 7,
+                color: '#e1e1e1'
+              }
+            },
+            template: {
+              tooltip: feature => {
+                return `<p>Transect ${feature.feature.properties.Name}</p>`
+              },
+              popup: feature => {
+                const props = feature.feature.properties
+                return `
+                  <h6>Transect ${props.Name}</h6>
+                  <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
+                `
+              }
+            }
           },
           {
             label: 'Series 3 - Transect',
             file: 'TranLineSeries313.json',
             active: false,
-            class: 'transects'
+            class: 'transects',
+            options: {
+              style: feature => {
+                const props = feature.properties
+                let color = (props.Name === 'A-A\'' ? '#f56725' :
+                             props.Name === 'B-B\'' ? '#e0f525' :
+                             props.Name === 'C-C\'' ? '#1cad21' :
+                             props.Name === 'D-D\'' ? '#1c58ad' : '#FF0000')
+                return {
+                  color: color,
+                  weight: 5
+                }
+              },
+              hoverStyle: {
+                weight: 7,
+                color: '#e1e1e1'
+              }
+            },
+            template: {
+              tooltip: feature => {
+                return `<p>Transect ${feature.feature.properties.Name}</p>`
+              },
+              popup: feature => {
+                const props = feature.feature.properties
+                return `
+                  <h6>Transect ${props.Name}</h6>
+                  <p>Click <a href="${props.url}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
+                `
+              }
+            }
           }
         ]
       },
