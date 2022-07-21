@@ -164,6 +164,23 @@ export const useMapStore = defineStore('map-store', {
             <p><img width="600" height="400" src="${props.urlhtml}" alt="${props.Name}"></p>
           `
         },
+      },
+      wells: {
+        legend: false,
+        color: 'black',
+        fillColor: '#9eeb34',
+        radius: 6,
+        opacity: 1,
+        fillOpacity: 1,
+        weight: 1,
+        hoverStyle: {
+          fillOpacity: .8,
+          radius: 10
+        },
+        tooltip: feature => {
+          const props = feature.feature.properties
+          return `Well ID: ${props.Well_ID}`
+        }
       }
     },
     layers: [
@@ -176,7 +193,7 @@ export const useMapStore = defineStore('map-store', {
             label: 'TCE in GW',
             file: 'GWTCE46.json',
             class: 'chemdata',
-            active: true,
+            active: false,
             matrix: 'GW',
             template: TEMPLATES.tce
           },
@@ -548,7 +565,77 @@ export const useMapStore = defineStore('map-store', {
       {
         label: 'Well Characteristics, Soil Type, Base Topo',
         icon: 'commit',
-        childs: []
+        childs: [
+          {
+            label: 'Active Wells',
+            file: 'ActiveWells.json',
+            active: false,
+            class: 'wells'
+          },
+          {
+            label: 'Abandoned Wells',
+            file: 'AbanWells.json',
+            active: true,
+            class: 'wells',
+            template: {
+              fillColor: '#ebf4ff'
+            }
+          },
+          {
+            label: 'TA Wells',
+            file: 'WCTAWells12.json',
+            active: false,
+            class: 'wells',
+            template: {
+              fillColor: '#caffa3'
+            }
+          },
+          {
+            label: 'Upper Sands of the Upper Paluxy Wells',
+            file: 'WCUSUPWells11.json',
+            active: false,
+            class: 'wells',
+            template: {
+              fillColor: '#c44fef'
+            }
+          },
+          {
+            label: 'UP Wells',
+            file: 'WCUPWells10.json',
+            active: false,
+            class: 'wells',
+            template: {
+              fillColor: '#13748e'
+            }
+          },
+          {
+            label: 'MP Wells',
+            file: 'WCMPWells9.json',
+            active: false,
+            class: 'wells',
+            template: {
+              fillColor: '#a04311'
+            }
+          },
+          {
+            label: 'LP Wells',
+            file: 'WCLPWells8.json',
+            active: false,
+            class: 'wells',
+            template: {
+              fillColor: '#138e44'
+            }
+          },
+          {
+            label: 'Texas Public Water Wells',
+            file: 'TXPWW.json',
+            active: false,
+            class: 'wells',
+            template: {
+              fillColor: '#caffa3'
+            }
+          }
+        ]
       },
       {
         label: 'Base Infrastructure',
