@@ -52,7 +52,7 @@ export default {
           if (child.label !== layer.label) child.active = false
         })
       }
-      if (layer.active && layer.template.analyte) {
+      if (layer.template && layer.template.analyte) {
         $store.selectedFeature = null
       }
     }

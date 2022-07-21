@@ -329,7 +329,6 @@ export default defineComponent({
       }
       if ($store.selectedFeature === null && selectedFeature !== null) {
         selectedFeature = null
-        console.log('asd')
         resizeMap()
         move(300)
       } else {
@@ -361,16 +360,16 @@ export default defineComponent({
 }
 .leaflet-container {
   cursor: default;
-  transition: height 0.3s ease-in;
+  transition: height 0.16s ease-in;
 }
 .chart {
   height: 0px;
   overflow: hidden;
-  transition: height 0.3s ease-out;
+  transition: height 0.16s ease-out;
 }
 .chart.active {
   height: 180px;
-  transition: height 0.3s ease-in;
+  transition: height 0.16s ease-in;
 }
 .debug {
   position: fixed;
