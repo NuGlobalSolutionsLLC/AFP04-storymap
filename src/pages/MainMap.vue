@@ -78,7 +78,7 @@ export default defineComponent({
     })
 
     const refreshChart = () => {
-      if (chartRef.value) {
+      if (chartRef.value && chartRef.value.chart.value) {
         chartRef.value.chart.updateChart()
       }
     }

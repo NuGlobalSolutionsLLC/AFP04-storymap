@@ -1,6 +1,7 @@
 <template>
   <Line
     ref="chart"
+    v-if="chartData.labels"
     :chart-options="chartOptions"
     :chart-data="chartData"
     :chart-id="chartId"
