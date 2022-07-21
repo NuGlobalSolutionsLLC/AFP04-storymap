@@ -238,24 +238,34 @@ export default defineComponent({
     const legends = computed(() => {
       const layers = getActiveLayers()
       const html = layers.map(layer => {
-        let params = Object.assign({}, $store.sections[layer.class])
+        let params = Object.assign({ colorRampType: 'range' }, $store.sections[layer.class])
         params = Object.assign(params, layer.template)
         if (!params.legend) return ''
-        const categories = params.limits.map((limit, index) => {
-          const previous = index === 0 ? 0 : params.limits[index - 1]
-          return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span> ${previous} - ${limit}</li>`
-        })
-        categories.push(`
-          <li>
+        if (params.colorRampType === 'category') {
+          const categories = params.limits.map((limit, index) => {
+            const previous = index === 0 ? 0 : params.limits[index - 1]
+            const label = params.labels ? params.labels[index] : limit
+            return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span>${label}</li>`
+          })
+          const title = `<li class="title">${params.label}</li>`
+          return `<ul class="legend">${title}${categories.join("")}</ul>`
+        } else {
+          const categories = params.limits.map((limit, index) => {
+            const previous = index === 0 ? 0 : params.limits[index - 1]
+            return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span> ${previous} - ${limit}</li>`
+          })
+          categories.push(`
+            <li>
             <span class="sample" style="background: ${params.colors[params.colors.length - 1]};">&nbsp;</span>
             > ${params.limits[params.limits.length - 1]}
-          </li>
-        `)
-        const title = `<li class="title">${params.label}</li>`
-        const units = `<li>Units: ${params.units}</li>`
-        return `<ul class="legend">${title}${units}${categories.join("")}</ul>`
+            </li>
+          `)
+          const title = `<li class="title">${params.label}</li>`
+          const units = `<li>Units: ${params.units}</li>`
+          return `<ul class="legend">${title}${units}${categories.join("")}</ul>`
+        }
       })
-      return html
+      return html.filter(fragment => fragment.length > 0).join('')
     })
 
     const getGeoJsons = async () => {

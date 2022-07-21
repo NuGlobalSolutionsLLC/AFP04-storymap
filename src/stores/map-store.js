@@ -441,6 +441,8 @@ export const useMapStore = defineStore('map-store', {
               }
             },
             template: {
+              label: 'Transect Series 1',
+              legend: true,
               tooltip: feature => {
                 return `<p>Transect ${feature.feature.properties.Name}</p>`
               },
@@ -450,7 +452,11 @@ export const useMapStore = defineStore('map-store', {
                   <h6>Transect ${props.Name}</h6>
                   <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
                 `
-              }
+              },
+              colorRampType: 'category',
+              limits: ['BB', 'GG'],
+              labels: ['Transect BB', 'Transect GG'],
+              colors: ['#f56725', '#e0f525']
             }
           },
           {
@@ -478,6 +484,8 @@ export const useMapStore = defineStore('map-store', {
               }
             },
             template: {
+              label: 'Transect Series 2',
+              legend: true,
               tooltip: feature => {
                 return `<p>Transect ${feature.feature.properties.Name}</p>`
               },
@@ -487,7 +495,11 @@ export const useMapStore = defineStore('map-store', {
                   <h6>Transect ${props.Name}</h6>
                   <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
                 `
-              }
+              },
+              colorRampType: 'category',
+              limits: ['AA', 'BB', 'CC', 'DD', 'EE', 'FF'],
+              labels: ['Transect AA', 'Transect BB', 'Transect CC', 'Transect DD', 'Transect EE', 'Transect FF'],
+              colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad', '#c149c9', '#64f5fa']
             }
           },
           {
@@ -513,6 +525,8 @@ export const useMapStore = defineStore('map-store', {
               }
             },
             template: {
+              label: 'Transect Series 3',
+              legend: true,
               tooltip: feature => {
                 return `<p>Transect ${feature.feature.properties.Name}</p>`
               },
@@ -522,7 +536,11 @@ export const useMapStore = defineStore('map-store', {
                   <h6>Transect ${props.Name}</h6>
                   <p>Click <a href="${props.url}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
                 `
-              }
+              },
+              colorRampType: 'category',
+              limits: ['A-A\'', 'B-B\'', 'C-C\'', 'D-D\''],
+              labels: ['Transect A-A\'', 'Transect B-B\'', 'Transect C-C\'', 'Transect D-D\''],
+              colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad']
             }
           }
         ]
