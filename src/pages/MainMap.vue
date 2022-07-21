@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center" ref="pageRef">
-    <div class="debug" v-if="false">{{ geoJsons }}</div>
+    <div class="debug" v-if="false"></div>
     <l-map ref="mapRef"
         :style="`height: ${height};`"
         :zoom="14"
