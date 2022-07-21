@@ -203,7 +203,10 @@ export default defineComponent({
                 // popup._container.querySelector('#close').addEventListener('pointerup', event => {
                 //   popup.close()
                 // })
-              } else if (event.target.feature.properties.layer.template.analyte) {
+              } else if (
+                    event.target.feature.properties.layer.template
+                    && event.target.feature.properties.layer.template.analyte
+                  ) {
                 $store.selectedFeature = event.target
                 resizeMap()
                 move(300)
