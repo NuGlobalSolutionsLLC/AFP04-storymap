@@ -193,7 +193,7 @@ export const useMapStore = defineStore('map-store', {
             label: 'TCE in GW',
             file: 'GWTCE46.json',
             class: 'chemdata',
-            active: false,
+            active: true,
             matrix: 'GW',
             template: TEMPLATES.tce
           },
@@ -575,7 +575,7 @@ export const useMapStore = defineStore('map-store', {
           {
             label: 'Abandoned Wells',
             file: 'AbanWells.json',
-            active: true,
+            active: false,
             class: 'wells',
             template: {
               fillColor: '#ebf4ff'

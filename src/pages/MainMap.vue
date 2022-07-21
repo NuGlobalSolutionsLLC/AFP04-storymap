@@ -30,7 +30,7 @@
 
     </l-map>
 
-    <LineChart v-if="selected" ref="chartRef"
+    <LineChart ref="chartRef"
         :class="selected && 'active chart' || 'chart'"
         :height="180"
         :width="getWidth"
@@ -231,11 +231,13 @@ export default defineComponent({
     })
 
     const resizeMap = () => {
-      let mapHeight = parseInt(getComputedStyle(pageRef.value.$el).height)
-      if (selected.value) {
-        mapHeight -= 180
+      if (pageRef.value) {
+        let mapHeight = parseInt(getComputedStyle(pageRef.value.$el).height)
+        if (selected.value) {
+          mapHeight -= 180
+        }
+        height.value = mapHeight + 'px'
       }
-      height.value = mapHeight + 'px'
     }
 
     const legends = computed(() => {
@@ -319,10 +321,19 @@ export default defineComponent({
       }
     }
 
+    let selectedFeature = null
     watchEffect(() => {
       if (leftDrawerOpen !== $store.leftDrawerOpen) {
         leftDrawerOpen = $store.leftDrawerOpen
         move(300)
+      }
+      if ($store.selectedFeature === null && selectedFeature !== null) {
+        selectedFeature = null
+        console.log('asd')
+        resizeMap()
+        move(300)
+      } else {
+        selectedFeature = $store.selectedFeature
       }
     })
 
@@ -355,6 +366,7 @@ export default defineComponent({
 .chart {
   height: 0px;
   overflow: hidden;
+  transition: height 0.3s ease-out;
 }
 .chart.active {
   height: 180px;

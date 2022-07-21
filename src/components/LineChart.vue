@@ -87,6 +87,10 @@ export default defineComponent({
     const chart = ref(null)
 
     const chartData = computed(() => {
+      if (!$store.selectedFeature) return {
+        labels: [],
+        datasets: []
+      }
       const layer = $store.selectedFeature.feature.properties.layer
       const wellID = $store.selectedFeature.feature.properties.Well_ID
       const analyte = layer.template.analyte
@@ -119,6 +123,7 @@ export default defineComponent({
         showLine: false,
         backgroundColor: '#e0e5d0',
         pointBackgroundColor: (context) => {
+          if (!$store.selectedFeature) return '#FFF'
           const value = context.dataset.data[context.dataIndex]
           const style = getValueStyle(value, $store.selectedFeature.feature.properties.layer.template)
           return style.fillColor
