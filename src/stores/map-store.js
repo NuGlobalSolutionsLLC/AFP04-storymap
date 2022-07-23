@@ -145,7 +145,7 @@ export const useMapStore = defineStore('map-store', {
         tooltip: feature => {
           const props = feature.feature.properties
           return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-        },
+        }
       },
       transects: {
         legend: false,
@@ -180,6 +180,19 @@ export const useMapStore = defineStore('map-store', {
         tooltip: feature => {
           const props = feature.feature.properties
           return `Well ID: ${props.Well_ID}`
+        }
+      },
+      bi: {
+        weight: 5,
+        color: '#006aff',
+        opacity: 0.9,
+        hoverStyle: {
+          weight: 7,
+          color: '#e1e3dc'
+        },
+        tooltip: feature => {
+          const props = feature.feature.properties
+          return ''
         }
       }
     },
@@ -640,7 +653,151 @@ export const useMapStore = defineStore('map-store', {
       {
         label: 'Base Infrastructure',
         icon: 'fence',
-        childs: []
+        childs: [
+          {
+            label: 'Meandering Road Creek',
+            file: 'BIMeanderingRoadCreek7.json',
+            active: false,
+            class: 'bi',
+            options: {
+              style: feature => {
+                return {
+                  weight: 5,
+                  color: '#006aff',
+                  opacity: 0.9
+                }
+              }
+            }
+          },
+          {
+            label: 'Farmers Branch Creek & Vicinity',
+            file: 'uuflowline.json',
+            active: false,
+            class: 'bi',
+            template: {
+              label: 'Farmers Branch Creek & Vicinity',
+              legend: true,
+              tooltip: feature => {
+                const props = feature.feature.properties
+                return props.Name
+              },
+              colorRampType: 'category',
+              limits: ['Farmers Branch Creek', 'Unnamed Tributary', 'Kings Branch Creek', 'Underground Aqueduct'],
+              colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad']
+            },
+            options: {
+              style: feature => {
+                const props = feature.properties
+                let color
+                if (props.Name === 'Farmers Branch Creek') color = '#f56725'
+                else if (props.Name === 'Unnamed Tributary') color = '#e0f525'
+                else if (props.Name === 'Kings Branch Creek') color = '#1cad21'
+                else if (props.Name === 'Underground Aqueduct') color = '#1c58ad'
+                else color = '#FF0000'
+                let style = {
+                  weight: 5,
+                  color: color,
+                  opacity: 0.9
+                }
+                if (props.Name === 'Underground Aqueduct') style.dashArray = '1, 8'
+                return style
+              }
+            }
+          },
+          {
+            label: 'Navy SWMUs',
+            file: 'BINavySWMUs6.json',
+            active: false,
+            class: 'bi',
+            template: {
+              tooltip: feature => {
+                const props = feature.feature.properties
+                return props.DESC_
+              }
+            },
+            options: {
+              style: feature => {
+                return {
+                  weight: 3,
+                  color: '#f70505',
+                  opacity: 0.9
+                }
+              }
+            }
+          },
+          {
+            label: 'AFP4 Site Boundaries',
+            file: 'BIAFP4SBoundaries5.json',
+            active: false,
+            class: 'bi',
+            template: {
+              tooltip: feature => {
+                const props = feature.feature.properties
+                return props.FACNO
+              }
+            },
+            options: {
+              style: feature => {
+                return {
+                  weight: 3,
+                  color: '#f78205',
+                  opacity: 0.9
+                }
+              }
+            }
+          },
+          {
+            label: 'Window Area Based on USGS',
+            file: 'BIWindowArea4.json',
+            active: false,
+            class: 'bi',
+            options: {
+              style: feature => {
+                return {
+                  weight: 3,
+                  color: '#9e0000',
+                  opacity: 0.9
+                }
+              }
+            }
+          },
+          {
+            label: 'AFP4 Boundary',
+            file: 'BIAFP4Boundary3.json',
+            active: false,
+            class: 'bi',
+            template: {
+              tooltip: feature => {
+                const props = feature.feature.properties
+                return `FACNO: ${props.FACNO}<br>AERA: ${props.AREA}<br>PERIMETER: ${props.PERIMETER}`
+              }
+            },
+            options: {
+              style: feature => {
+                return {
+                  weight: 3,
+                  color: '#3bceff',
+                  opacity: 0.9
+                }
+              }
+            }
+          },
+          {
+            label: 'NASFW boundary',
+            file: 'BINASFWboundary2.json',
+            active: false,
+            class: 'bi',
+            options: {
+              style: feature => {
+                return {
+                  weight: 3,
+                  color: '#ff3beb',
+                  opacity: 0.9
+                }
+              }
+            }
+          }
+        ]
       }
       ,
       {

@@ -1,4 +1,4 @@
-const getFeatureStyle = (feature, template) => {
+const getFeatureStyle2 = (feature, template) => {
   const step = template.limits.find(limit => {
     return feature.properties.Result < limit
   })
