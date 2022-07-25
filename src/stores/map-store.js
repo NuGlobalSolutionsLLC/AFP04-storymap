@@ -1181,10 +1181,5 @@ export const useMapStore = defineStore('map-store', {
         weight: 1
       })
     }
-  },
-  // actions: {
-  //   increment() {
-  //     this.counter++;
-  //   },
-  // },
+  }
 });
