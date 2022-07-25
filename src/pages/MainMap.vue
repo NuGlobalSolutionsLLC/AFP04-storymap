@@ -169,6 +169,8 @@ export default defineComponent({
               params = Object.assign(params, event.target.options)
               if (layer.options && layer.options.style) {
                 this.setStyle(layer.options.style(feature))
+              } else if (layer.style) {
+                this.setStyle(layer.style(feature))
               } else {
                 this.setStyle(getFeatureStyle(feature))
               }
@@ -218,6 +220,9 @@ export default defineComponent({
       const geojsons = layers.map((layer, idc) => {
         const params = Object.assign({ id: idc }, commonParams)
         params.options = Object.assign(params.options, layer.options)
+        if (layer.style) {
+          params.options.style = layer.style
+        }
         if (layer.data) {
           return Object.assign(params, layer.data)
         } else {

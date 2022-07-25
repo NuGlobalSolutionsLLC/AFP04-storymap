@@ -137,7 +137,6 @@ export const useMapStore = defineStore('map-store', {
         color: 'black',
         opacity: 1,
         hoverStyle: {
-          // fillColor: '#CCCCFF',
           fillOpacity: .8,
           radius: 10
         },
@@ -153,6 +152,10 @@ export const useMapStore = defineStore('map-store', {
         fillColor: '#f4d442',
         weight: 5,
         radius: 6,
+        hoverStyle: {
+          fillOpacity: .8,
+          radius: 10
+        },
         fillOpacity: 1,
         tooltip: feature => {
           return feature.feature.properties.name
@@ -189,10 +192,6 @@ export const useMapStore = defineStore('map-store', {
         hoverStyle: {
           weight: 7,
           color: '#e1e3dc'
-        },
-        tooltip: feature => {
-          const props = feature.feature.properties
-          return ''
         }
       }
     },
@@ -457,17 +456,14 @@ export const useMapStore = defineStore('map-store', {
             file: 'transectlines0.json',
             active: false,
             class: 'transects',
+            style: feature => {
+              let color = feature.properties.Name === 'BB' ? '#f56725' : '#e0f525'
+              return {
+                color: color,
+                weight: 5
+              }
+            },
             options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'Series 1 - Transect') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                let color = feature.properties.Name === 'BB' ? '#f56725' : '#e0f525'
-                return {
-                  color: color,
-                  weight: 5
-                }
-              },
               hoverStyle: {
                 weight: 7,
                 color: '#e1e1e1'
@@ -497,23 +493,20 @@ export const useMapStore = defineStore('map-store', {
             file: 'TranLineSeries214.json',
             active: false,
             class: 'transects',
+            style: feature => {
+              const props = feature.properties
+              let color = (props.Name === 'AA' ? '#f56725' :
+                           props.Name === 'BB' ? '#e0f525' :
+                           props.Name === 'CC' ? '#1cad21' :
+                           props.Name === 'DD' ? '#1c58ad' :
+                           props.Name === 'EE' ? '#c149c9' :
+                           props.Name === 'FF' ? '#64f5fa' : '#FF0000')
+              return {
+                color: color,
+                weight: 5
+              }
+            },
             options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'Series 2 - Transect') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                const props = feature.properties
-                let color = (props.Name === 'AA' ? '#f56725' :
-                             props.Name === 'BB' ? '#e0f525' :
-                             props.Name === 'CC' ? '#1cad21' :
-                             props.Name === 'DD' ? '#1c58ad' :
-                             props.Name === 'EE' ? '#c149c9' :
-                             props.Name === 'FF' ? '#64f5fa' : '#FF0000')
-                return {
-                  color: color,
-                  weight: 5
-                }
-              },
               hoverStyle: {
                 weight: 7,
                 color: '#e1e1e1'
@@ -543,21 +536,18 @@ export const useMapStore = defineStore('map-store', {
             file: 'TranLineSeries313.json',
             active: false,
             class: 'transects',
+            style: feature => {
+              const props = feature.properties
+              let color = (props.Name === 'A-A\'' ? '#f56725' :
+                           props.Name === 'B-B\'' ? '#e0f525' :
+                           props.Name === 'C-C\'' ? '#1cad21' :
+                           props.Name === 'D-D\'' ? '#1c58ad' : '#FF0000')
+              return {
+                color: color,
+                weight: 5
+              }
+            },
             options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'Series 3 - Transect') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                const props = feature.properties
-                let color = (props.Name === 'A-A\'' ? '#f56725' :
-                             props.Name === 'B-B\'' ? '#e0f525' :
-                             props.Name === 'C-C\'' ? '#1cad21' :
-                             props.Name === 'D-D\'' ? '#1c58ad' : '#FF0000')
-                return {
-                  color: color,
-                  weight: 5
-                }
-              },
               hoverStyle: {
                 weight: 7,
                 color: '#e1e1e1'
@@ -655,6 +645,17 @@ export const useMapStore = defineStore('map-store', {
             class: 'wells',
             template: {
               fillColor: '#caffa3'
+            },
+            template: {
+              tooltip: feature => {
+                const props = feature.feature.properties
+                return `
+                  WELL ID: ${props.ST_WELL_NO}<br>
+                  AREA: ${props.SYS_NAME}<br>
+                  AQUIFER: ${props.AQUIFER}<br>
+                  WELL DEPTH: ${props.WELL_DEPTH}
+                `
+              }
             }
           }
         ]
@@ -668,16 +669,11 @@ export const useMapStore = defineStore('map-store', {
             file: 'BIMeanderingRoadCreek7.json',
             active: false,
             class: 'bi',
-            options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'Meandering Road Creek') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                return {
-                  weight: 5,
-                  color: '#006aff',
-                  opacity: 0.9
-                }
+            style: feature => {
+              return {
+                weight: 5,
+                color: '#006aff',
+                opacity: 0.9
               }
             }
           },
@@ -686,37 +682,34 @@ export const useMapStore = defineStore('map-store', {
             file: 'uuflowline.json',
             active: false,
             class: 'bi',
-            template: {
-              label: 'Farmers Branch Creek & Vicinity',
-              legend: true,
+            options: {
               tooltip: feature => {
                 const props = feature.feature.properties
                 return props.Name
-              },
+              }
+            },
+            template: {
+              label: 'Farmers Branch Creek & Vicinity',
+              legend: true,
               colorRampType: 'category',
               limits: ['Farmers Branch Creek', 'Unnamed Tributary', 'Kings Branch Creek', 'Underground Aqueduct'],
               colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad']
             },
-            options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'Farmers Branch Creek & Vicinity') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                const props = feature.properties
-                let color
-                if (props.Name === 'Farmers Branch Creek') color = '#f56725'
-                else if (props.Name === 'Unnamed Tributary') color = '#e0f525'
-                else if (props.Name === 'Kings Branch Creek') color = '#1cad21'
-                else if (props.Name === 'Underground Aqueduct') color = '#1c58ad'
-                else color = '#FF0000'
-                let style = {
-                  weight: 5,
-                  color: color,
-                  opacity: 0.9
-                }
-                if (props.Name === 'Underground Aqueduct') style.dashArray = '1, 8'
-                return style
+            style: feature => {
+              const props = feature.properties
+              let color
+              if (props.Name === 'Farmers Branch Creek') color = '#f56725'
+              else if (props.Name === 'Unnamed Tributary') color = '#e0f525'
+              else if (props.Name === 'Kings Branch Creek') color = '#1cad21'
+              else if (props.Name === 'Underground Aqueduct') color = '#1c58ad'
+              else color = '#FF0000'
+              let style = {
+                weight: 5,
+                color: color,
+                opacity: 0.9
               }
+              if (props.Name === 'Underground Aqueduct') style.dashArray = '1, 8'
+              return style
             }
           },
           {
@@ -724,22 +717,17 @@ export const useMapStore = defineStore('map-store', {
             file: 'BINavySWMUs6.json',
             active: false,
             class: 'bi',
-            template: {
+            options: {
               tooltip: feature => {
                 const props = feature.feature.properties
                 return props.DESC_
               }
             },
-            options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'Navy SWMUs') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                return {
-                  weight: 3,
-                  color: '#f70505',
-                  opacity: 0.9
-                }
+            style: feature => {
+              return {
+                weight: 3,
+                color: '#f70505',
+                opacity: 0.9
               }
             }
           },
@@ -748,22 +736,17 @@ export const useMapStore = defineStore('map-store', {
             file: 'BIAFP4SBoundaries5.json',
             active: false,
             class: 'bi',
-            template: {
+            options: {
               tooltip: feature => {
                 const props = feature.feature.properties
                 return props.FACNO
               }
             },
-            options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'AFP4 Site Boundaries') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                return {
-                  weight: 3,
-                  color: '#f78205',
-                  opacity: 0.9
-                }
+            style: feature => {
+              return {
+                weight: 3,
+                color: '#f78205',
+                opacity: 0.9
               }
             }
           },
@@ -772,16 +755,11 @@ export const useMapStore = defineStore('map-store', {
             file: 'BIWindowArea4.json',
             active: false,
             class: 'bi',
-            options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'Window Area Based on USGS') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                return {
-                  weight: 3,
-                  color: '#9e0000',
-                  opacity: 0.9
-                }
+            style: feature => {
+              return {
+                weight: 3,
+                color: '#9e0000',
+                opacity: 0.9
               }
             }
           },
@@ -790,22 +768,17 @@ export const useMapStore = defineStore('map-store', {
             file: 'BIAFP4Boundary3.json',
             active: false,
             class: 'bi',
-            template: {
+            options: {
               tooltip: feature => {
                 const props = feature.feature.properties
                 return `FACNO: ${props.FACNO}<br>AERA: ${props.AREA}<br>PERIMETER: ${props.PERIMETER}`
               }
             },
-            options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'AFP4 Boundary') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                return {
-                  weight: 3,
-                  color: '#3bceff',
-                  opacity: 0.9
-                }
+            style: feature => {
+              return {
+                weight: 3,
+                color: '#3bceff',
+                opacity: 0.9
               }
             }
           },
@@ -814,16 +787,11 @@ export const useMapStore = defineStore('map-store', {
             file: 'BINASFWboundary2.json',
             active: false,
             class: 'bi',
-            options: {
-              style: feature => {
-                if (feature.properties.layer.label !== 'NASFW boundary') {
-                  return feature.properties.layer.options.style(feature)
-                }
-                return {
-                  weight: 3,
-                  color: '#ff3beb',
-                  opacity: 0.9
-                }
+            style: feature => {
+              return {
+                weight: 3,
+                color: '#ff3beb',
+                opacity: 0.9
               }
             }
           }
