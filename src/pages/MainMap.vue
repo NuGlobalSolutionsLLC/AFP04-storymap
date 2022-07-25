@@ -127,6 +127,7 @@ export default defineComponent({
         const index = template.limits.indexOf(step)
         const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
         return Object.assign(defaultParams, {
+          color: 'black',
           fillColor: color,
           fillOpacity: 1,
           radius: 6,
@@ -153,13 +154,12 @@ export default defineComponent({
               params = Object.assign(params, event.target.options)
               this.setStyle(params.hoverStyle)
               event.target.bringToFront()
-              let tooltipFunc = params.tooltip
+              let tooltipFunc = params.tooltip || layer.options && layer.options.tooltip
               if (tooltipFunc) {
                 let latlng
                 if (event.target._latlng) latlng = event.target._latlng
                 else latlng = event.target.getCenter()
-                if (layer.template && layer.template.tooltip) tooltipFunc = layer.template.tooltip
-                tooltip = L.popup()
+                tooltip = L.popup({ autoClose: true })
                   .setLatLng(latlng)
                   .setContent(tooltipFunc(event.target))
                   .openOn(map)

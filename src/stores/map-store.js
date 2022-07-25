@@ -193,6 +193,18 @@ export const useMapStore = defineStore('map-store', {
           weight: 7,
           color: '#e1e3dc'
         }
+      },
+      media: {
+        color: '#e3eb7a',
+        fillColor: 'transparent',
+        weight: 5,
+        radius: 6,
+        opacity: 0.9,
+        hoverStyle: {
+          radius: 10,
+          color: '#e1e3dc'
+        },
+        fillOpacity: 1
       }
     },
     layers: [
@@ -207,7 +219,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: true,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE > 1990 in GW',
@@ -215,7 +233,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE > 2000 in GW',
@@ -223,7 +247,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE > 2016 in GW',
@@ -231,7 +261,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE Max in GW',
@@ -239,7 +275,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE Terrace Alluvial in GW',
@@ -247,7 +289,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE Walnut in GW',
@@ -255,7 +303,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE Upper Paluxy in GW',
@@ -263,7 +317,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE Middle Paluxy in GW',
@@ -271,7 +331,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE Lower Paluxy in GW',
@@ -279,7 +345,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.tce
+            template: TEMPLATES.tce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Cis 1,2-DCE in GW',
@@ -287,7 +359,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.cis
+            template: TEMPLATES.cis,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Cis 1,2-DCE > 2000 in GW',
@@ -295,7 +373,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.cis
+            template: TEMPLATES.cis,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Vinyl chloride in GW',
@@ -303,7 +387,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.vinyl
+            template: TEMPLATES.vinyl,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Vinyl chloride > 2000 in GW',
@@ -311,7 +401,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.vinyl
+            template: TEMPLATES.vinyl,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Ethane in GW',
@@ -319,7 +415,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.ethane
+            template: TEMPLATES.ethane,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Ethene in GW',
@@ -327,7 +429,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.ethene
+            template: TEMPLATES.ethene,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Chromium VI in GW',
@@ -335,7 +443,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.chromiumVI
+            template: TEMPLATES.chromiumVI,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Total Chromium in GW',
@@ -343,7 +457,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.chromium
+            template: TEMPLATES.chromium,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'C13 Data in GW',
@@ -351,7 +471,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'GW',
-            template: TEMPLATES.c13
+            template: TEMPLATES.c13,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE in SO',
@@ -359,7 +485,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'SO',
-            template: TEMPLATES.sotce
+            template: TEMPLATES.sotce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Cis 1,2-DCE in SO',
@@ -367,7 +499,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'SO',
-            template: TEMPLATES.sodce
+            template: TEMPLATES.sodce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Vinyl chloride in SO',
@@ -375,7 +513,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'SO',
-            template: TEMPLATES.sovinyl
+            template: TEMPLATES.sovinyl,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE in SE',
@@ -383,7 +527,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'SE',
-            template: TEMPLATES.setce
+            template: TEMPLATES.setce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'TCE in SW',
@@ -391,7 +541,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'SW',
-            template: TEMPLATES.swtce
+            template: TEMPLATES.swtce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Cis 1,2-DCE in SW',
@@ -399,7 +555,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'SW',
-            template: TEMPLATES.swdce
+            template: TEMPLATES.swdce,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           },
           {
             label: 'Vinyl chloride in SW',
@@ -407,7 +569,13 @@ export const useMapStore = defineStore('map-store', {
             class: 'chemdata',
             active: false,
             matrix: 'SW',
-            template: TEMPLATES.swvinyl
+            template: TEMPLATES.swvinyl,
+            style: feature => {
+              return {
+                color: 'black',
+                weight: 1
+              }
+            }
           }
         ]
       },
@@ -457,6 +625,9 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             class: 'transects',
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Series 1 - Transect') {
+                return feature.properties.layer.style(feature)
+              }
               let color = feature.properties.Name === 'BB' ? '#f56725' : '#e0f525'
               return {
                 color: color,
@@ -494,6 +665,9 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             class: 'transects',
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Series 2 - Transect') {
+                return feature.properties.layer.style(feature)
+              }
               const props = feature.properties
               let color = (props.Name === 'AA' ? '#f56725' :
                            props.Name === 'BB' ? '#e0f525' :
@@ -537,6 +711,9 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             class: 'transects',
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Series 3 - Transect') {
+                return feature.properties.layer.style(feature)
+              }
               const props = feature.properties
               let color = (props.Name === 'A-A\'' ? '#f56725' :
                            props.Name === 'B-B\'' ? '#e0f525' :
@@ -670,6 +847,9 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             class: 'bi',
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Meandering Road Creek') {
+                feature.properties.layer.style(feature)
+              }
               return {
                 weight: 5,
                 color: '#006aff',
@@ -696,6 +876,9 @@ export const useMapStore = defineStore('map-store', {
               colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad']
             },
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Farmers Branch Creek & Vicinity') {
+                return feature.properties.layer.style(feature)
+              }
               const props = feature.properties
               let color
               if (props.Name === 'Farmers Branch Creek') color = '#f56725'
@@ -724,6 +907,9 @@ export const useMapStore = defineStore('map-store', {
               }
             },
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Navy SWMUs') {
+                return feature.properties.layer.style(feature)
+              }
               return {
                 weight: 3,
                 color: '#f70505',
@@ -743,6 +929,9 @@ export const useMapStore = defineStore('map-store', {
               }
             },
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'AFP4 Site Boundaries') {
+                return feature.properties.layer.style(feature)
+              }
               return {
                 weight: 3,
                 color: '#f78205',
@@ -756,6 +945,9 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             class: 'bi',
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Window Area Based on USGS') {
+                return feature.properties.layer.style(feature)
+              }
               return {
                 weight: 3,
                 color: '#9e0000',
@@ -775,6 +967,9 @@ export const useMapStore = defineStore('map-store', {
               }
             },
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'AFP4 Boundary') {
+                return feature.properties.layer.style(feature)
+              }
               return {
                 weight: 3,
                 color: '#3bceff',
@@ -788,6 +983,9 @@ export const useMapStore = defineStore('map-store', {
             active: false,
             class: 'bi',
             style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'NASFW boundary') {
+                return feature.properties.layer.style(feature)
+              }
               return {
                 weight: 3,
                 color: '#ff3beb',
@@ -801,7 +999,66 @@ export const useMapStore = defineStore('map-store', {
       {
         label: 'Photos / Videos',
         icon: 'photo_camera',
-        childs: []
+        childs: [
+          {
+            label: 'Photos',
+            file: 'PVRPhotos1.json',
+            active: false,
+            class: 'media',
+            style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Photos') {
+                return feature.properties.layer.style(feature)
+              }
+              return {
+                weight: 5,
+                radius: 6,
+                color: '#e3eb7a'
+              }
+            },
+            template: {
+              tooltip: feature => {
+                const props = feature.feature.properties
+                return props.Name
+              },
+              popup: feature => {
+                const props = feature.feature.properties
+                return `
+                  ${props.Name}<br>
+                  <img width="600" height="400" src="${props.urlhtml}">
+                `
+              }
+            }
+          },
+          {
+            label: 'Videos',
+            file: 'PVRVideos0.json',
+            active: false,
+            class: 'media',
+            style: feature => {
+              if (feature.properties.layer.style && feature.properties.layer.label !== 'Videos') {
+                return feature.properties.layer.style(feature)
+              }
+              return {
+                weight: 5,
+                radius: 6,
+                color: '#e3eb7a'
+              }
+            },
+            template: {
+              tooltip: feature => {
+                const props = feature.feature.properties
+                return props.Name
+              },
+              popup: feature => {
+                const props = feature.feature.properties
+                return `
+                  ${props.Name}<br>
+                  <video width="640" height="360" controls><source src="${props.url}" type="video/mp4"></video>
+                `
+              }
+            }
+          }
+        ]
       }
       ,
       {
