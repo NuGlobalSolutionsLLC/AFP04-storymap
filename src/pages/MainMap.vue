@@ -114,7 +114,7 @@ export default defineComponent({
       }, [])
     }
 
-    const getFeatureStyle = (feature, template) => {
+    const getFeatureStyle = (feature) => {
       let defaultParams = Object.assign({}, $store.sections[feature.properties.layer.class])
       template = feature.properties.layer.template
       if (template) {
@@ -141,7 +141,7 @@ export default defineComponent({
       const commonParams = {
         options: {
           pointToLayer: (feature, latLng) => {
-            const params = getFeatureStyle(feature, feature.properties.layer.template)
+            const params = getFeatureStyle(feature)
             params.riseOnHover = true
             return circle(latLng, params);
           },
@@ -170,7 +170,7 @@ export default defineComponent({
               if (layer.options && layer.options.style) {
                 this.setStyle(layer.options.style(feature))
               } else {
-                this.setStyle(getFeatureStyle(feature, layer.template))
+                this.setStyle(getFeatureStyle(feature))
               }
               if (params.tooltip) {
                 tooltip.close()

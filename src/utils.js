@@ -27,5 +27,4 @@ const getValueStyle = (value, template) => {
 }
 
 
-
 export default getValueStyle

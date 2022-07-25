@@ -459,6 +459,9 @@ export const useMapStore = defineStore('map-store', {
             class: 'transects',
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'Series 1 - Transect') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 let color = feature.properties.Name === 'BB' ? '#f56725' : '#e0f525'
                 return {
                   color: color,
@@ -496,6 +499,9 @@ export const useMapStore = defineStore('map-store', {
             class: 'transects',
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'Series 2 - Transect') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 const props = feature.properties
                 let color = (props.Name === 'AA' ? '#f56725' :
                              props.Name === 'BB' ? '#e0f525' :
@@ -539,6 +545,9 @@ export const useMapStore = defineStore('map-store', {
             class: 'transects',
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'Series 3 - Transect') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 const props = feature.properties
                 let color = (props.Name === 'A-A\'' ? '#f56725' :
                              props.Name === 'B-B\'' ? '#e0f525' :
@@ -661,6 +670,9 @@ export const useMapStore = defineStore('map-store', {
             class: 'bi',
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'Meandering Road Creek') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 return {
                   weight: 5,
                   color: '#006aff',
@@ -687,6 +699,9 @@ export const useMapStore = defineStore('map-store', {
             },
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'Farmers Branch Creek & Vicinity') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 const props = feature.properties
                 let color
                 if (props.Name === 'Farmers Branch Creek') color = '#f56725'
@@ -717,6 +732,9 @@ export const useMapStore = defineStore('map-store', {
             },
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'Navy SWMUs') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 return {
                   weight: 3,
                   color: '#f70505',
@@ -738,6 +756,9 @@ export const useMapStore = defineStore('map-store', {
             },
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'AFP4 Site Boundaries') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 return {
                   weight: 3,
                   color: '#f78205',
@@ -753,6 +774,9 @@ export const useMapStore = defineStore('map-store', {
             class: 'bi',
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'Window Area Based on USGS') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 return {
                   weight: 3,
                   color: '#9e0000',
@@ -774,6 +798,9 @@ export const useMapStore = defineStore('map-store', {
             },
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'AFP4 Boundary') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 return {
                   weight: 3,
                   color: '#3bceff',
@@ -789,6 +816,9 @@ export const useMapStore = defineStore('map-store', {
             class: 'bi',
             options: {
               style: feature => {
+                if (feature.properties.layer.label !== 'NASFW boundary') {
+                  return feature.properties.layer.options.style(feature)
+                }
                 return {
                   weight: 3,
                   color: '#ff3beb',
