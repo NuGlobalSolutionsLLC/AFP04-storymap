@@ -27,12 +27,10 @@ export default defineComponent({
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: $primary;
-  // background: lighten($primary, 10%);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  // background: $primary;
   background: darken($primary, 10%);
 }
 </style>
