@@ -22,9 +22,18 @@
           />
 
       <l-geo-json v-for="geojson, index in geoJsons" :key="index"
-          :geojson="geojson" :options="geojson.options"
+          :geojson="geojson"
+          :options="geojson.options"
           />
       <l-geo-json :geojson="selected.feature" v-if="selected" />
+
+      <div v-if="overlays.length !== 0">
+        <l-image-overlay v-for="overlay, index in overlays" :key="index"
+            :url="`img/${overlay.url}`"
+            :bounds="overlay.bounds"
+            :opacity="0.8"
+            />
+      </div>
 
       <div class="legends" v-html="legends"></div>
 
@@ -45,7 +54,7 @@ import 'leaflet/dist/leaflet.css'
 import * as L from 'leaflet'
 import LineChart from 'src/components/LineChart.vue'
 import { defineComponent, onBeforeMount, onMounted, computed, ref, inject, watchEffect } from 'vue'
-import { LMap, LGeoJson, LTileLayer, LControlAttribution } from '@vue-leaflet/vue-leaflet'
+import { LMap, LGeoJson, LImageOverlay, LTileLayer, LControlAttribution } from '@vue-leaflet/vue-leaflet'
 import { useMapStore } from 'src/stores/map-store'
 
 export default defineComponent({
@@ -55,7 +64,8 @@ export default defineComponent({
     LControlAttribution,
     LMap,
     LGeoJson,
-    LTileLayer
+    LTileLayer,
+    LImageOverlay
   },
   setup () {
     const pageRef = ref(null)
@@ -137,6 +147,16 @@ export default defineComponent({
       return defaultParams
     }
 
+    const overlays = computed(() => {
+      const layers = getActiveLayers()
+      return layers.filter(layer => layer.class === 'geoimage').map((layer, idc) => {
+        return {
+          url: layer.file,
+          bounds: Object.assign([], layer.bounds)
+        }
+      })
+    })
+
     const geoJsons = computed(() => {
       const layers = getActiveLayers()
       const commonParams = {
@@ -217,7 +237,7 @@ export default defineComponent({
           }
         }
       }
-      const geojsons = layers.map((layer, idc) => {
+      return layers.filter(layer => layer.class !== 'geoimage').map((layer, idc) => {
         const params = Object.assign({ id: idc }, commonParams)
         params.options = Object.assign(params.options, layer.options)
         if (layer.style) {
@@ -232,7 +252,6 @@ export default defineComponent({
           })
         }
       })
-      return geojsons
     })
 
     const resizeMap = () => {
@@ -280,7 +299,7 @@ export default defineComponent({
 
     const getGeoJsons = async () => {
       $store.layers.forEach(group => {
-        group.childs.forEach(async layer => {
+        group.childs.filter(layer => layer.class !== 'geoimage').forEach(async layer => {
           const url = 'data/' + layer.file
           const data = await fetch(url).then(response => {
             if (response.ok) return response.json()
@@ -352,6 +371,7 @@ export default defineComponent({
       legends,
       mapOptions,
       mapRef,
+      overlays,
       pageRef,
       selected
     }

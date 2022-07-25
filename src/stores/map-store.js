@@ -222,6 +222,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -236,6 +237,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -250,6 +252,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -264,6 +267,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -278,6 +282,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -292,6 +297,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -306,6 +312,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -320,6 +327,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -334,6 +342,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -348,6 +357,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.tce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -362,6 +372,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.cis,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -376,6 +387,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.cis,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -390,6 +402,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.vinyl,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -404,6 +417,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.vinyl,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -418,6 +432,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.ethane,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -432,6 +447,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.ethene,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -446,6 +462,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.chromiumVI,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -460,6 +477,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.chromium,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -474,6 +492,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.c13,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -488,6 +507,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.sotce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -502,6 +522,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.sodce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -516,6 +537,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.sovinyl,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -530,6 +552,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.setce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -544,6 +567,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.swtce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -558,6 +582,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.swdce,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -572,6 +597,7 @@ export const useMapStore = defineStore('map-store', {
             template: TEMPLATES.swvinyl,
             style: feature => {
               return {
+                radius: 6,
                 color: 'black',
                 weight: 1
               }
@@ -827,10 +853,10 @@ export const useMapStore = defineStore('map-store', {
               tooltip: feature => {
                 const props = feature.feature.properties
                 return `
-                  WELL ID: ${props.ST_WELL_NO}<br>
-                  AREA: ${props.SYS_NAME}<br>
-                  AQUIFER: ${props.AQUIFER}<br>
-                  WELL DEPTH: ${props.WELL_DEPTH}
+                  Well ID: ${props.ST_WELL_NO}<br>
+                  System Name: ${props.SYS_NAME}<br>
+                  Aquifer: ${props.AQUIFER}<br>
+                  Well Depth: ${props.WELL_DEPTH}
                 `
               }
             }
@@ -1064,7 +1090,78 @@ export const useMapStore = defineStore('map-store', {
       {
         label: 'Registered Images',
         icon: 'satellite_alt',
-        childs: []
+        childs: [
+          {
+            label: 'Terrace Alluvium TCE Plume Map, March 2017',
+            file: 'TATCE2017March.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.78487, -97.46211], [32.75486, -97.41547]]
+          },
+          {
+            label: 'Terrace Alluvium cis-1,2-DCE and VC Plume Map, March 2017',
+            file: 'cDCE12_VC2017March.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.78489, -97.46208], [32.75476, -97.41542]]
+          },
+          {
+            label: 'GW Elevation Contours for Terrace Alluvium and Fill, April 6 - 10, 2015',
+            file: 'GWContour_TerraceAlluvium_Fill_April2015.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.78546, -97.45857], [32.75847, -97.41162]]
+          },
+          {
+            label: 'Indoor Air Samping Results',
+            file: 'VILRFigure2.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.78411, -97.46226], [32.75642, -97.41288]]
+          },
+          {
+            label: 'Sub slab and Indoor Air Samping Results',
+            file: 'VILRFigure3.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.78411, -97.46226], [32.75642, -97.41288]]
+          },
+          {
+            label: 'USGS Isotope TCE Plume',
+            file: 'TCEPlume.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.77831, -97.45619], [32.76159, -97.4344]]
+          },
+          {
+            label: 'GW Elev Contours for Terrace Alluvium and Fill, March 31 - April 3, 2014',
+            file: 'AFP4Fig_4.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.78564, -97.45994], [32.75612, -97.41157]]
+          },
+          {
+            label: 'Thickness of the Alluvial Aquifer',
+            file: 'Figure8.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.79406,-97.46782], [32.74526,-97.39485]]
+          },
+          {
+            label: 'Thickness of the Goodland Walnut confining Unit',
+            file: 'Figure11.jpg',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.7953,-97.46948], [32.74572,-97.39498]]
+          },
+          {
+            label: 'Terrace Alluvium Plume Map, Spring 2020',
+            file: 'Plumes2020.png',
+            active: false,
+            class: 'geoimage',
+            bounds: [[32.783074,-97.457694], [32.757652,-97.420624]]
+          }
+        ]
       }
     ]
   }),
