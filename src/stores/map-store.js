@@ -128,6 +128,8 @@ const TEMPLATES = {
 
 export const useMapStore = defineStore('map-store', {
   state: () => ({
+    user: null,
+    returnUrl: '',
     leftDrawerOpen: true,
     templates: TEMPLATES,
     selectedFeature: null,
@@ -619,72 +621,72 @@ export const useMapStore = defineStore('map-store', {
               color: '#e1e3dc'
             }
           },
-          {
-            label: 'East Parking Lot & B181 CSM',
-            file: 'TranLineEastParkL15.json',
-            active: false,
-            class: 'transects',
-            template: {
-              fillColor: 'transparent',
-              color: '#f56725',
-              weight: 5,
-              popup: feature => {
-                const props = feature.feature.properties
-                return `
-                  <h6>${props.name}</h6>
-                  <p>Click <a href="${props.url}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
-                `
-              },
-              popupOptions: {
-                minWidth: 500,
-                className: 'east-parking-lot-transect'
-              }
-            },
-            hoverStyle: {
-              weight: 7,
-              color: '#e1e3dc'
-            }
-          },
-          {
-            label: 'Series 1 - Transect',
-            file: 'transectlines0.json',
-            active: false,
-            class: 'transects',
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Series 1 - Transect') {
-                return feature.properties.layer.style(feature)
-              }
-              let color = feature.properties.Name === 'BB' ? '#f56725' : '#e0f525'
-              return {
-                color: color,
-                weight: 5
-              }
-            },
-            options: {
-              hoverStyle: {
-                weight: 7,
-                color: '#e1e1e1'
-              }
-            },
-            template: {
-              label: 'Transect Series 1',
-              legend: true,
-              tooltip: feature => {
-                return `<p>Transect ${feature.feature.properties.Name}</p>`
-              },
-              popup: feature => {
-                const props = feature.feature.properties
-                return `
-                  <h6>Transect ${props.Name}</h6>
-                  <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
-                `
-              },
-              colorRampType: 'category',
-              limits: ['BB', 'GG'],
-              labels: ['Transect BB', 'Transect GG'],
-              colors: ['#f56725', '#e0f525']
-            }
-          },
+          // {
+          //   label: 'East Parking Lot & B181 CSM',
+          //   file: 'TranLineEastParkL15.json',
+          //   active: false,
+          //   class: 'transects',
+          //   template: {
+          //     fillColor: 'transparent',
+          //     color: '#f56725',
+          //     weight: 5,
+          //     popup: feature => {
+          //       const props = feature.feature.properties
+          //       return `
+          //         <h6>${props.name}</h6>
+          //         <p>Click <a href="${props.url}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
+          //       `
+          //     },
+          //     popupOptions: {
+          //       minWidth: 500,
+          //       className: 'east-parking-lot-transect'
+          //     }
+          //   },
+          //   hoverStyle: {
+          //     weight: 7,
+          //     color: '#e1e3dc'
+          //   }
+          // },
+          // {
+          //   label: 'Series 1 - Transect',
+          //   file: 'transectlines0.json',
+          //   active: false,
+          //   class: 'transects',
+          //   style: feature => {
+          //     if (feature.properties.layer.style && feature.properties.layer.label !== 'Series 1 - Transect') {
+          //       return feature.properties.layer.style(feature)
+          //     }
+          //     let color = feature.properties.Name === 'BB' ? '#f56725' : '#e0f525'
+          //     return {
+          //       color: color,
+          //       weight: 5
+          //     }
+          //   },
+          //   options: {
+          //     hoverStyle: {
+          //       weight: 7,
+          //       color: '#e1e1e1'
+          //     }
+          //   },
+          //   template: {
+          //     label: 'Transect Series 1',
+          //     legend: true,
+          //     tooltip: feature => {
+          //       return `<p>Transect ${feature.feature.properties.Name}</p>`
+          //     },
+          //     popup: feature => {
+          //       const props = feature.feature.properties
+          //       return `
+          //         <h6>Transect ${props.Name}</h6>
+          //         <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
+          //       `
+          //     },
+          //     colorRampType: 'category',
+          //     limits: ['BB', 'GG'],
+          //     labels: ['Transect BB', 'Transect GG'],
+          //     colors: ['#f56725', '#e0f525']
+          //   }
+          // },
           {
             label: 'Series 2 - Transect',
             file: 'TranLineSeries214.json',
@@ -731,50 +733,50 @@ export const useMapStore = defineStore('map-store', {
               colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad', '#c149c9', '#64f5fa']
             }
           },
-          {
-            label: 'Series 3 - Transect',
-            file: 'TranLineSeries313.json',
-            active: false,
-            class: 'transects',
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Series 3 - Transect') {
-                return feature.properties.layer.style(feature)
-              }
-              const props = feature.properties
-              let color = (props.Name === 'A-A\'' ? '#f56725' :
-                           props.Name === 'B-B\'' ? '#e0f525' :
-                           props.Name === 'C-C\'' ? '#1cad21' :
-                           props.Name === 'D-D\'' ? '#1c58ad' : '#FF0000')
-              return {
-                color: color,
-                weight: 5
-              }
-            },
-            options: {
-              hoverStyle: {
-                weight: 7,
-                color: '#e1e1e1'
-              }
-            },
-            template: {
-              label: 'Transect Series 3',
-              legend: true,
-              tooltip: feature => {
-                return `<p>Transect ${feature.feature.properties.Name}</p>`
-              },
-              popup: feature => {
-                const props = feature.feature.properties
-                return `
-                  <h6>Transect ${props.Name}</h6>
-                  <p>Click <a href="${props.url}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
-                `
-              },
-              colorRampType: 'category',
-              limits: ['A-A\'', 'B-B\'', 'C-C\'', 'D-D\''],
-              labels: ['Transect A-A\'', 'Transect B-B\'', 'Transect C-C\'', 'Transect D-D\''],
-              colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad']
-            }
-          }
+          // {
+          //   label: 'Series 3 - Transect',
+          //   file: 'TranLineSeries313.json',
+          //   active: false,
+          //   class: 'transects',
+          //   style: feature => {
+          //     if (feature.properties.layer.style && feature.properties.layer.label !== 'Series 3 - Transect') {
+          //       return feature.properties.layer.style(feature)
+          //     }
+          //     const props = feature.properties
+          //     let color = (props.Name === 'A-A\'' ? '#f56725' :
+          //                  props.Name === 'B-B\'' ? '#e0f525' :
+          //                  props.Name === 'C-C\'' ? '#1cad21' :
+          //                  props.Name === 'D-D\'' ? '#1c58ad' : '#FF0000')
+          //     return {
+          //       color: color,
+          //       weight: 5
+          //     }
+          //   },
+          //   options: {
+          //     hoverStyle: {
+          //       weight: 7,
+          //       color: '#e1e1e1'
+          //     }
+          //   },
+          //   template: {
+          //     label: 'Transect Series 3',
+          //     legend: true,
+          //     tooltip: feature => {
+          //       return `<p>Transect ${feature.feature.properties.Name}</p>`
+          //     },
+          //     popup: feature => {
+          //       const props = feature.feature.properties
+          //       return `
+          //         <h6>Transect ${props.Name}</h6>
+          //         <p>Click <a href="${props.url}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
+          //       `
+          //     },
+          //     colorRampType: 'category',
+          //     limits: ['A-A\'', 'B-B\'', 'C-C\'', 'D-D\''],
+          //     labels: ['Transect A-A\'', 'Transect B-B\'', 'Transect C-C\'', 'Transect D-D\''],
+          //     colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad']
+          //   }
+          // }
         ]
       },
       {
@@ -1020,8 +1022,7 @@ export const useMapStore = defineStore('map-store', {
             }
           }
         ]
-      }
-      ,
+      },
       {
         label: 'Photos / Videos',
         icon: 'photo_camera',
@@ -1086,83 +1087,83 @@ export const useMapStore = defineStore('map-store', {
           }
         ]
       }
-      ,
-      {
-        label: 'Registered Images',
-        icon: 'satellite_alt',
-        childs: [
-          {
-            label: 'Terrace Alluvium TCE Plume Map, March 2017',
-            file: 'TATCE2017March.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.78487, -97.46211], [32.75486, -97.41547]]
-          },
-          {
-            label: 'Terrace Alluvium cis-1,2-DCE and VC Plume Map, March 2017',
-            file: 'cDCE12_VC2017March.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.78489, -97.46208], [32.75476, -97.41542]]
-          },
-          {
-            label: 'GW Elevation Contours for Terrace Alluvium and Fill, April 6 - 10, 2015',
-            file: 'GWContour_TerraceAlluvium_Fill_April2015.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.78546, -97.45857], [32.75847, -97.41162]]
-          },
-          {
-            label: 'Indoor Air Samping Results',
-            file: 'VILRFigure2.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.78411, -97.46226], [32.75642, -97.41288]]
-          },
-          {
-            label: 'Sub slab and Indoor Air Samping Results',
-            file: 'VILRFigure3.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.78411, -97.46226], [32.75642, -97.41288]]
-          },
-          {
-            label: 'USGS Isotope TCE Plume',
-            file: 'TCEPlume.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.77831, -97.45619], [32.76159, -97.4344]]
-          },
-          {
-            label: 'GW Elev Contours for Terrace Alluvium and Fill, March 31 - April 3, 2014',
-            file: 'AFP4Fig_4.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.78564, -97.45994], [32.75612, -97.41157]]
-          },
-          {
-            label: 'Thickness of the Alluvial Aquifer',
-            file: 'Figure8.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.79406,-97.46782], [32.74526,-97.39485]]
-          },
-          {
-            label: 'Thickness of the Goodland Walnut confining Unit',
-            file: 'Figure11.jpg',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.7953,-97.46948], [32.74572,-97.39498]]
-          },
-          {
-            label: 'Terrace Alluvium Plume Map, Spring 2020',
-            file: 'Plumes2020.png',
-            active: false,
-            class: 'geoimage',
-            bounds: [[32.783074,-97.457694], [32.757652,-97.420624]]
-          }
-        ]
-      }
+      // ,
+      // {
+      //   label: 'Registered Images',
+      //   icon: 'satellite_alt',
+      //   childs: [
+      //     {
+      //       label: 'Terrace Alluvium TCE Plume Map, March 2017',
+      //       file: 'TATCE2017March.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.78487, -97.46211], [32.75486, -97.41547]]
+      //     },
+      //     {
+      //       label: 'Terrace Alluvium cis-1,2-DCE and VC Plume Map, March 2017',
+      //       file: 'cDCE12_VC2017March.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.78489, -97.46208], [32.75476, -97.41542]]
+      //     },
+      //     {
+      //       label: 'GW Elevation Contours for Terrace Alluvium and Fill, April 6 - 10, 2015',
+      //       file: 'GWContour_TerraceAlluvium_Fill_April2015.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.78546, -97.45857], [32.75847, -97.41162]]
+      //     },
+      //     {
+      //       label: 'Indoor Air Samping Results',
+      //       file: 'VILRFigure2.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.78411, -97.46226], [32.75642, -97.41288]]
+      //     },
+      //     {
+      //       label: 'Sub slab and Indoor Air Samping Results',
+      //       file: 'VILRFigure3.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.78411, -97.46226], [32.75642, -97.41288]]
+      //     },
+      //     {
+      //       label: 'USGS Isotope TCE Plume',
+      //       file: 'TCEPlume.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.77831, -97.45619], [32.76159, -97.4344]]
+      //     },
+      //     {
+      //       label: 'GW Elev Contours for Terrace Alluvium and Fill, March 31 - April 3, 2014',
+      //       file: 'AFP4Fig_4.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.78564, -97.45994], [32.75612, -97.41157]]
+      //     },
+      //     {
+      //       label: 'Thickness of the Alluvial Aquifer',
+      //       file: 'Figure8.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.79406,-97.46782], [32.74526,-97.39485]]
+      //     },
+      //     {
+      //       label: 'Thickness of the Goodland Walnut confining Unit',
+      //       file: 'Figure11.jpg',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.7953,-97.46948], [32.74572,-97.39498]]
+      //     },
+      //     {
+      //       label: 'Terrace Alluvium Plume Map, Spring 2020',
+      //       file: 'Plumes2020.png',
+      //       active: false,
+      //       class: 'geoimage',
+      //       bounds: [[32.783074,-97.457694], [32.757652,-97.420624]]
+      //     }
+      //   ]
+      // }
     ]
   }),
   getters: {

@@ -1,10 +1,8 @@
 <template>
   <q-layout view="hHh lpR fFf">
 
-    <q-header elevated class="bg-blue-1 text-primary" height-hint="98">
+    <q-header elevated class="bg-primary text-blue-1" height-hint="98">
       <q-toolbar>
-        <q-btn dense round icon="menu" class="bg-primary text-white" @click="toggleLeftDrawer" />
-
         <q-toolbar-title>
           <a href="https://www.nuglobalsolutions.com/" target="_blank">
             <img src="~assets/logo_nuglobalsolutions.png" class="header-logo">
@@ -13,8 +11,6 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
-
-    <left-drawer :open="leftDrawerOpen"/>
 
     <q-page-container>
       <router-view />
@@ -25,33 +21,33 @@
 
 <script>
 import { ref, computed } from 'vue'
-import { useMapStore } from 'src/stores/map-store'
-import LeftDrawer from 'src/components/LeftDrawer.vue'
+// import { useMapStore } from 'src/stores/map-store'
 
 export default {
-  components: {
-    LeftDrawer
-  },
+  name: 'PublicLayout',
   setup () {
-    const $store = useMapStore()
-    const leftDrawerOpen = computed(() => $store.leftDrawerOpen)
+    // const $store = useMapStore()
+    // console.log($store.user)
 
     return {
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        $store.leftDrawerOpen = !$store.leftDrawerOpen
-      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  body .q-layout {
+    height: 100vh;
+  }
+  .q-page-container {
+    height: 100%;
+  }
   .header-logo {
     max-height: 30px;
   }
-  header {
-    background: $background-highlight;
+  :deep(header) {
+    // background: $background-highlight;
+    background: $primary;
   }
   .q-toolbar__title,
   .q-toolbar__title a {

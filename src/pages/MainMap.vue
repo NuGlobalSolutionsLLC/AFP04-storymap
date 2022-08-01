@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-center" ref="pageRef">
+  <q-page class="flex flex-center" ref="pageRef" v-if="isLogged">
     <div class="debug" v-if="false"></div>
     <l-map ref="mapRef"
         :style="`height: ${height};`"
@@ -68,6 +68,10 @@ export default defineComponent({
     LImageOverlay
   },
   setup () {
+    const $store = useMapStore()
+    const isLogged = computed(() => {
+      return $store.user
+    })
     const pageRef = ref(null)
     const mapRef = ref(null)
     const chartRef = ref(null)
@@ -75,7 +79,6 @@ export default defineComponent({
       preferCanvas: true,
       attributionControl: false
     }
-    const $store = useMapStore()
     let geojsonOptions = ref({})
     let height = ref(0)
     let circle
@@ -327,8 +330,10 @@ export default defineComponent({
       setTimeout(() => {
         resizeMap()
         setTimeout(() => {
-          map = mapRef.value.leafletObject
-          map.invalidateSize()
+          if (mapRef.value) {
+            map = mapRef.value.leafletObject
+            map.invalidateSize()
+          }
           getGeoJsons()
         }, 300)
       }, 1)
