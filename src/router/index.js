@@ -1,7 +1,12 @@
-import { route } from 'quasar/wrappers'
-import { createRouter, createMemoryHistory, createWebHistory, createWebHashHistory } from 'vue-router'
-import routes from './routes'
-import { useMapStore } from 'src/stores/map-store'
+import { route } from "quasar/wrappers";
+import {
+  createRouter,
+  createMemoryHistory,
+  createWebHistory,
+  createWebHashHistory,
+} from "vue-router";
+import routes from "./routes";
+import { useMapStore } from "src/stores/map-store";
 
 /*
  * If not building with SSR mode, you can
@@ -15,7 +20,9 @@ import { useMapStore } from 'src/stores/map-store'
 export default route(function (/* { store, ssrContext } */) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
-    : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory)
+    : process.env.VUE_ROUTER_MODE === "history"
+    ? createWebHistory
+    : createWebHashHistory;
 
   const router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
@@ -24,20 +31,36 @@ export default route(function (/* { store, ssrContext } */) {
     // Leave this as is and make changes in quasar.conf.js instead!
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
-    history: createHistory(process.env.VUE_ROUTER_BASE)
-  })
+    history: createHistory(process.env.VUE_ROUTER_BASE),
+  });
+
+  const isValid = (auth) => {
+    const expires = new Date(auth.expires);
+    const now = new Date();
+    console.log(expires, now);
+    if (expires.getTime() > now.getTime()) return true;
+    return false;
+  };
 
   router.beforeEach(async (to) => {
     // redirect to login page if not logged in and trying to access a restricted page
-    const publicPages = ['/login'];
+    const loginUrl = "/login";
+    const publicPages = [loginUrl];
     const authRequired = !publicPages.includes(to.path);
     const $store = useMapStore();
 
-    if (authRequired && !$store.user) {
-        $store.returnUrl = to.fullPath;
-        return '/login';
+    const user = {
+      name: localStorage.getItem("user") || null,
+      expires:
+        parseInt(localStorage.getItem("expires")) || new Date().getTime(),
+    };
+
+    if (authRequired) {
+      if (isValid(user)) return;
+      if (isValid($store.user)) return;
+      return loginUrl;
     }
   });
 
-  return router
-})
+  return router;
+});

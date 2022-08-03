@@ -1,625 +1,699 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const TEMPLATES = {
   tce: {
-    label: 'Trichloroethylene',
-    analyte: 'Trichloroethylene',
+    label: "Trichloroethylene",
+    analyte: "Trichloroethylene",
     limits: [5, 50, 100, 400, 1000, 5000, 10000],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(0,255,197,1.0)', 'rgba(233,255,190,1.0)', 'rgba(255,255,0,1.0)',
-             'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(0,255,197,1.0)",
+      "rgba(233,255,190,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,235,175,1.0)",
+      "rgba(255,170,0,1.0)",
+      "rgba(255,0,0,1.0)",
+      "rgba(132,0,168,1.0)",
+    ],
   },
   cis: {
-    label: 'Dichloroethylene',
-    analyte:  'cis-1,2-Dichloroethylene',
+    label: "Dichloroethylene",
+    analyte: "cis-1,2-Dichloroethylene",
     limits: [5, 70, 700, 7000, 10000, 70000, 140000],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
-             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(0,255,0,1.0)",
+      "rgba(233,255,190,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,235,175,1.0)",
+      "rgba(255,170,0,1.0)",
+      "rgba(255,0,0,1.0)",
+      "rgba(132,0,168,1.0)",
+    ],
   },
   vinyl: {
-    label: 'Vinyl chloride',
-    analyte:  'Vinyl chloride',
+    label: "Vinyl chloride",
+    analyte: "Vinyl chloride",
     limits: [2, 20, 200, 1000, 20000, 100000],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
-             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(233,255,190,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,235,175,1.0)",
+      "rgba(255,170,0,1.0)",
+      "rgba(255,0,0,1.0)",
+      "rgba(132,0,168,1.0)",
+    ],
   },
   ethane: {
-    label: 'Ethane',
-    analyte:  'Ethane',
+    label: "Ethane",
+    analyte: "Ethane",
     limits: [2, 20, 200, 1000, 20000, 100000],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
-             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(233,255,190,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,235,175,1.0)",
+      "rgba(255,170,0,1.0)",
+      "rgba(255,0,0,1.0)",
+      "rgba(132,0,168,1.0)",
+    ],
   },
   ethene: {
-    label: 'Ethene',
-    analyte:  'Ethene',
+    label: "Ethene",
+    analyte: "Ethene",
     limits: [60, 259, 586, 1240],
-    colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
+    colors: [
+      "rgba(56,168,0,1.0)",
+      "rgba(139,209,0,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,128,0,1.0)",
+      "rgba(255,0,0,1.0)",
+    ],
   },
   chromiumVI: {
-    label: 'Chromium',
-    analyte:  'Chromium (VI)',
+    label: "Chromium",
+    analyte: "Chromium (VI)",
     limits: [0, 12, 56],
-    colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
-             'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
+    colors: [
+      "rgba(56,168,0,1.0)",
+      "rgba(139,209,0,1.0)",
+      "rgba(255,128,0,1.0)",
+      "rgba(255,0,0,1.0)",
+    ],
   },
   chromium: {
-    label: 'Chromium',
-    analyte:  'Chromium (Total)',
+    label: "Chromium",
+    analyte: "Chromium (Total)",
     limits: [100, 3650, 9040, 19000],
-    colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
+    colors: [
+      "rgba(56,168,0,1.0)",
+      "rgba(139,209,0,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,128,0,1.0)",
+      "rgba(255,0,0,1.0)",
+    ],
   },
   c13: {
-    label: 'c13',
-    analyte:  null,
+    label: "c13",
+    analyte: null,
     limits: [-29, -27, -26, -24, -21],
-    colors: ['rgba(56,168,0,1.0)', 'rgba(139,209,0,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
+    colors: [
+      "rgba(56,168,0,1.0)",
+      "rgba(139,209,0,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,128,0,1.0)",
+      "rgba(255,0,0,1.0)",
+    ],
   },
   sotce: {
-    label: 'Trichloroethylene',
-    analyte:  'Trichloroethylene',
+    label: "Trichloroethylene",
+    analyte: "Trichloroethylene",
     limits: [12, 100, 1000, 10000, 50000, 100000],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,235,175,1.0)', 'rgba(255,170,0,1.0)',
-             'rgba(255,0,0,1.0)', 'rgba(132,0,168,1.0)']
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(233,255,190,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,235,175,1.0)",
+      "rgba(255,170,0,1.0)",
+      "rgba(255,0,0,1.0)",
+      "rgba(132,0,168,1.0)",
+    ],
   },
   sodce: {
-    label: 'Dichloroethylene',
-    analyte:  'cis-1,2-Dichloroethylene',
+    label: "Dichloroethylene",
+    analyte: "cis-1,2-Dichloroethylene",
     limits: [100, 500, 900],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(255,255,0,1.0)',
-             'rgba(255,128,0,1.0)', 'rgba(255,0,0,1.0)']
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,128,0,1.0)",
+      "rgba(255,0,0,1.0)",
+    ],
   },
   sovinyl: {
-    label: 'Vinyl chloride',
-    analyte:  'Vinyl chloride',
+    label: "Vinyl chloride",
+    analyte: "Vinyl chloride",
     limits: [0, 5],
-    colors: ['rgba(0,200,0,1.0)', 'rgba(255,255,0,1.0)',
-             'rgba(255,0,0,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/kg<br/>Date: ${props.SDate}`
+    colors: ["rgba(0,200,0,1.0)", "rgba(255,255,0,1.0)", "rgba(255,0,0,1.0)"],
+    tooltip: (feature) => {
+      const props = feature.feature.properties;
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/kg<br/>Date: ${props.SDate}`;
     },
-    units: 'μg/kg'
+    units: "μg/kg",
   },
   setce: {
-    label: 'Trichloroethylene',
-    analyte: 'Trichloroethylene',
+    label: "Trichloroethylene",
+    analyte: "Trichloroethylene",
     limits: [0, 44],
-    colors: ['rgba(0,200,0,1.0)', 'rgba(255,255,0,1.0)',
-             'rgba(255,0,0,1.0)'],
-    tooltip: feature => {
-      const props = feature.feature.properties
-      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/kg<br/>Date: ${props.SDate}`
+    colors: ["rgba(0,200,0,1.0)", "rgba(255,255,0,1.0)", "rgba(255,0,0,1.0)"],
+    tooltip: (feature) => {
+      const props = feature.feature.properties;
+      return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/kg<br/>Date: ${props.SDate}`;
     },
-    units: 'μg/kg'
+    units: "μg/kg",
   },
   swtce: {
-    label: 'Trichloroethylene',
-    analyte: 'Trichloroethylene',
+    label: "Trichloroethylene",
+    analyte: "Trichloroethylene",
     limits: [1000, 10000, 100000, 500000, 10000000],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
-             'rgba(132,0,168,1.0)']
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(233,255,190,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,170,0,1.0)",
+      "rgba(255,0,0,1.0)",
+      "rgba(132,0,168,1.0)",
+    ],
   },
   swdce: {
-    label: 'Dichloroethylene',
-    analyte:  'cis-1,2-Dichloroethylene',
+    label: "Dichloroethylene",
+    analyte: "cis-1,2-Dichloroethylene",
     limits: [70, 100, 140, 260, 430],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
-             'rgba(132,0,168,1.0)']
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(233,255,190,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,170,0,1.0)",
+      "rgba(255,0,0,1.0)",
+      "rgba(132,0,168,1.0)",
+    ],
   },
   swvinyl: {
-    label: 'Vinyl chloride',
-    analyte:  'Vinyl chloride',
+    label: "Vinyl chloride",
+    analyte: "Vinyl chloride",
     limits: [2, 200, 2000, 20000, 200000],
-    colors: ['rgba(0,255,0,1.0)', 'rgba(233,255,190,1.0)',
-             'rgba(255,255,0,1.0)', 'rgba(255,170,0,1.0)', 'rgba(255,0,0,1.0)',
-             'rgba(132,0,168,1.0)']
-  }
-}
+    colors: [
+      "rgba(0,255,0,1.0)",
+      "rgba(233,255,190,1.0)",
+      "rgba(255,255,0,1.0)",
+      "rgba(255,170,0,1.0)",
+      "rgba(255,0,0,1.0)",
+      "rgba(132,0,168,1.0)",
+    ],
+  },
+};
 
-
-export const useMapStore = defineStore('map-store', {
+export const useMapStore = defineStore("map-store", {
   state: () => ({
-    user: null,
-    returnUrl: '',
+    user: { name: null, expires: new Date() },
+    expiration_length: 30, // In minutes
+    DETA_NAME: "afp4_users",
+    DETA_ID: "b0gdqr47",
+    DETA_KEY: "b0gdqr47_ZTCENLjTeoj5Rw8moUwKwo6Wrwp5i1at",
+    returnUrl: "",
     leftDrawerOpen: true,
     templates: TEMPLATES,
     selectedFeature: null,
     sections: {
       chemdata: {
         legend: true,
-        color: 'black',
+        color: "black",
         opacity: 1,
         hoverStyle: {
-          fillOpacity: .8,
-          radius: 10
+          fillOpacity: 0.8,
+          radius: 10,
         },
-        units: 'μg/L',
-        tooltip: feature => {
-          const props = feature.feature.properties
-          return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`
-        }
+        units: "μg/L",
+        tooltip: (feature) => {
+          const props = feature.feature.properties;
+          return `Well ID: ${props.Well_ID}<br>Result: ${props.Result} μg/L<br/>Date: ${props.SDate}`;
+        },
       },
       transects: {
         legend: false,
-        color: '#e0f525',
-        fillColor: '#f4d442',
+        color: "#e0f525",
+        fillColor: "#f4d442",
         weight: 5,
         radius: 6,
         hoverStyle: {
-          fillOpacity: .8,
-          radius: 10
+          fillOpacity: 0.8,
+          radius: 10,
         },
         fillOpacity: 1,
-        tooltip: feature => {
-          return feature.feature.properties.name
+        tooltip: (feature) => {
+          return feature.feature.properties.name;
         },
-        popup: feature => {
-          const props = feature.feature.properties
+        popup: (feature) => {
+          const props = feature.feature.properties;
           return `
             <h6>${props.name}</h6>
             <p><img width="600" height="400" src="${props.urlhtml}" alt="${props.Name}"></p>
-          `
+          `;
         },
       },
       wells: {
         legend: false,
-        color: 'black',
-        fillColor: '#9eeb34',
+        color: "black",
+        fillColor: "#9eeb34",
         radius: 6,
         opacity: 1,
         fillOpacity: 1,
         weight: 1,
         hoverStyle: {
-          fillOpacity: .8,
-          radius: 10
+          fillOpacity: 0.8,
+          radius: 10,
         },
-        tooltip: feature => {
-          const props = feature.feature.properties
-          return `Well ID: ${props.Well_ID}`
-        }
+        tooltip: (feature) => {
+          const props = feature.feature.properties;
+          return `Well ID: ${props.Well_ID}`;
+        },
       },
       bi: {
         weight: 5,
-        color: '#006aff',
+        color: "#006aff",
         opacity: 0.9,
         hoverStyle: {
           weight: 7,
-          color: '#e1e3dc'
-        }
+          color: "#e1e3dc",
+        },
       },
       media: {
-        color: '#e3eb7a',
-        fillColor: 'transparent',
+        color: "#e3eb7a",
+        fillColor: "transparent",
         weight: 5,
         radius: 6,
         opacity: 0.9,
         hoverStyle: {
           radius: 10,
-          color: '#e1e3dc'
+          color: "#e1e3dc",
         },
-        fillOpacity: 1
-      }
+        fillOpacity: 1,
+      },
     },
     layers: [
       {
-        label: 'Layer List',
-        icon: 'layers',
-        mode: 'single-select',
+        label: "Layer List",
+        icon: "layers",
+        mode: "single-select",
         childs: [
           {
-            label: 'TCE in GW',
-            file: 'GWTCE46.json',
-            class: 'chemdata',
+            label: "TCE in GW",
+            file: "GWTCE46.json",
+            class: "chemdata",
             active: true,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE > 1990 in GW',
-            file: 'GWTCEafter199045.json',
-            class: 'chemdata',
+            label: "TCE > 1990 in GW",
+            file: "GWTCEafter199045.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE > 2000 in GW',
-            file: 'GWTCEafter200044.json',
-            class: 'chemdata',
+            label: "TCE > 2000 in GW",
+            file: "GWTCEafter200044.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE > 2016 in GW',
-            file: 'GWTCEafter201654.json',
-            class: 'chemdata',
+            label: "TCE > 2016 in GW",
+            file: "GWTCEafter201654.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE Max in GW',
-            file: 'GWTCEMax43.json',
-            class: 'chemdata',
+            label: "TCE Max in GW",
+            file: "GWTCEMax43.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE Terrace Alluvial in GW',
-            file: 'GWTCETerrace42.json',
-            class: 'chemdata',
+            label: "TCE Terrace Alluvial in GW",
+            file: "GWTCETerrace42.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE Walnut in GW',
-            file: 'GWTCEWalnut41.json',
-            class: 'chemdata',
+            label: "TCE Walnut in GW",
+            file: "GWTCEWalnut41.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE Upper Paluxy in GW',
-            file: 'GWTCEUpperP40.json',
-            class: 'chemdata',
+            label: "TCE Upper Paluxy in GW",
+            file: "GWTCEUpperP40.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE Middle Paluxy in GW',
-            file: 'GWTCEMiddleP39.json',
-            class: 'chemdata',
+            label: "TCE Middle Paluxy in GW",
+            file: "GWTCEMiddleP39.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE Lower Paluxy in GW',
-            file: 'GWTCELowerP38.json',
-            class: 'chemdata',
+            label: "TCE Lower Paluxy in GW",
+            file: "GWTCELowerP38.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.tce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Cis 1,2-DCE in GW',
-            file: 'GWcis12DCE37.json',
-            class: 'chemdata',
+            label: "Cis 1,2-DCE in GW",
+            file: "GWcis12DCE37.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.cis,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Cis 1,2-DCE > 2000 in GW',
-            file: 'GWcis12DCEafter200036.json',
-            class: 'chemdata',
+            label: "Cis 1,2-DCE > 2000 in GW",
+            file: "GWcis12DCEafter200036.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.cis,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Vinyl chloride in GW',
-            file: 'GWVC35.json',
-            class: 'chemdata',
+            label: "Vinyl chloride in GW",
+            file: "GWVC35.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.vinyl,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Vinyl chloride > 2000 in GW',
-            file: 'GWVCafter200034.json',
-            class: 'chemdata',
+            label: "Vinyl chloride > 2000 in GW",
+            file: "GWVCafter200034.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.vinyl,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Ethane in GW',
-            file: 'GWEthane32.json',
-            class: 'chemdata',
+            label: "Ethane in GW",
+            file: "GWEthane32.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.ethane,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Ethene in GW',
-            file: 'GWEthene33.json',
-            class: 'chemdata',
+            label: "Ethene in GW",
+            file: "GWEthene33.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.ethene,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Chromium VI in GW',
-            file: 'GWChromiumVI28.json',
-            class: 'chemdata',
+            label: "Chromium VI in GW",
+            file: "GWChromiumVI28.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.chromiumVI,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Total Chromium in GW',
-            file: 'GWTotalChromium27.json',
-            class: 'chemdata',
+            label: "Total Chromium in GW",
+            file: "GWTotalChromium27.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.chromium,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'C13 Data in GW',
-            file: 'GWC13Data26.json',
-            class: 'chemdata',
+            label: "C13 Data in GW",
+            file: "GWC13Data26.json",
+            class: "chemdata",
             active: false,
-            matrix: 'GW',
+            matrix: "GW",
             template: TEMPLATES.c13,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE in SO',
-            file: 'SOTCE24.json',
-            class: 'chemdata',
+            label: "TCE in SO",
+            file: "SOTCE24.json",
+            class: "chemdata",
             active: false,
-            matrix: 'SO',
+            matrix: "SO",
             template: TEMPLATES.sotce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Cis 1,2-DCE in SO',
-            file: 'SOcis12DCE23.json',
-            class: 'chemdata',
+            label: "Cis 1,2-DCE in SO",
+            file: "SOcis12DCE23.json",
+            class: "chemdata",
             active: false,
-            matrix: 'SO',
+            matrix: "SO",
             template: TEMPLATES.sodce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Vinyl chloride in SO',
-            file: 'SOVC22.json',
-            class: 'chemdata',
+            label: "Vinyl chloride in SO",
+            file: "SOVC22.json",
+            class: "chemdata",
             active: false,
-            matrix: 'SO',
+            matrix: "SO",
             template: TEMPLATES.sovinyl,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE in SE',
-            file: 'SETCE21.json',
-            class: 'chemdata',
+            label: "TCE in SE",
+            file: "SETCE21.json",
+            class: "chemdata",
             active: false,
-            matrix: 'SE',
+            matrix: "SE",
             template: TEMPLATES.setce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'TCE in SW',
-            file: 'SWTCE20.json',
-            class: 'chemdata',
+            label: "TCE in SW",
+            file: "SWTCE20.json",
+            class: "chemdata",
             active: false,
-            matrix: 'SW',
+            matrix: "SW",
             template: TEMPLATES.swtce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Cis 1,2-DCE in SW',
-            file: 'SWcis12DCE19.json',
-            class: 'chemdata',
+            label: "Cis 1,2-DCE in SW",
+            file: "SWcis12DCE19.json",
+            class: "chemdata",
             active: false,
-            matrix: 'SW',
+            matrix: "SW",
             template: TEMPLATES.swdce,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
+                color: "black",
+                weight: 1,
+              };
+            },
           },
           {
-            label: 'Vinyl chloride in SW',
-            file: 'SWVC18.json',
-            class: 'chemdata',
+            label: "Vinyl chloride in SW",
+            file: "SWVC18.json",
+            class: "chemdata",
             active: false,
-            matrix: 'SW',
+            matrix: "SW",
             template: TEMPLATES.swvinyl,
-            style: feature => {
+            style: (feature) => {
               return {
                 radius: 6,
-                color: 'black',
-                weight: 1
-              }
-            }
-          }
-        ]
+                color: "black",
+                weight: 1,
+              };
+            },
+          },
+        ],
       },
       {
-        label: 'Transects',
-        icon: 'stacked_line_chart',
+        label: "Transects",
+        icon: "stacked_line_chart",
         childs: [
           {
-            label: '4D View',
-            file: 'TranLine4DView17.json',
+            label: "4D View",
+            file: "TranLine4DView17.json",
             active: false,
-            class: 'transects',
+            class: "transects",
             hoverStyle: {
               weight: 7,
-              color: '#e1e3dc'
-            }
+              color: "#e1e3dc",
+            },
           },
           // {
           //   label: 'East Parking Lot & B181 CSM',
@@ -688,50 +762,75 @@ export const useMapStore = defineStore('map-store', {
           //   }
           // },
           {
-            label: 'Series 2 - Transect',
-            file: 'TranLineSeries214.json',
+            label: "Series 2 - Transect",
+            file: "TranLineSeries214.json",
             active: false,
-            class: 'transects',
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Series 2 - Transect') {
-                return feature.properties.layer.style(feature)
+            class: "transects",
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "Series 2 - Transect"
+              ) {
+                return feature.properties.layer.style(feature);
               }
-              const props = feature.properties
-              let color = (props.Name === 'AA' ? '#f56725' :
-                           props.Name === 'BB' ? '#e0f525' :
-                           props.Name === 'CC' ? '#1cad21' :
-                           props.Name === 'DD' ? '#1c58ad' :
-                           props.Name === 'EE' ? '#c149c9' :
-                           props.Name === 'FF' ? '#64f5fa' : '#FF0000')
+              const props = feature.properties;
+              let color =
+                props.Name === "AA"
+                  ? "#f56725"
+                  : props.Name === "BB"
+                  ? "#e0f525"
+                  : props.Name === "CC"
+                  ? "#1cad21"
+                  : props.Name === "DD"
+                  ? "#1c58ad"
+                  : props.Name === "EE"
+                  ? "#c149c9"
+                  : props.Name === "FF"
+                  ? "#64f5fa"
+                  : "#FF0000";
               return {
                 color: color,
-                weight: 5
-              }
+                weight: 5,
+              };
             },
             options: {
               hoverStyle: {
                 weight: 7,
-                color: '#e1e1e1'
-              }
+                color: "#e1e1e1",
+              },
             },
             template: {
-              label: 'Transect Series 2',
+              label: "Transect Series 2",
               legend: true,
-              tooltip: feature => {
-                return `<p>Transect ${feature.feature.properties.Name}</p>`
+              tooltip: (feature) => {
+                return `<p>Transect ${feature.feature.properties.Name}</p>`;
               },
-              popup: feature => {
-                const props = feature.feature.properties
+              popup: (feature) => {
+                const props = feature.feature.properties;
                 return `
                   <h6>Transect ${props.Name}</h6>
                   <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
-                `
+                `;
               },
-              colorRampType: 'category',
-              limits: ['AA', 'BB', 'CC', 'DD', 'EE', 'FF'],
-              labels: ['Transect AA', 'Transect BB', 'Transect CC', 'Transect DD', 'Transect EE', 'Transect FF'],
-              colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad', '#c149c9', '#64f5fa']
-            }
+              colorRampType: "category",
+              limits: ["AA", "BB", "CC", "DD", "EE", "FF"],
+              labels: [
+                "Transect AA",
+                "Transect BB",
+                "Transect CC",
+                "Transect DD",
+                "Transect EE",
+                "Transect FF",
+              ],
+              colors: [
+                "#f56725",
+                "#e0f525",
+                "#1cad21",
+                "#1c58ad",
+                "#c149c9",
+                "#64f5fa",
+              ],
+            },
           },
           // {
           //   label: 'Series 3 - Transect',
@@ -777,316 +876,350 @@ export const useMapStore = defineStore('map-store', {
           //     colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad']
           //   }
           // }
-        ]
+        ],
       },
       {
-        label: 'Well Characteristics, Soil Type, Base Topo',
-        icon: 'commit',
+        label: "Well Characteristics, Soil Type, Base Topo",
+        icon: "commit",
         childs: [
           {
-            label: 'Active Wells',
-            file: 'ActiveWells.json',
+            label: "Active Wells",
+            file: "ActiveWells.json",
             active: false,
-            class: 'wells'
+            class: "wells",
           },
           {
-            label: 'Abandoned Wells',
-            file: 'AbanWells.json',
+            label: "Abandoned Wells",
+            file: "AbanWells.json",
             active: false,
-            class: 'wells',
+            class: "wells",
             template: {
-              fillColor: '#ebf4ff'
-            }
+              fillColor: "#ebf4ff",
+            },
           },
           {
-            label: 'TA Wells',
-            file: 'WCTAWells12.json',
+            label: "TA Wells",
+            file: "WCTAWells12.json",
             active: false,
-            class: 'wells',
+            class: "wells",
             template: {
-              fillColor: '#caffa3'
-            }
+              fillColor: "#caffa3",
+            },
           },
           {
-            label: 'Upper Sands of the Upper Paluxy Wells',
-            file: 'WCUSUPWells11.json',
+            label: "Upper Sands of the Upper Paluxy Wells",
+            file: "WCUSUPWells11.json",
             active: false,
-            class: 'wells',
+            class: "wells",
             template: {
-              fillColor: '#c44fef'
-            }
+              fillColor: "#c44fef",
+            },
           },
           {
-            label: 'UP Wells',
-            file: 'WCUPWells10.json',
+            label: "UP Wells",
+            file: "WCUPWells10.json",
             active: false,
-            class: 'wells',
+            class: "wells",
             template: {
-              fillColor: '#13748e'
-            }
+              fillColor: "#13748e",
+            },
           },
           {
-            label: 'MP Wells',
-            file: 'WCMPWells9.json',
+            label: "MP Wells",
+            file: "WCMPWells9.json",
             active: false,
-            class: 'wells',
+            class: "wells",
             template: {
-              fillColor: '#a04311'
-            }
+              fillColor: "#a04311",
+            },
           },
           {
-            label: 'LP Wells',
-            file: 'WCLPWells8.json',
+            label: "LP Wells",
+            file: "WCLPWells8.json",
             active: false,
-            class: 'wells',
+            class: "wells",
             template: {
-              fillColor: '#138e44'
-            }
+              fillColor: "#138e44",
+            },
           },
           {
-            label: 'Texas Public Water Wells',
-            file: 'TXPWW.json',
+            label: "Texas Public Water Wells",
+            file: "TXPWW.json",
             active: false,
-            class: 'wells',
+            class: "wells",
             template: {
-              fillColor: '#caffa3'
+              fillColor: "#caffa3",
             },
             template: {
-              tooltip: feature => {
-                const props = feature.feature.properties
+              tooltip: (feature) => {
+                const props = feature.feature.properties;
                 return `
                   Well ID: ${props.ST_WELL_NO}<br>
                   System Name: ${props.SYS_NAME}<br>
                   Aquifer: ${props.AQUIFER}<br>
                   Well Depth: ${props.WELL_DEPTH}
-                `
-              }
-            }
-          }
-        ]
+                `;
+              },
+            },
+          },
+        ],
       },
       {
-        label: 'Base Infrastructure',
-        icon: 'fence',
+        label: "Base Infrastructure",
+        icon: "fence",
         childs: [
           {
-            label: 'Meandering Road Creek',
-            file: 'BIMeanderingRoadCreek7.json',
+            label: "Meandering Road Creek",
+            file: "BIMeanderingRoadCreek7.json",
             active: false,
-            class: 'bi',
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Meandering Road Creek') {
-                feature.properties.layer.style(feature)
+            class: "bi",
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "Meandering Road Creek"
+              ) {
+                feature.properties.layer.style(feature);
               }
               return {
                 weight: 5,
-                color: '#006aff',
-                opacity: 0.9
-              }
-            }
+                color: "#006aff",
+                opacity: 0.9,
+              };
+            },
           },
           {
-            label: 'Farmers Branch Creek & Vicinity',
-            file: 'uuflowline.json',
+            label: "Farmers Branch Creek & Vicinity",
+            file: "uuflowline.json",
             active: false,
-            class: 'bi',
+            class: "bi",
             options: {
-              tooltip: feature => {
-                const props = feature.feature.properties
-                return props.Name
-              }
+              tooltip: (feature) => {
+                const props = feature.feature.properties;
+                return props.Name;
+              },
             },
             template: {
-              label: 'Farmers Branch Creek & Vicinity',
+              label: "Farmers Branch Creek & Vicinity",
               legend: true,
-              colorRampType: 'category',
-              limits: ['Farmers Branch Creek', 'Unnamed Tributary', 'Kings Branch Creek', 'Underground Aqueduct'],
-              colors: ['#f56725', '#e0f525', '#1cad21', '#1c58ad']
+              colorRampType: "category",
+              limits: [
+                "Farmers Branch Creek",
+                "Unnamed Tributary",
+                "Kings Branch Creek",
+                "Underground Aqueduct",
+              ],
+              colors: ["#f56725", "#e0f525", "#1cad21", "#1c58ad"],
             },
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Farmers Branch Creek & Vicinity') {
-                return feature.properties.layer.style(feature)
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !==
+                  "Farmers Branch Creek & Vicinity"
+              ) {
+                return feature.properties.layer.style(feature);
               }
-              const props = feature.properties
-              let color
-              if (props.Name === 'Farmers Branch Creek') color = '#f56725'
-              else if (props.Name === 'Unnamed Tributary') color = '#e0f525'
-              else if (props.Name === 'Kings Branch Creek') color = '#1cad21'
-              else if (props.Name === 'Underground Aqueduct') color = '#1c58ad'
-              else color = '#FF0000'
+              const props = feature.properties;
+              let color;
+              if (props.Name === "Farmers Branch Creek") color = "#f56725";
+              else if (props.Name === "Unnamed Tributary") color = "#e0f525";
+              else if (props.Name === "Kings Branch Creek") color = "#1cad21";
+              else if (props.Name === "Underground Aqueduct") color = "#1c58ad";
+              else color = "#FF0000";
               let style = {
                 weight: 5,
                 color: color,
-                opacity: 0.9
-              }
-              if (props.Name === 'Underground Aqueduct') style.dashArray = '1, 8'
-              return style
-            }
-          },
-          {
-            label: 'Navy SWMUs',
-            file: 'BINavySWMUs6.json',
-            active: false,
-            class: 'bi',
-            options: {
-              tooltip: feature => {
-                const props = feature.feature.properties
-                return props.DESC_
-              }
+                opacity: 0.9,
+              };
+              if (props.Name === "Underground Aqueduct")
+                style.dashArray = "1, 8";
+              return style;
             },
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Navy SWMUs') {
-                return feature.properties.layer.style(feature)
-              }
-              return {
-                weight: 3,
-                color: '#f70505',
-                opacity: 0.9
-              }
-            }
           },
           {
-            label: 'AFP4 Site Boundaries',
-            file: 'BIAFP4SBoundaries5.json',
+            label: "Navy SWMUs",
+            file: "BINavySWMUs6.json",
             active: false,
-            class: 'bi',
+            class: "bi",
             options: {
-              tooltip: feature => {
-                const props = feature.feature.properties
-                return props.FACNO
-              }
+              tooltip: (feature) => {
+                const props = feature.feature.properties;
+                return props.DESC_;
+              },
             },
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'AFP4 Site Boundaries') {
-                return feature.properties.layer.style(feature)
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "Navy SWMUs"
+              ) {
+                return feature.properties.layer.style(feature);
               }
               return {
                 weight: 3,
-                color: '#f78205',
-                opacity: 0.9
-              }
-            }
+                color: "#f70505",
+                opacity: 0.9,
+              };
+            },
           },
           {
-            label: 'Window Area Based on USGS',
-            file: 'BIWindowArea4.json',
+            label: "AFP4 Site Boundaries",
+            file: "BIAFP4SBoundaries5.json",
             active: false,
-            class: 'bi',
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Window Area Based on USGS') {
-                return feature.properties.layer.style(feature)
-              }
-              return {
-                weight: 3,
-                color: '#9e0000',
-                opacity: 0.9
-              }
-            }
-          },
-          {
-            label: 'AFP4 Boundary',
-            file: 'BIAFP4Boundary3.json',
-            active: false,
-            class: 'bi',
+            class: "bi",
             options: {
-              tooltip: feature => {
-                const props = feature.feature.properties
-                return `FACNO: ${props.FACNO}<br>AERA: ${props.AREA}<br>PERIMETER: ${props.PERIMETER}`
-              }
+              tooltip: (feature) => {
+                const props = feature.feature.properties;
+                return props.FACNO;
+              },
             },
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'AFP4 Boundary') {
-                return feature.properties.layer.style(feature)
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "AFP4 Site Boundaries"
+              ) {
+                return feature.properties.layer.style(feature);
               }
               return {
                 weight: 3,
-                color: '#3bceff',
-                opacity: 0.9
-              }
-            }
+                color: "#f78205",
+                opacity: 0.9,
+              };
+            },
           },
           {
-            label: 'NASFW boundary',
-            file: 'BINASFWboundary2.json',
+            label: "Window Area Based on USGS",
+            file: "BIWindowArea4.json",
             active: false,
-            class: 'bi',
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'NASFW boundary') {
-                return feature.properties.layer.style(feature)
+            class: "bi",
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "Window Area Based on USGS"
+              ) {
+                return feature.properties.layer.style(feature);
               }
               return {
                 weight: 3,
-                color: '#ff3beb',
-                opacity: 0.9
+                color: "#9e0000",
+                opacity: 0.9,
+              };
+            },
+          },
+          {
+            label: "AFP4 Boundary",
+            file: "BIAFP4Boundary3.json",
+            active: false,
+            class: "bi",
+            options: {
+              tooltip: (feature) => {
+                const props = feature.feature.properties;
+                return `FACNO: ${props.FACNO}<br>AERA: ${props.AREA}<br>PERIMETER: ${props.PERIMETER}`;
+              },
+            },
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "AFP4 Boundary"
+              ) {
+                return feature.properties.layer.style(feature);
               }
-            }
-          }
-        ]
+              return {
+                weight: 3,
+                color: "#3bceff",
+                opacity: 0.9,
+              };
+            },
+          },
+          {
+            label: "NASFW boundary",
+            file: "BINASFWboundary2.json",
+            active: false,
+            class: "bi",
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "NASFW boundary"
+              ) {
+                return feature.properties.layer.style(feature);
+              }
+              return {
+                weight: 3,
+                color: "#ff3beb",
+                opacity: 0.9,
+              };
+            },
+          },
+        ],
       },
       {
-        label: 'Photos / Videos',
-        icon: 'photo_camera',
+        label: "Photos / Videos",
+        icon: "photo_camera",
         childs: [
           {
-            label: 'Photos',
-            file: 'PVRPhotos1.json',
+            label: "Photos",
+            file: "PVRPhotos1.json",
             active: false,
-            class: 'media',
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Photos') {
-                return feature.properties.layer.style(feature)
+            class: "media",
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "Photos"
+              ) {
+                return feature.properties.layer.style(feature);
               }
               return {
                 weight: 5,
                 radius: 6,
-                color: '#e3eb7a'
-              }
+                color: "#e3eb7a",
+              };
             },
             template: {
-              tooltip: feature => {
-                const props = feature.feature.properties
-                return props.Name
+              tooltip: (feature) => {
+                const props = feature.feature.properties;
+                return props.Name;
               },
-              popup: feature => {
-                const props = feature.feature.properties
+              popup: (feature) => {
+                const props = feature.feature.properties;
                 return `
                   ${props.Name}<br>
                   <img width="600" height="400" src="${props.urlhtml}">
-                `
-              }
-            }
+                `;
+              },
+            },
           },
           {
-            label: 'Videos',
-            file: 'PVRVideos0.json',
+            label: "Videos",
+            file: "PVRVideos0.json",
             active: false,
-            class: 'media',
-            style: feature => {
-              if (feature.properties.layer.style && feature.properties.layer.label !== 'Videos') {
-                return feature.properties.layer.style(feature)
+            class: "media",
+            style: (feature) => {
+              if (
+                feature.properties.layer.style &&
+                feature.properties.layer.label !== "Videos"
+              ) {
+                return feature.properties.layer.style(feature);
               }
               return {
                 weight: 5,
                 radius: 6,
-                color: '#e3eb7a'
-              }
+                color: "#e3eb7a",
+              };
             },
             template: {
-              tooltip: feature => {
-                const props = feature.feature.properties
-                return props.Name
+              tooltip: (feature) => {
+                const props = feature.feature.properties;
+                return props.Name;
               },
-              popup: feature => {
-                const props = feature.feature.properties
+              popup: (feature) => {
+                const props = feature.feature.properties;
                 return `
                   ${props.Name}<br>
                   <video width="640" height="360" controls><source src="${props.url}" type="video/mp4"></video>
-                `
-              }
-            }
-          }
-        ]
-      }
+                `;
+              },
+            },
+          },
+        ],
+      },
       // ,
       // {
       //   label: 'Registered Images',
@@ -1164,23 +1297,43 @@ export const useMapStore = defineStore('map-store', {
       //     }
       //   ]
       // }
-    ]
+    ],
   }),
   getters: {
     getSelectedFeatureStyle: (state) => {
-      const feature = state.selectedFeature.feature
-      const template = state.selectedFeature.options
-      const step = template.limits.find(limit => {
-        return feature.properties.Result <= limit
-      })
-      const index = template.limits.indexOf(step)
-      const color = index !== -1 ? template.colors[index] : template.colors[template.colors.length - 1]
+      const feature = state.selectedFeature.feature;
+      const template = state.selectedFeature.options;
+      const step = template.limits.find((limit) => {
+        return feature.properties.Result <= limit;
+      });
+      const index = template.limits.indexOf(step);
+      const color =
+        index !== -1
+          ? template.colors[index]
+          : template.colors[template.colors.length - 1];
       return Object.assign(template, {
         fillColor: color,
         fillOpacity: 1,
         radius: 6,
-        weight: 1
-      })
-    }
-  }
+        weight: 1,
+      });
+    },
+  },
+  actions: {
+    async saveLoginState(username) {
+      const now = new Date();
+      const expires = now.getTime() + this.expiration_length * 60000;
+      this.user = {
+        name: username,
+        expires: expires,
+      };
+      localStorage.setItem("user", username);
+      localStorage.setItem("expires", expires);
+    },
+    saveLogoutState() {
+      this.user = { name: null, expires: new Date() };
+      localStorage.setItem("user", null);
+      localStorage.setItem("expires", new Date());
+    },
+  },
 });
