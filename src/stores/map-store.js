@@ -17,6 +17,13 @@ const TEMPLATES = {
       "rgba(255,0,0,1.0)",
       "rgba(132,0,168,1.0)",
     ],
+    style: () => {
+      return {
+        radius: 6,
+        color: "black",
+        weight: 1,
+      };
+    },
   },
   cis: {
     label: "Dichloroethylene",
@@ -296,13 +303,7 @@ export const useMapStore = defineStore("map-store", {
             active: true,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE > 1990 in GW",
@@ -311,13 +312,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE > 2000 in GW",
@@ -326,13 +321,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE > 2016 in GW",
@@ -341,13 +330,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE Max in GW",
@@ -356,13 +339,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE Terrace Alluvial in GW",
@@ -371,13 +348,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE Walnut in GW",
@@ -386,13 +357,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE Upper Paluxy in GW",
@@ -401,13 +366,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE Middle Paluxy in GW",
@@ -416,13 +375,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE Lower Paluxy in GW",
@@ -431,13 +384,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.tce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Cis 1,2-DCE in GW",
@@ -446,13 +393,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.cis,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Cis 1,2-DCE > 2000 in GW",
@@ -461,13 +402,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.cis,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Vinyl chloride in GW",
@@ -476,13 +411,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.vinyl,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Vinyl chloride > 2000 in GW",
@@ -491,13 +420,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.vinyl,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Ethane in GW",
@@ -506,13 +429,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.ethane,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Ethene in GW",
@@ -521,13 +438,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.ethene,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Chromium VI in GW",
@@ -536,13 +447,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.chromiumVI,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Total Chromium in GW",
@@ -551,13 +456,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.chromium,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "C13 Data in GW",
@@ -566,13 +465,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "GW",
             template: TEMPLATES.c13,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE in SO",
@@ -581,13 +474,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "SO",
             template: TEMPLATES.sotce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Cis 1,2-DCE in SO",
@@ -596,13 +483,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "SO",
             template: TEMPLATES.sodce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Vinyl chloride in SO",
@@ -611,13 +492,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "SO",
             template: TEMPLATES.sovinyl,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE in SE",
@@ -626,13 +501,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "SE",
             template: TEMPLATES.setce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "TCE in SW",
@@ -641,13 +510,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "SW",
             template: TEMPLATES.swtce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Cis 1,2-DCE in SW",
@@ -656,13 +519,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "SW",
             template: TEMPLATES.swdce,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
           {
             label: "Vinyl chloride in SW",
@@ -671,13 +528,7 @@ export const useMapStore = defineStore("map-store", {
             active: false,
             matrix: "SW",
             template: TEMPLATES.swvinyl,
-            style: (feature) => {
-              return {
-                radius: 6,
-                color: "black",
-                weight: 1,
-              };
-            },
+            style: TEMPLATES.tce.style,
           },
         ],
       },
@@ -949,8 +800,6 @@ export const useMapStore = defineStore("map-store", {
             class: "wells",
             template: {
               fillColor: "#caffa3",
-            },
-            template: {
               tooltip: (feature) => {
                 const props = feature.feature.properties;
                 return `
