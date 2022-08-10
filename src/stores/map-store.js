@@ -625,20 +625,14 @@ export const useMapStore = defineStore("map-store", {
                 return feature.properties.layer.style(feature);
               }
               const props = feature.properties;
-              let color =
-                props.Name === "AA"
-                  ? "#f56725"
-                  : props.Name === "BB"
-                  ? "#e0f525"
-                  : props.Name === "CC"
-                  ? "#1cad21"
-                  : props.Name === "DD"
-                  ? "#1c58ad"
-                  : props.Name === "EE"
-                  ? "#c149c9"
-                  : props.Name === "FF"
-                  ? "#64f5fa"
-                  : "#FF0000";
+              let color;
+              if (props.Name === "AA") color = "#f56725";
+              else if (props.Name === "BB") color = "#e0f525";
+              else if (props.Name === "CC") color = "#1cad21";
+              else if (props.Name === "DD") color = "#1c58ad";
+              else if (props.Name === "EE") color = "#c149c9";
+              else if (props.Name === "FF") color = "#64f5fa";
+              else color = "#FF0000";
               return {
                 color: color,
                 weight: 5,

@@ -33,6 +33,7 @@
             type="submit"
             color="primary"
             class="full-width"
+            :disabled="loginDisabled"
           />
         </div>
       </q-form>
@@ -53,6 +54,7 @@ export default defineComponent({
     const isPwd = ref(true);
     const $store = useMapStore();
     const errors = ref("");
+    const loginDisabled = ref(false);
     const router = useRouter();
 
     const sha256 = async (message) => {
@@ -63,7 +65,9 @@ export default defineComponent({
     };
 
     const doLogin = async () => {
-      // Login usig the PHP backend
+      errors.value = "";
+      loginDisabled.value = true;
+      // Log in usig the PHP backend
       // const url = 'https://app.nuglobalsolutions.com/AFP4/index.php'
       // const formData = new FormData();
       // formData.append('user', username);
@@ -81,6 +85,7 @@ export default defineComponent({
       //   }
       // })
       const url = `https://database.deta.sh/v1/${$store.DETA_ID}/afp4_users/items/${username.value}`;
+      const errorMessage = "Username or password do not match.";
       fetch(url, {
         method: "GET",
         headers: {
@@ -91,8 +96,10 @@ export default defineComponent({
       })
         .then((response) => {
           if (response.ok) return response.json();
-          else if (response.status === 404)
-            errors.value = "Username or password do not match.";
+          else if (response.status === 404) {
+            errors.value = errorMessage;
+            loginDisabled.value = false;
+          }
         })
         .then((json) => {
           if (json) {
@@ -101,7 +108,8 @@ export default defineComponent({
                 $store.saveLoginState(username.value);
                 router.push("/");
               } else {
-                errors.value = "Username or password do not match.";
+                errors.value = errorMessage;
+                loginDisabled.value = false;
               }
             });
           }
@@ -114,6 +122,7 @@ export default defineComponent({
       doLogin,
       errors,
       isPwd,
+      loginDisabled,
       password,
       username,
     };
@@ -144,6 +153,9 @@ section {
     border-radius: 4px;
     background: #2b2b36;
     color: #9199aa;
+    .errors {
+      color: red;
+    }
     .buttons {
       padding: 10px;
     }

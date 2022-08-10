@@ -39,7 +39,7 @@
         />
       </div>
 
-      <div class="legends" v-html="legends"></div>
+      <map-legend :layers="legendLayers" />
     </l-map>
 
     <LineChart
@@ -56,13 +56,13 @@
 import "leaflet/dist/leaflet.css";
 import * as L from "leaflet";
 import LineChart from "src/components/LineChart.vue";
+import MapLegend from "src/components/MapLegend.vue";
 import {
   defineComponent,
   onBeforeMount,
   onMounted,
   computed,
   ref,
-  inject,
   watchEffect,
 } from "vue";
 import {
@@ -77,6 +77,7 @@ import { useMapStore } from "src/stores/map-store";
 export default defineComponent({
   name: "MainMap",
   components: {
+    MapLegend,
     LineChart,
     LControlAttribution,
     LMap,
@@ -298,44 +299,15 @@ export default defineComponent({
       }
     };
 
-    const legends = computed(() => {
-      const layers = getActiveLayers();
-      const html = layers.map((layer) => {
+    const legendLayers = computed(() => {
+      return getActiveLayers().filter((layer) => {
         let params = Object.assign(
           { colorRampType: "range" },
           $store.sections[layer.class]
         );
         params = Object.assign(params, layer.template);
-        if (!params.legend) return "";
-        if (params.colorRampType === "category") {
-          const categories = params.limits.map((limit, index) => {
-            const previous = index === 0 ? 0 : params.limits[index - 1];
-            const label = params.labels ? params.labels[index] : limit;
-            return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span>${label}</li>`;
-          });
-          const title = `<li class="title">${params.label}</li>`;
-          return `<ul class="legend">${title}${categories.join("")}</ul>`;
-        } else {
-          const categories = params.limits.map((limit, index) => {
-            const previous = index === 0 ? 0 : params.limits[index - 1];
-            return `<li><span class="sample" style="background: ${layer.template.colors[index]};">&nbsp;</span> ${previous} - ${limit}</li>`;
-          });
-          categories.push(`
-            <li>
-            <span class="sample" style="background: ${
-              params.colors[params.colors.length - 1]
-            };">&nbsp;</span>
-            > ${params.limits[params.limits.length - 1]}
-            </li>
-          `);
-          const title = `<li class="title">${params.label}</li>`;
-          const units = `<li>Units: ${params.units}</li>`;
-          return `<ul class="legend">${title}${units}${categories.join(
-            ""
-          )}</ul>`;
-        }
+        return params.legend;
       });
-      return html.filter((fragment) => fragment.length > 0).join("");
     });
 
     const getGeoJsons = async () => {
@@ -417,7 +389,7 @@ export default defineComponent({
       geoJsons,
       geojsonOptions,
       height,
-      legends,
+      legendLayers,
       mapOptions,
       mapRef,
       overlays,
@@ -454,47 +426,6 @@ export default defineComponent({
   color: white;
   padding: 20px;
   z-index: 99999;
-}
-.legends {
-  position: absolute;
-  z-index: 400;
-  right: 5px;
-  top: 5px;
-  transition: none;
-}
-:deep(.legends) .legend {
-  background: white;
-  border-radius: 8px;
-  margin: 5px;
-  padding: 10px;
-  transition: opacity 0.3s ease-out;
-  opacity: 0.8;
-}
-:deep(.legends) .legend:hover {
-  opacity: 1;
-  transition: opacity 0.3s ease-in;
-}
-:deep(.legends) ul {
-  list-style: none;
-  transition: none;
-}
-:deep(.legends) ul li {
-  display: flex;
-  align-items: center;
-  font-size: 1.2em;
-  transition: none;
-}
-:deep(.legends) ul li.title {
-  font-weight: bold;
-}
-:deep(.legends) span {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border: 1px solid black;
-  border-radius: 50%;
-  margin-right: 10px;
-  transition: none;
 }
 :deep(.leaflet-popup) #close {
   position: absolute;
