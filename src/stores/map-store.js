@@ -235,8 +235,8 @@ export const useMapStore = defineStore("map-store", {
     user: { name: null, expires: new Date() },
     expiration_length: 300, // In minutes
     DETA_NAME: "afp4_users",
-    DETA_ID: "b0gdqr47",
-    DETA_KEY: "b0gdqr47_ZTCENLjTeoj5Rw8moUwKwo6Wrwp5i1at",
+    DETA_ID: "b0z21l00",
+    DETA_KEY: "b0z21l00_SW7oNeN9ZyuHQrGga1d3DXN7TvHaj7yR",
     returnUrl: "",
     leftDrawerOpen: true,
     templates: TEMPLATES,
