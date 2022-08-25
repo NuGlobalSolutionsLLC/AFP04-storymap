@@ -81,7 +81,7 @@ export default defineComponent({
       // }).then(text => {
       //   const error = text.split('<span>')[1].split('</span>')[0]
       //   if (error && error.includes('is Invalid')) {
-      //     console.log(username.value, password.value, 'is invalid')
+      //     console.error(username.value, password.value, 'is invalid')
       //   }
       // })
       const url = `https://database.deta.sh/v1/${$store.DETA_ID}/afp4_users/items/${username.value}`;

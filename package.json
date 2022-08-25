@@ -1,8 +1,8 @@
 {
   "name": "afp4v2",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "WebGIS | AFP4",
+  "description": "AFP4 Storymap",
+  "productName": "AFP4 Storymap",
   "author": "Marc Compte <marc@braquets.cat>",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "@vue-leaflet/vue-leaflet": "^0.6.1",
     "chart.js": "^3.8.0",
     "pinia": "^2.0.11",
     "quasar": "^2.6.0",
@@ -21,7 +22,6 @@
   },
   "devDependencies": {
     "@quasar/app-vite": "^1.0.0",
-    "@vue-leaflet/vue-leaflet": "^0.6.1",
     "autoprefixer": "10.4.5",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",

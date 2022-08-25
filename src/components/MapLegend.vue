@@ -94,7 +94,7 @@ export default defineComponent({
     });
 
     return {
-      expanded: ref([]),
+      expanded: ref([true]),
       legends,
     };
   },

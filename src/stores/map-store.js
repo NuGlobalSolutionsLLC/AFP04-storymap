@@ -3,6 +3,31 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const TEMPLATES = {
+  transect: {
+    label: "Transect Series 2",
+    legend: true,
+    tooltip: (feature) => {
+      return `<p>Transect ${feature.feature.properties.Name}</p>`;
+    },
+    popup: (feature) => {
+      const props = feature.feature.properties;
+      return `
+        <h6>Transect ${props.Name}</h6>
+        <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
+      `;
+    },
+    colorRampType: "category",
+    limits: ["AA", "BB", "CC", "DD", "EE", "FF"],
+    labels: [
+      "Transect AA",
+      "Transect BB",
+      "Transect CC",
+      "Transect DD",
+      "Transect EE",
+      "Transect FF",
+    ],
+    colors: ["#f56725", "#e0f525", "#1cad21", "#1c58ad", "#c149c9", "#64f5fa"],
+  },
   tce: {
     label: "Trichloroethylene",
     analyte: "Trichloroethylene",
@@ -205,8 +230,10 @@ const TEMPLATES = {
 
 export const useMapStore = defineStore("map-store", {
   state: () => ({
+    dialogOpen: false,
+    dialog: null,
     user: { name: null, expires: new Date() },
-    expiration_length: 30, // In minutes
+    expiration_length: 300, // In minutes
     DETA_NAME: "afp4_users",
     DETA_ID: "b0gdqr47",
     DETA_KEY: "b0gdqr47_ZTCENLjTeoj5Rw8moUwKwo6Wrwp5i1at",
@@ -644,38 +671,7 @@ export const useMapStore = defineStore("map-store", {
                 color: "#e1e1e1",
               },
             },
-            template: {
-              label: "Transect Series 2",
-              legend: true,
-              tooltip: (feature) => {
-                return `<p>Transect ${feature.feature.properties.Name}</p>`;
-              },
-              popup: (feature) => {
-                const props = feature.feature.properties;
-                return `
-                  <h6>Transect ${props.Name}</h6>
-                  <p>Click <a href="${props.hyperlink}" target="_blank"><b>here</b></a> to open Cross-Section Interactive Page.</p>
-                `;
-              },
-              colorRampType: "category",
-              limits: ["AA", "BB", "CC", "DD", "EE", "FF"],
-              labels: [
-                "Transect AA",
-                "Transect BB",
-                "Transect CC",
-                "Transect DD",
-                "Transect EE",
-                "Transect FF",
-              ],
-              colors: [
-                "#f56725",
-                "#e0f525",
-                "#1cad21",
-                "#1c58ad",
-                "#c149c9",
-                "#64f5fa",
-              ],
-            },
+            template: TEMPLATES.transect,
           },
           // {
           //   label: 'Series 3 - Transect',

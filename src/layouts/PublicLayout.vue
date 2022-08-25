@@ -41,7 +41,6 @@ body .q-layout {
   max-height: 30px;
 }
 :deep(header) {
-  // background: $background-highlight;
   background: $primary;
 }
 .q-toolbar__title,

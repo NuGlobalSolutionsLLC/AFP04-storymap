@@ -70,4 +70,23 @@ export default {
 :deep(.q-item__label) {
   font-weight: bold;
 }
+/* width */
+:deep(::-webkit-scrollbar) {
+  width: 6px;
+}
+
+/* Track */
+:deep(::-webkit-scrollbar-track) {
+  background: #fff;
+}
+
+/* Handle */
+:deep(::-webkit-scrollbar-thumb) {
+  background: $primary;
+}
+
+/* Handle on hover */
+:deep(::-webkit-scrollbar-thumb:hover) {
+  background: darken($primary, 10%);
+}
 </style>

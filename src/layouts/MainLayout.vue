@@ -23,10 +23,23 @@
 
         <q-btn
           align="between"
+          label="Storymap"
+          class="btn-fixed-width"
+          color="primary"
+          icon="map"
+          push
+          flat
+          @click="goStorymap"
+        />
+
+        <q-btn
+          align="between"
           label="logout"
           class="btn-fixed-width"
           color="accent"
           icon="logout"
+          push
+          flat
           @click="doLogout"
         />
       </q-toolbar>
@@ -60,8 +73,13 @@ export default {
       router.push("/login");
     };
 
+    const goStorymap = () => {
+      router.push("/storymap");
+    };
+
     return {
       doLogout,
+      goStorymap,
       leftDrawerOpen,
       toggleLeftDrawer() {
         $store.leftDrawerOpen = !$store.leftDrawerOpen;

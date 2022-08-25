@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "s1_NASFW_N",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Id": 0 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ -97.442249216794153, 32.784457523957826 ], [ -97.423384003632236, 32.784415702568367 ] ] ] } }
+]
+}
