@@ -186,7 +186,25 @@ export default defineComponent({
     });
 
     const addTooltip = (feature, leafletLayer) => {
-      if (feature.properties.layer.tooltip) {
+      let lastClickedLayer = Object.keys($store.layers).find((layer) => {
+        return $store.layers[layer].file == $store.lastClickedLayer;
+      });
+      lastClickedLayer = $store.layers[lastClickedLayer];
+      let isDependency = false;
+      if (lastClickedLayer && "dependencies" in lastClickedLayer) {
+        isDependency = lastClickedLayer.dependencies.some((dependency) => {
+          return (
+            feature.properties.layer.file === $store.layers[dependency].file
+          );
+        });
+      }
+      if (
+        feature.properties.layer.tooltip &&
+        (feature.properties.layer.file === $store.lastClickedLayer ||
+          isDependency ||
+          (feature.properties.layer.data.options &&
+            feature.properties.layer.data.options.type === "baseLayer"))
+      ) {
         let label = feature.properties.layer.tooltip;
         if (typeof label === "function") {
           label = label(feature);
