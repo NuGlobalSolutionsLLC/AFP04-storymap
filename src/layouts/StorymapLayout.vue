@@ -21,7 +21,6 @@
           no-caps
           icon="folder"
           :label="stripHTML(activeSlide.title)"
-          @click="onMainClick"
         >
           <q-list dense>
             <q-item
@@ -35,7 +34,7 @@
               <q-item-section avatar>
                 <q-avatar
                   v-if="slide.icon"
-                  :color="activeSlide.index === index && 'primary'"
+                  :color="(activeSlide.index === index && 'primary') || ''"
                   :icon="slide.icon"
                 ></q-avatar>
                 <q-avatar v-else>{{ index }}</q-avatar>
@@ -76,7 +75,7 @@
     <left-drawer ref="slider" :open="leftDrawerOpen" @action="doAction" />
 
     <q-page-container>
-      <router-view ref="routerView" :is="Component" />
+      <router-view />
     </q-page-container>
 
     <q-dialog
@@ -163,10 +162,6 @@ export default {
       return div.textContent || div.innerText || "";
     };
 
-    const onMainClick = (event) => {
-      console.info("onMainClick", event);
-    };
-
     onMounted(() => {
       setTimeout(() => {
         jumpToSlide(activeSlide.value.index);
@@ -183,7 +178,6 @@ export default {
       jumpToSlide,
       leftDrawerOpen,
       maximizedToggle,
-      onMainClick,
       routerView,
       slider,
       slides,

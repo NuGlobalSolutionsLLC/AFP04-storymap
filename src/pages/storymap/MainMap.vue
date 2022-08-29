@@ -116,9 +116,16 @@ export default defineComponent({
       return 0;
     });
 
+    let lastSlide = null;
+
     const getActiveSlide = () => {
-      document.querySelector(".leaflet-tooltip-pane").innerHTML = "";
-      return $store.slides.find((slide) => slide.active);
+      if (map) document.querySelector(".leaflet-tooltip-pane").innerHTML = "";
+      const slide = $store.slides.find((_slide) => _slide.active);
+      if ("bounds" in slide && slide.bounds && lastSlide !== slide) {
+        map.flyToBounds(slide.bounds);
+        lastSlide = slide;
+      }
+      return slide;
     };
 
     const getFeatureStyle = (feature) => {
@@ -195,15 +202,13 @@ export default defineComponent({
 
         let latLng = leafletLayer._latlng || leafletLayer._latlngs[0];
         while (typeof latLng.length !== "undefined") latLng = latLng[0];
-        const obj = map.openTooltip(tooltip, latLng, {
+        map.openTooltip(tooltip, latLng, {
           permanent: true,
           opacity: 1,
           direction: "center",
           offset: new L.Point(...feature.properties.layer.tooltipOffset),
-          // file: feature.properties.layer.file,
           file: $store.lastClickedLayer + "",
         });
-        // $store.activeTooltips.push(obj);
       }
     };
 
@@ -214,14 +219,14 @@ export default defineComponent({
       }
       if (layer.tooltip || layer.style) {
         options.pointToLayer = (feature, latLng) => {
-          const params = getFeatureStyle(feature);
-          params.riseOnHover = true;
+          const featureParams = getFeatureStyle(feature);
+          featureParams.riseOnHover = true;
           if (feature.properties.Result === 0) {
             return L.marker(latLng, {
               icon: L.divIcon({ className: "arrow-up" }),
             });
           } else {
-            return circle(latLng, params);
+            return circle(latLng, featureParams);
           }
         };
         options.onEachFeature = function (feature, leafletLayer) {
@@ -246,7 +251,6 @@ export default defineComponent({
           });
           let popup, tooltip;
           leafletLayer.on("mouseover", function (event) {
-            // const layer = feature.properties.layer;
             if ("setStyle" in this) {
               params = Object.assign(params, event.target.options);
               const hoverStyle = layer.hoverStyle || params.hoverStyle || null;
@@ -343,6 +347,71 @@ export default defineComponent({
       return options;
     };
 
+    const getBounds = (slide) => {
+      if (!("layers" in slide)) return false;
+      const baseMinMax = [999, 999, -999, -999];
+      const result = slide.layers.reduce((accum, layer2) => {
+        if (!("data" in layer2)) return accum;
+        const bounds = layer2.data.features.reduce((accum, feature) => {
+          const b = feature.geometry.coordinates.reduce((accum, set) => {
+            let featureBounds;
+            if (
+              feature.geometry.type.toUpperCase() === "MULTILINESTRING" ||
+              feature.geometry.type.toUpperCase() === "POLYGON" ||
+              feature.geometry.type.toUpperCase() === "MULTIPOLYGON"
+            ) {
+              if (feature.geometry.type.toUpperCase() === "MULTIPOLYGON")
+                set = set[0];
+              featureBounds = set.reduce((accum2, value) => {
+                accum2[0] = Math.min(accum2[0], value[0]);
+                accum2[1] = Math.min(accum2[1], value[1]);
+                accum2[2] = Math.max(accum2[2], value[0]);
+                accum2[3] = Math.max(accum2[3], value[1]);
+                return accum2;
+              }, baseMinMax);
+            } else if (feature.geometry.type.toUpperCase() === "POINT") {
+              featureBounds = [
+                feature.geometry.coordinates[0],
+                feature.geometry.coordinates[1],
+                feature.geometry.coordinates[0],
+                feature.geometry.coordinates[1],
+              ];
+            } else {
+              featureBounds = feature.geometry.coordinates.reduce(
+                (accum2, value) => {
+                  accum2[0] = Math.min(accum2[0], value[0]);
+                  accum2[1] = Math.min(accum2[1], value[1]);
+                  accum2[2] = Math.max(accum2[2], value[0]);
+                  accum2[3] = Math.max(accum2[3], value[1]);
+                  return accum2;
+                },
+                baseMinMax
+              );
+            }
+            accum[0] = Math.min(accum[0], featureBounds[0]);
+            accum[1] = Math.min(accum[1], featureBounds[1]);
+            accum[2] = Math.max(accum[2], featureBounds[2]);
+            accum[3] = Math.max(accum[3], featureBounds[3]);
+            return accum;
+          }, baseMinMax);
+          accum[0] = Math.min(accum[0], b[0]);
+          accum[1] = Math.min(accum[1], b[1]);
+          accum[2] = Math.max(accum[2], b[2]);
+          accum[3] = Math.max(accum[3], b[3]);
+          return accum;
+        }, baseMinMax);
+        accum[0] = Math.min(accum[0], bounds[0]);
+        accum[1] = Math.min(accum[1], bounds[1]);
+        accum[2] = Math.max(accum[2], bounds[2]);
+        accum[3] = Math.max(accum[3], bounds[3]);
+        return accum;
+      }, baseMinMax);
+      return [
+        [result[1], result[0]],
+        [result[3], result[2]],
+      ];
+    };
+
     const geoJsons = computed(() => {
       const slide = getActiveSlide();
       const layers = [];
@@ -376,106 +445,6 @@ export default defineComponent({
         });
       }
       return layers;
-      // const layers = getActiveLayers();
-      // const commonParams = {
-      //   options: {
-      //     pointToLayer: (feature, latLng) => {
-      //       const params = getFeatureStyle(feature);
-      //       params.riseOnHover = true;
-      //       return circle(latLng, params);
-      //     },
-      //     onEachFeature: function (feature, leafletLayer) {
-      //       const layer = feature.properties.layer;
-      //       let popup, tooltip;
-      //       let params = Object.assign({}, $store.sections[layer.class]);
-      //       leafletLayer.on("mouseover", function (event) {
-      //         params = Object.assign(params, event.target.options);
-      //         this.setStyle(params.hoverStyle);
-      //         event.target.bringToFront();
-      //         let tooltipFunc =
-      //           params.tooltip || (layer.options && layer.options.tooltip);
-      //         if (tooltipFunc) {
-      //           let latlng;
-      //           if (event.target._latlng) latlng = event.target._latlng;
-      //           else latlng = event.target.getCenter();
-      //           tooltip = L.popup({ autoClose: true })
-      //             .setLatLng(latlng)
-      //             .setContent(tooltipFunc(event.target))
-      //             .openOn(map);
-      //         }
-      //       });
-      //       leafletLayer.on("mouseout", function (event) {
-      //         params = Object.assign(params, event.target.options);
-      //         if (layer.options && layer.options.style) {
-      //           this.setStyle(layer.options.style(feature));
-      //         } else if (layer.style) {
-      //           this.setStyle(layer.style(feature));
-      //         } else {
-      //           this.setStyle(getFeatureStyle(feature));
-      //         }
-      //         if (params.tooltip) {
-      //           tooltip.close();
-      //         }
-      //       });
-      //       leafletLayer.on("click", function (event) {
-      //         params = Object.assign(params, event.target.options);
-      //         let popupFunc = params.popup;
-      //         if (popupFunc) {
-      //           if (layer.template && layer.template.popup)
-      //             popupFunc = layer.template.popup;
-      //           const options = Object.assign(
-      //             {
-      //               maxWidth: "900",
-      //               autoPan: true,
-      //               keepInView: true,
-      //               closeButton: false,
-      //               autoClose: false,
-      //             },
-      //             params.popupOptions
-      //           );
-      //           let latlng;
-      //           if (event.target._latlng) latlng = event.target._latlng;
-      //           else latlng = event.target.getCenter();
-      //           popup = L.popup(options)
-      //             .setLatLng(latlng)
-      //             // .setContent('<button id="close">x</button>' + event.target.options.popup({feature}))
-      //             .setContent(popupFunc({ feature }))
-      //             .openOn(map);
-      //           const px = map.project(latlng);
-      //           px.y -= popup._container.clientHeight / 2;
-      //           map.panTo(map.unproject(px), { animate: true });
-      //           // popup._container.querySelector('#close').addEventListener('pointerup', event => {
-      //           //   popup.close()
-      //           // })
-      //         } else if (
-      //           event.target.feature.properties.layer.template &&
-      //           event.target.feature.properties.layer.template.analyte
-      //         ) {
-      //           $store.selectedFeature = event.target;
-      //           resizeMap();
-      //           move(300);
-      //         }
-      //       });
-      //     },
-      //   },
-      // };
-      // return layers
-      //   .filter((layer) => layer.class !== "geoimage")
-      //   .map((layer, idc) => {
-      //     const params = Object.assign({ id: idc }, commonParams);
-      //     params.options = Object.assign(params.options, layer.options);
-      //     if (layer.style) {
-      //       params.options.style = layer.style;
-      //     }
-      //     if (layer.data) {
-      //       return Object.assign(params, layer.data);
-      //     } else {
-      //       return Object.assign(params, {
-      //         type: "FeatureCollection",
-      //         features: [],
-      //       });
-      //     }
-      //   });
     });
 
     const resizeMap = () => {
@@ -516,6 +485,9 @@ export default defineComponent({
                 return feature;
               });
               layer.data = json;
+              $store.slides.forEach((slide) => {
+                slide.bounds = getBounds(slide);
+              });
               return json;
             })
             .catch((error) => {
@@ -536,6 +508,10 @@ export default defineComponent({
           if (mapRef.value) {
             map = mapRef.value.leafletObject;
             map.invalidateSize();
+            // map.on("zoomend moveend", (event) => {
+            //   console.log("zoom", map.getZoom());
+            //   console.log("center", map.getCenter());
+            // });
           }
           getGeoJsons();
         }, 400);

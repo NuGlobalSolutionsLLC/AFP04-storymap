@@ -13,6 +13,17 @@
       :key="index"
       :class="'section' + index"
     >
+      <div class="fixed-header">
+        <q-btn
+          v-if="activeSlide.index !== 0"
+          size="xl"
+          label="previous"
+          class="button"
+          flat
+          icon="keyboard_double_arrow_up"
+          @click="previousSlide"
+        ></q-btn>
+      </div>
       <q-card>
         <h2 v-html="slide.title"></h2>
         <div>
@@ -21,6 +32,19 @@
             :key="index2"
             v-html="p"
           ></p>
+          <p>
+            <q-btn
+              v-for="(button, index) in slide.buttons"
+              :key="index"
+              :icon="button.icon"
+              :label="button.label"
+              color="primary"
+              rounded
+              size="xl"
+              class="button"
+              @click="buttonClicked(button)"
+            ></q-btn>
+          </p>
           <ul>
             <li v-for="(layer, index3) in slide.layers" :key="index3">
               <q-checkbox
@@ -41,6 +65,19 @@
           </div>
         </div>
       </q-card>
+      <div class="fixed-footer">
+        <q-btn
+          v-if="
+            activeSlide.index !== 0 && activeSlide.index < slides.length - 1
+          "
+          size="xl"
+          label="next"
+          class="button"
+          flat
+          icon="keyboard_double_arrow_down"
+          @click="nextSlide"
+        ></q-btn>
+      </div>
     </section>
   </q-drawer>
 </template>
@@ -49,7 +86,6 @@
 import { computed, onMounted, ref } from "vue";
 import { useStorymapStore } from "src/stores/storymap-store";
 import { useMapStore } from "src/stores/map-store";
-// import { emit } from "process";
 
 export default {
   props: {
@@ -111,15 +147,13 @@ export default {
       animateScroll();
     };
 
-    //t = current time
-    //b = start value
-    //c = change in value
-    //d = duration
-    Math.easeInOutQuad = function (t, b, c, d) {
-      t /= d / 2;
-      if (t < 1) return (c / 2) * t * t + b;
-      t--;
-      return (-c / 2) * (t * (t - 2) - 1) + b;
+    Math.easeInOutQuad = function (currentTime, startTime, change, duration) {
+      currentTime /= duration / 2;
+      if (currentTime < 1) {
+        return (change / 2) * currentTime * currentTime + startTime;
+      }
+      currentTime--;
+      return (-change / 2) * (currentTime * (currentTime - 2) - 1) + startTime;
     };
 
     const toggleLayer = (layer) => {
@@ -130,6 +164,24 @@ export default {
         $store.lastRemovedLayer = null;
       }
       layer.data.options.active = layer.active;
+    };
+
+    const buttonClicked = (button) => {
+      if (button.label === "Start") {
+        scrollToSlide(1);
+      }
+    };
+
+    const activeSlide = computed(() => {
+      return $store.slides.find((slide) => slide.active);
+    });
+
+    const nextSlide = () => {
+      scrollToSlide(activeSlide.value.index + 1);
+    };
+
+    const previousSlide = () => {
+      scrollToSlide(activeSlide.value.index - 1);
     };
 
     onMounted(() => {
@@ -171,8 +223,12 @@ export default {
     });
 
     return {
+      activeSlide,
+      buttonClicked,
       doSlideAction,
       leftDrawerOpen,
+      nextSlide,
+      previousSlide,
       root,
       scrollToSlide,
       toggleLayer,
@@ -187,6 +243,23 @@ section {
   display: flex;
   align-items: center;
   height: 100%;
+  .fixed-footer,
+  .fixed-header {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .fixed-footer {
+    bottom: 5px;
+  }
+  .fixed-header {
+    top: 5px;
+  }
+  .button {
+    padding-right: 30px;
+    color: lighten($primary, 30);
+  }
 }
 ul {
   list-style: none;
@@ -209,14 +282,6 @@ ul {
     p {
       text-align: center;
       color: #e0e0e0;
-      :deep(button) {
-        background-color: $primary;
-        color: $background-highlight;
-        padding: 4px 10px;
-        border: none;
-        border-radius: 60px;
-        cursor: pointer;
-      }
     }
   }
 }

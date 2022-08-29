@@ -775,6 +775,8 @@ LAYERS.MeanderingRoadCreekNoTooltip = override(LAYERS.MeanderingRoadCreek, {
 
 export const useStorymapStore = defineStore("storymap-store", {
   state: () => ({
+    defaultMapCenter: [32.7713, -97.4366],
+    defaultMapZoom: 14,
     lastClickedLayer: null,
     lastRemovedLayer: null,
     returnUrl: "",
@@ -784,7 +786,12 @@ export const useStorymapStore = defineStore("storymap-store", {
     slides: [
       {
         title: "Air Force Plan 4. <br>A Walk Through",
-        description: [`Scroll to <button>Start</button>`],
+        buttons: [
+          {
+            label: "Start",
+            icon: "keyboard_double_arrow_down",
+          },
+        ],
         icon: "home",
         active: true,
       },
