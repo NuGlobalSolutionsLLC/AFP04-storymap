@@ -65,8 +65,33 @@ export default defineComponent({
     };
 
     const doLogin = async () => {
+      const errorMessage = "Username and password do not match.";
       errors.value = "";
       loginDisabled.value = true;
+      // Log in using the Django backend at api.nuglobalsolutions.com/v1/auth
+      // const response = await fetch(
+      //   "https://api.nuglobalsolutions.com/v1/auth/",
+      //   {
+      //     method: "POST",
+      //     body: JSON.stringify({
+      //       user: username,
+      //       pwd: password,
+      //       projectname: "afp04storymap",
+      //     }),
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   }
+      // );
+      // const json = await response.json();
+      // if (json.code === 1000) {
+      //   $store.saveLoginState(username.value);
+      //   router.push("/");
+      // } else {
+      //   errors.value = errorMessage;
+      //   loginDisabled.value = false;
+      // }
+
       // Log in usig the PHP backend
       // const url = 'https://app.nuglobalsolutions.com/AFP4/index.php'
       // const formData = new FormData();
@@ -84,36 +109,37 @@ export default defineComponent({
       //     console.error(username.value, password.value, 'is invalid')
       //   }
       // })
-      const url = `https://database.deta.sh/v1/${$store.DETA_ID}/afp4_users/items/${username.value}`;
-      const errorMessage = "Username or password do not match.";
-      fetch(url, {
+
+      // Login using the AFP4 Deta.sh backend
+      const url = `https://database.deta.sh/v1/${$store.DETA_ID}/storymap_users/items/${username.value}`;
+      const response = await fetch(url, {
         method: "GET",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
           "X-API-Key": $store.DETA_KEY,
         },
-      })
-        .then((response) => {
-          if (response.ok) return response.json();
-          else if (response.status === 404) {
-            errors.value = errorMessage;
-            loginDisabled.value = false;
-          }
-        })
-        .then((json) => {
-          if (json) {
-            sha256(password.value).then((hash) => {
-              if (json.password === hash) {
-                $store.saveLoginState(username.value);
-                router.push("/");
-              } else {
-                errors.value = errorMessage;
-                loginDisabled.value = false;
-              }
-            });
-          }
-        });
+      });
+      if (response.ok) {
+        const json = await response.json();
+        if (json) {
+          sha256(password.value).then((hash) => {
+            if (json.password === hash) {
+              $store.saveLoginState(username.value);
+              router.push("/");
+            } else {
+              errors.value = errorMessage;
+              loginDisabled.value = false;
+            }
+          });
+        } else {
+          errors.value = "Unknown error";
+          loginDisabled.value = false;
+        }
+      } else {
+        errors.value = "Unknown error";
+        loginDisabled.value = false;
+      }
     };
     return {
       changePasswordvisibility() {
