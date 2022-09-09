@@ -542,7 +542,7 @@ const LAYERS = {
     }
   ),
   Terrace_TCE: Object.assign(
-    makeLayer("Terrace TCE 2021", "storymap/s4_Terrace_TCE_2021.json"),
+    makeLayer("Terrace TCE 2022", "storymap/s4_Terrace_TCE_2022.json"),
     {
       class: "plumes",
       style: () => {
@@ -553,7 +553,7 @@ const LAYERS = {
     }
   ),
   Terrace_cDCE: Object.assign(
-    makeLayer("Terrace cDCE 2021", "storymap/s4_Terrace_cDCE_2021.json"),
+    makeLayer("Terrace cDCE 2022", "storymap/s4_Terrace_cDCE_2022.json"),
     {
       class: "plumes",
       style: () => {
@@ -564,7 +564,7 @@ const LAYERS = {
     }
   ),
   Terrace_VC: Object.assign(
-    makeLayer("Terrace VC 2021", "storymap/s4_Terrace_VC_2021.json"),
+    makeLayer("Terrace VC 2022", "storymap/s4_Terrace_VC_2022.json"),
     {
       class: "plumes",
       style: () => {
@@ -574,8 +574,8 @@ const LAYERS = {
       },
     }
   ),
-  SC_TCE_2021: Object.assign(
-    makeLayer("Sand Channel TCE 2021", "storymap/s4_SandChannel_TCE_2021.json"),
+  SC_TCE: Object.assign(
+    makeLayer("Sand Channel TCE 2022", "storymap/s4_SandChannel_TCE_2022.json"),
     {
       class: "plumes",
       style: () => {
@@ -585,10 +585,21 @@ const LAYERS = {
       },
     }
   ),
-  SC_cDCE_2021: Object.assign(
+  SC_VC: Object.assign(
+    makeLayer("Sand Channel VC 2022", "storymap/s4_SandChannel_VC_2022.json"),
+    {
+      class: "plumes",
+      style: () => {
+        return makePlumeStyle({
+          fillColor: "rgba(0,155,21,0.6)",
+        });
+      },
+    }
+  ),
+  SC_cDCE: Object.assign(
     makeLayer(
-      "Sand Channel cDCE 2021",
-      "storymap/s4_SandChannel_cDCE_2021.json"
+      "Sand Channel cDCE 2022",
+      "storymap/s4_SandChannel_cDCE_2022.json"
     ),
     {
       class: "plumes",
@@ -599,8 +610,8 @@ const LAYERS = {
       },
     }
   ),
-  Paluxy_TCE_2021: Object.assign(
-    makeLayer("Paluxy TCE 2021", "storymap/s4_Paluxy_TCE_2021.json"),
+  Paluxy_TCE: Object.assign(
+    makeLayer("Paluxy TCE 2022", "storymap/s4_Paluxy_TCE_2022.json"),
     {
       class: "plumes",
       style: () => {
@@ -610,8 +621,8 @@ const LAYERS = {
       },
     }
   ),
-  Paluxy_VC_2021: Object.assign(
-    makeLayer("Paluxy VC 2021", "storymap/s4_Paluxy_VC_2021.json"),
+  Paluxy_VC: Object.assign(
+    makeLayer("Paluxy VC 2022", "storymap/s4_Paluxy_VC_2022.json"),
     {
       class: "plumes",
       style: () => {
@@ -621,8 +632,8 @@ const LAYERS = {
       },
     }
   ),
-  Paluxy_cDCE_2021: Object.assign(
-    makeLayer("Paluxy cDCE 2021", "storymap/s4_Paluxy_cDCE_2021.json"),
+  Paluxy_cDCE: Object.assign(
+    makeLayer("Paluxy cDCE 2022", "storymap/s4_Paluxy_cDCE_2022.json"),
     {
       class: "plumes",
       style: () => {
@@ -860,11 +871,12 @@ export const useStorymapStore = defineStore("storymap-store", {
           LAYERS.Terrace_TCE,
           LAYERS.Terrace_cDCE,
           LAYERS.Terrace_VC,
-          LAYERS.SC_TCE_2021,
-          LAYERS.SC_cDCE_2021,
-          LAYERS.Paluxy_TCE_2021,
-          LAYERS.Paluxy_VC_2021,
-          LAYERS.Paluxy_cDCE_2021,
+          LAYERS.SC_TCE,
+          LAYERS.SC_VC,
+          LAYERS.SC_cDCE,
+          LAYERS.Paluxy_TCE,
+          LAYERS.Paluxy_VC,
+          LAYERS.Paluxy_cDCE,
         ],
       },
       {
