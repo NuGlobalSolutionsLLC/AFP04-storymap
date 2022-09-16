@@ -15,14 +15,14 @@ Both Node.js and GIT are general software development technologies.
 Once you have the required software you will need to download the code. You can do so by opening a terminal window, navigating to the directory of your choice and execute the following command:
 
 ```bash
-git clone https://github.com/NuGlobalSolutionsLLC/NGS.git
+git clone https://github.com/NuGlobalSolutionsLLC/AFP04-storymap.git
 ```
 
 This command will create a directory named `NGS` with the app code.
 
 > If you wish, you can also use GitHub Desktop to clone the repo. More info on: https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop
 
-> If you don't want to use GIT you can also download the code from the [repository webpage](https://github.com/NuGlobalSolutionsLLC/NGS) and unzip it in your file system, then follow the rest of the instructions.
+> If you don't want to use GIT you can also download the code from the [repository webpage](https://github.com/NuGlobalSolutionsLLC/AFP04-storymap) and unzip it in your file system, then follow the rest of the instructions.
 
 ### Install the dependencies
 
