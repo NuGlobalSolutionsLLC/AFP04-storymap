@@ -69,7 +69,13 @@ export default defineComponent({
       errors.value = "";
       loginDisabled.value = true;
       // Login using the AFP4 Deta.sh backend
-      const url = `https://database.deta.sh/v1/${$store.DETA_ID}/${$store.DETA_NAME}/items/${username.value}`;
+      const url = [
+        "https://database.deta.sh/v1",
+        $store.DETA_ID,
+        $store.DETA_NAME,
+        "items",
+        username.value,
+      ].join("/");
       const response = await fetch(url, {
         method: "GET",
         headers: {

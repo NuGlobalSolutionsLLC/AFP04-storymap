@@ -526,10 +526,6 @@ export default defineComponent({
           if (mapRef.value) {
             map = mapRef.value.leafletObject;
             map.invalidateSize();
-            // map.on("zoomend moveend", (event) => {
-            //   console.log("zoom", map.getZoom());
-            //   console.log("center", map.getCenter());
-            // });
           }
           getGeoJsons();
         }, 400);
