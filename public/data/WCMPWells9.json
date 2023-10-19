@@ -1,43 +1,298 @@
 {
-"type": "FeatureCollection",
-"name": "WCMPWells9",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Well_ID": "P-10M" }, "geometry": { "type": "Point", "coordinates": [ -97.454753239085093, 32.775754499913191 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-11M" }, "geometry": { "type": "Point", "coordinates": [ -97.446636341034136, 32.765693466564443 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-12M" }, "geometry": { "type": "Point", "coordinates": [ -97.448256808445848, 32.765655259103546 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-13M" }, "geometry": { "type": "Point", "coordinates": [ -97.444941757680354, 32.765433294768172 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P1M" }, "geometry": { "type": "Point", "coordinates": [ -97.454948385979378, 32.77733393695442 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-20M" }, "geometry": { "type": "Point", "coordinates": [ -97.459211088267821, 32.768350096104456 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-22M" }, "geometry": { "type": "Point", "coordinates": [ -97.454243802036956, 32.773513268155746 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-24M" }, "geometry": { "type": "Point", "coordinates": [ -97.453901810267865, 32.77603800642288 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-25M" }, "geometry": { "type": "Point", "coordinates": [ -97.454381269241622, 32.770845930438924 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-26M" }, "geometry": { "type": "Point", "coordinates": [ -97.450674579618337, 32.765751473375175 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-29M" }, "geometry": { "type": "Point", "coordinates": [ -97.455375472134094, 32.774090642888986 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P2M" }, "geometry": { "type": "Point", "coordinates": [ -97.457283620515028, 32.781422223364132 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-30M" }, "geometry": { "type": "Point", "coordinates": [ -97.449123152815346, 32.7653883839359 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-5M" }, "geometry": { "type": "Point", "coordinates": [ -97.451562885686656, 32.773981063968897 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-6M" }, "geometry": { "type": "Point", "coordinates": [ -97.45148954023351, 32.77214441937442 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-7M" }, "geometry": { "type": "Point", "coordinates": [ -97.453396606831944, 32.772225469210603 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-8M" }, "geometry": { "type": "Point", "coordinates": [ -97.44609397486181, 32.768661531263113 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "P-9M" }, "geometry": { "type": "Point", "coordinates": [ -97.449032110995233, 32.771170254641873 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "USGS09PM" }, "geometry": { "type": "Point", "coordinates": [ -97.454943700925924, 32.777369797857936 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WITCPM001" }, "geometry": { "type": "Point", "coordinates": [ -97.452720762264548, 32.771752140583629 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WITCPM001R" }, "geometry": { "type": "Point", "coordinates": [ -97.452728081417732, 32.77173021129979 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WITCPM002" }, "geometry": { "type": "Point", "coordinates": [ -97.452722807846413, 32.772353611148866 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WITCPM003" }, "geometry": { "type": "Point", "coordinates": [ -97.452725270557238, 32.771830549196302 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WITCPM004" }, "geometry": { "type": "Point", "coordinates": [ -97.451886237143228, 32.771499607657766 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WITCPM005" }, "geometry": { "type": "Point", "coordinates": [ -97.452719255475245, 32.772395473478127 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WITCPM006" }, "geometry": { "type": "Point", "coordinates": [ -97.453739864557519, 32.773355284621985 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WJEPX925" }, "geometry": { "type": "Point", "coordinates": [ -97.525878329264486, 32.77341190950434 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WJEPX926" }, "geometry": { "type": "Point", "coordinates": [ -97.524710150220415, 32.776486717576681 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WL-001JEPM" }, "geometry": { "type": "Point", "coordinates": [ -97.443399082603079, 32.766966574503826 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WS-1" }, "geometry": { "type": "Point", "coordinates": [ -97.466108558029873, 32.762471787347913 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WS-12" }, "geometry": { "type": "Point", "coordinates": [ -97.447786613003728, 32.76104460640051 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WS-2" }, "geometry": { "type": "Point", "coordinates": [ -97.458838306773998, 32.774364636592622 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WS-3" }, "geometry": { "type": "Point", "coordinates": [ -97.459292763047458, 32.758154830322106 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WS-8" }, "geometry": { "type": "Point", "coordinates": [ -97.471129637451355, 32.749298549357128 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WS-H3" }, "geometry": { "type": "Point", "coordinates": [ -97.445851644767103, 32.755099054645953 ] } },
-{ "type": "Feature", "properties": { "Well_ID": "WSHAWPM007" }, "geometry": { "type": "Point", "coordinates": [ -97.453664491707414, 32.773022641913556 ] } }
-]
+  "type": "FeatureCollection",
+  "name": "WCMPWells9",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-10M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.454753239085093, 32.775754499913191]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-11M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.446636341034136, 32.765693466564443]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-12M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.448256808445848, 32.765655259103546]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-13M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.444941757680354, 32.765433294768172]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P1M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.454948385979378, 32.77733393695442]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-20M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.459211088267821, 32.768350096104456]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-22M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.454243802036956, 32.773513268155746]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-24M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.453901810267865, 32.77603800642288]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-25M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.454381269241622, 32.770845930438924]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-26M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.450674579618337, 32.765751473375175]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-29M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.455375472134094, 32.774090642888986]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P2M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.457283620515028, 32.781422223364132]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-30M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.449123152815346, 32.7653883839359]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-5M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.451562885686656, 32.773981063968897]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-6M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.45148954023351, 32.77214441937442]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-7M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.453396606831944, 32.772225469210603]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-8M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.44609397486181, 32.768661531263113]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "P-9M" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.449032110995233, 32.771170254641873]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "USGS09PM" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.454943700925924, 32.777369797857936]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WITCPM001" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.452720762264548, 32.771752140583629]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WITCPM001R" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.452728081417732, 32.77173021129979]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WITCPM002" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.452722807846413, 32.772353611148866]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WITCPM003" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.452725270557238, 32.771830549196302]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WITCPM004" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.451886237143228, 32.771499607657766]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WITCPM005" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.452719255475245, 32.772395473478127]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WITCPM006" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.453739864557519, 32.773355284621985]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WJEPX925" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.525878329264486, 32.77341190950434]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WJEPX926" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.524710150220415, 32.776486717576681]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WL-001JEPM" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.443399082603079, 32.766966574503826]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WS-1" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.466108558029873, 32.762471787347913]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WS-12" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.447786613003728, 32.76104460640051]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WS-2" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.458838306773998, 32.774364636592622]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WS-3" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.459292763047458, 32.758154830322106]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WS-8" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.471129637451355, 32.749298549357128]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WS-H3" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.445851644767103, 32.755099054645953]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "Well_ID": "WSHAWPM007" },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.453664491707414, 32.773022641913556]
+      }
+    }
+  ]
 }

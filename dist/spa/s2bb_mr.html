@@ -1,6 +1,530 @@
 <!DOCTYPE html>
 <!-- saved from url=(0051)https://app.nuglobalsolutions.com/AFP4/s2bb_mr.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="https://app.nuglobalsolutions.com/AFP4/static/img/favicon.png"><link href="./s2bb_mr_files/css2" rel="stylesheet"><title>AFP4</title><link href="./s2bb_mr_files/1.e0aa836c745b89bab7d2.css" rel="stylesheet"><link href="./s2bb_mr_files/s2bb_mr.e0aa836c745b89bab7d2.css" rel="stylesheet"></head><body><div id="app"><div data-v-62ef1d36="" id="div_container"><div data-v-62ef1d36="" id="header"></div> <br data-v-62ef1d36=""> <div data-v-62ef1d36="" class="styled-select"><font data-v-62ef1d36="" face="Arial" color="grey" size="2">&nbsp;&nbsp;Please choose a data display option:&nbsp;</font> <select data-v-62ef1d36="" onchange="window.location.href=this.value" class="custom-dropdown2"><option data-v-62ef1d36="" value="s2bb_mr.html">Most Recent</option> <option data-v-62ef1d36="" value="s2bb_max.html">Maximum Value</option></select>&nbsp;&nbsp;
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://app.nuglobalsolutions.com/AFP4/static/img/favicon.png"
+    />
+    <link href="./s2bb_mr_files/css2" rel="stylesheet" />
+    <title>AFP4</title>
+    <link href="./s2bb_mr_files/1.e0aa836c745b89bab7d2.css" rel="stylesheet" />
+    <link
+      href="./s2bb_mr_files/s2bb_mr.e0aa836c745b89bab7d2.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div data-v-62ef1d36="" id="div_container">
+        <div data-v-62ef1d36="" id="header"></div>
+        <br data-v-62ef1d36="" />
+        <div data-v-62ef1d36="" class="styled-select">
+          <font data-v-62ef1d36="" face="Arial" color="grey" size="2"
+            >&nbsp;&nbsp;Please choose a data display option:&nbsp;</font
+          >
+          <select
+            data-v-62ef1d36=""
+            onchange="window.location.href=this.value"
+            class="custom-dropdown2"
+          >
+            <option data-v-62ef1d36="" value="s2bb_mr.html">Most Recent</option>
+            <option data-v-62ef1d36="" value="s2bb_max.html">
+              Maximum Value
+            </option></select
+          >&nbsp;&nbsp;
 
-
-    <font data-v-62ef1d36="" face="Arial" color="grey" size="2">and choose an analyte:&nbsp;</font> <select data-v-62ef1d36="" name="chem" id="chemList" class="custom-dropdown"><option data-v-62ef1d36="" value="clear">none</option> <option data-v-62ef1d36="" value="Trichloroethylene">Trichloroethylene</option> <option data-v-62ef1d36="" value="cis-1,2-Dichloroethylene">cis-1,2-Dichloroethylene</option> <option data-v-62ef1d36="" value="Vinyl chloride">Vinyl chloride</option></select> <font data-v-62ef1d36="" face="Arial" color="grey" size="2">&nbsp;&nbsp; go back to <a data-v-62ef1d36="" href="https://app.nuglobalsolutions.com/AFP4/">Map View</a> &nbsp;</font></div> <br data-v-62ef1d36=""> <div data-v-62ef1d36="" id="the_chart"><div data-v-62ef1d36="" class="bg" style="background-image: url(&quot;/AFP4/static/img/BB2.png&quot;); background-repeat: no-repeat;"></div><svg width="1300" height="500"><text id="coords" x="25.75875486381323" y="194.44680851063828" fill="red" font-family="sans-serif" font-size="20px"></text><text id="scales" x="25.75875486381323" y="247.68085106382978" fill="red" font-family="sans-serif" font-size="20px"></text><text id="label" x="21" y="54.99999999999999" text-anchor="start" transform=" rotate(-45,37, 54.99999999999999)" fill="grey" font-family="sans-serif" font-size="10px">USGS08</text><text id="label" x="166.99999999999997" y="63.999999999999986" text-anchor="start" transform=" rotate(-45,182.99999999999997, 63.999999999999986)" fill="grey" font-family="sans-serif" font-size="10px">USGS09PL</text><text id="label" x="217" y="74.00000000000001" text-anchor="start" transform=" rotate(-45,233, 74.00000000000001)" fill="grey" font-family="sans-serif" font-size="10px">P-24M</text><text id="label" x="313" y="25.99999999999999" text-anchor="start" transform=" rotate(-45,329, 25.99999999999999)" fill="grey" font-family="sans-serif" font-size="10px">P-5M</text><text id="label" x="362" y="17" text-anchor="start" transform=" rotate(-45,378, 17)" fill="grey" font-family="sans-serif" font-size="10px">P-27U</text><text id="label" x="371" y="18.99999999999999" text-anchor="start" transform=" rotate(-45,387, 18.99999999999999)" fill="grey" font-family="sans-serif" font-size="10px">W-144</text><text id="label" x="388.00000000000006" y="24.000000000000004" text-anchor="start" transform=" rotate(-45,404.00000000000006, 24.000000000000004)" fill="grey" font-family="sans-serif" font-size="10px">P-7M</text><text id="label" x="439" y="17" text-anchor="start" transform=" rotate(-45,455, 17)" fill="grey" font-family="sans-serif" font-size="10px">P-25M</text><text id="label" x="481" y="17.999999999999993" text-anchor="start" transform=" rotate(-45,497, 17.999999999999993)" fill="grey" font-family="sans-serif" font-size="10px">HM-41</text><text id="label" x="523" y="32.99999999999999" text-anchor="start" transform=" rotate(-45,539, 32.99999999999999)" fill="grey" font-family="sans-serif" font-size="10px">HM-30</text><text id="label" x="573.9999999999999" y="16.000000000000007" text-anchor="start" transform=" rotate(-45,589.9999999999999, 16.000000000000007)" fill="grey" font-family="sans-serif" font-size="10px">P-2</text><text id="label" x="632" y="25.99999999999999" text-anchor="start" transform=" rotate(-45,648, 25.99999999999999)" fill="grey" font-family="sans-serif" font-size="10px">P-31U</text><text id="label" x="691" y="30.000000000000014" text-anchor="start" transform=" rotate(-45,707, 30.000000000000014)" fill="grey" font-family="sans-serif" font-size="10px">EPA-2</text><text id="label" x="940" y="47.99999999999999" text-anchor="start" transform=" rotate(-45,956, 47.99999999999999)" fill="grey" font-family="sans-serif" font-size="10px">WS-12</text><text id="label" x="1148" y="62" text-anchor="start" transform=" rotate(-45,1164, 62)" fill="grey" font-family="sans-serif" font-size="10px">USGS07T</text><rect x="968" y="286" width="25" height="15" stroke="grey" fill="#80fcc2"></rect><rect x="968" y="309" width="25" height="15" stroke="grey" fill="#d1f98b"></rect><rect x="968" y="332" width="25" height="15" stroke="grey" fill="#4cc9ff"></rect><rect x="968" y="355" width="25" height="15" stroke="grey" fill="#ffaf84"></rect><rect x="968" y="378" width="25" height="15" stroke="grey" fill="#e8a725"></rect><rect x="968" y="401" width="25" height="15" stroke="grey" fill="#e23e2f"></rect><text x="998" y="298" fill="grey" font-family="sans-serif" font-size="10px">Silt</text><text x="998" y="321" fill="grey" font-family="sans-serif" font-size="10px">Sandy Silt</text><text x="998" y="344" fill="grey" font-family="sans-serif" font-size="10px">Clayey Sand</text><text x="998" y="367" fill="grey" font-family="sans-serif" font-size="10px">Clay/Sand with Fine Gravel</text><text x="998" y="390" fill="grey" font-family="sans-serif" font-size="10px">Clay/Sand with Medium Gravel</text><text x="998" y="413" fill="grey" font-family="sans-serif" font-size="10px">Clay/Sand with Coarse Gravel</text><text x="8.000000000000004" y="18.99999999999999" fill="grey" font-family="sans-serif" font-size="10px">(ft)</text><g class="axis" transform="translate(0,441)"><g class="tick" transform="translate(24,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">0</text></g><g class="tick" transform="translate(199.87548638132296,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2,000</text></g><g class="tick" transform="translate(375.7509727626459,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">4,000</text></g><g class="tick" transform="translate(551.6264591439689,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">6,000</text></g><g class="tick" transform="translate(727.501945525292,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">8,000</text></g><g class="tick" transform="translate(903.3774319066148,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">10,000</text></g><g class="tick" transform="translate(1079.2529182879377,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">12,000</text></g><path class="domain" d="M24,6V0H1154V6"></path></g><g class="axis" transform="translate(10,0)"><g class="tick" transform="translate(0,389.63829787234044)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="3" y="0" style="text-anchor: start;">450</text></g><g class="tick" transform="translate(0,300.9148936170213)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="3" y="0" style="text-anchor: start;">500</text></g><g class="tick" transform="translate(0,212.19148936170214)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="3" y="0" style="text-anchor: start;">550</text></g><g class="tick" transform="translate(0,123.468085106383)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="3" y="0" style="text-anchor: start;">600</text></g><g class="tick" transform="translate(0,34.744680851063805)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="3" y="0" style="text-anchor: start;">650</text></g><path class="domain" d="M-6,17H0V434H-6"></path></g></svg><svg id="chart" width="1200" height="180"><g class="display" transform="translate(56,18)"></g></svg></div> <div data-v-62ef1d36=""></div> <div data-v-62ef1d36="" id="tooltip" style="display: none; position: absolute; z-index: 1001; background-color: gray;"></div></div></div><script src="./s2bb_mr_files/framework.ad59bfd0.bundle.js"></script><script src="./s2bb_mr_files/vendor.13f8c66f.bundle.js"></script><script src="./s2bb_mr_files/s2bb_mr.49cdbb17.bundle.js"></script><div></div></body></html>
+          <font data-v-62ef1d36="" face="Arial" color="grey" size="2"
+            >and choose an analyte:&nbsp;</font
+          >
+          <select
+            data-v-62ef1d36=""
+            name="chem"
+            id="chemList"
+            class="custom-dropdown"
+          >
+            <option data-v-62ef1d36="" value="clear">none</option>
+            <option data-v-62ef1d36="" value="Trichloroethylene">
+              Trichloroethylene
+            </option>
+            <option data-v-62ef1d36="" value="cis-1,2-Dichloroethylene">
+              cis-1,2-Dichloroethylene
+            </option>
+            <option data-v-62ef1d36="" value="Vinyl chloride">
+              Vinyl chloride
+            </option>
+          </select>
+          <font data-v-62ef1d36="" face="Arial" color="grey" size="2"
+            >&nbsp;&nbsp; go back to
+            <a data-v-62ef1d36="" href="https://app.nuglobalsolutions.com/AFP4/"
+              >Map View</a
+            >
+            &nbsp;</font
+          >
+        </div>
+        <br data-v-62ef1d36="" />
+        <div data-v-62ef1d36="" id="the_chart">
+          <div
+            data-v-62ef1d36=""
+            class="bg"
+            style="
+              background-image: url('/AFP4/static/img/BB2.png');
+              background-repeat: no-repeat;
+            "
+          ></div>
+          <svg width="1300" height="500">
+            <text
+              id="coords"
+              x="25.75875486381323"
+              y="194.44680851063828"
+              fill="red"
+              font-family="sans-serif"
+              font-size="20px"
+            ></text>
+            <text
+              id="scales"
+              x="25.75875486381323"
+              y="247.68085106382978"
+              fill="red"
+              font-family="sans-serif"
+              font-size="20px"
+            ></text>
+            <text
+              id="label"
+              x="21"
+              y="54.99999999999999"
+              text-anchor="start"
+              transform=" rotate(-45,37, 54.99999999999999)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              USGS08
+            </text>
+            <text
+              id="label"
+              x="166.99999999999997"
+              y="63.999999999999986"
+              text-anchor="start"
+              transform=" rotate(-45,182.99999999999997, 63.999999999999986)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              USGS09PL
+            </text>
+            <text
+              id="label"
+              x="217"
+              y="74.00000000000001"
+              text-anchor="start"
+              transform=" rotate(-45,233, 74.00000000000001)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              P-24M
+            </text>
+            <text
+              id="label"
+              x="313"
+              y="25.99999999999999"
+              text-anchor="start"
+              transform=" rotate(-45,329, 25.99999999999999)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              P-5M
+            </text>
+            <text
+              id="label"
+              x="362"
+              y="17"
+              text-anchor="start"
+              transform=" rotate(-45,378, 17)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              P-27U
+            </text>
+            <text
+              id="label"
+              x="371"
+              y="18.99999999999999"
+              text-anchor="start"
+              transform=" rotate(-45,387, 18.99999999999999)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              W-144
+            </text>
+            <text
+              id="label"
+              x="388.00000000000006"
+              y="24.000000000000004"
+              text-anchor="start"
+              transform=" rotate(-45,404.00000000000006, 24.000000000000004)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              P-7M
+            </text>
+            <text
+              id="label"
+              x="439"
+              y="17"
+              text-anchor="start"
+              transform=" rotate(-45,455, 17)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              P-25M
+            </text>
+            <text
+              id="label"
+              x="481"
+              y="17.999999999999993"
+              text-anchor="start"
+              transform=" rotate(-45,497, 17.999999999999993)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              HM-41
+            </text>
+            <text
+              id="label"
+              x="523"
+              y="32.99999999999999"
+              text-anchor="start"
+              transform=" rotate(-45,539, 32.99999999999999)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              HM-30
+            </text>
+            <text
+              id="label"
+              x="573.9999999999999"
+              y="16.000000000000007"
+              text-anchor="start"
+              transform=" rotate(-45,589.9999999999999, 16.000000000000007)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              P-2
+            </text>
+            <text
+              id="label"
+              x="632"
+              y="25.99999999999999"
+              text-anchor="start"
+              transform=" rotate(-45,648, 25.99999999999999)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              P-31U
+            </text>
+            <text
+              id="label"
+              x="691"
+              y="30.000000000000014"
+              text-anchor="start"
+              transform=" rotate(-45,707, 30.000000000000014)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              EPA-2
+            </text>
+            <text
+              id="label"
+              x="940"
+              y="47.99999999999999"
+              text-anchor="start"
+              transform=" rotate(-45,956, 47.99999999999999)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              WS-12
+            </text>
+            <text
+              id="label"
+              x="1148"
+              y="62"
+              text-anchor="start"
+              transform=" rotate(-45,1164, 62)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              USGS07T
+            </text>
+            <rect
+              x="968"
+              y="286"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#80fcc2"
+            ></rect>
+            <rect
+              x="968"
+              y="309"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#d1f98b"
+            ></rect>
+            <rect
+              x="968"
+              y="332"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#4cc9ff"
+            ></rect>
+            <rect
+              x="968"
+              y="355"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#ffaf84"
+            ></rect>
+            <rect
+              x="968"
+              y="378"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#e8a725"
+            ></rect>
+            <rect
+              x="968"
+              y="401"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#e23e2f"
+            ></rect>
+            <text
+              x="998"
+              y="298"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Silt
+            </text>
+            <text
+              x="998"
+              y="321"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Sandy Silt
+            </text>
+            <text
+              x="998"
+              y="344"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Clayey Sand
+            </text>
+            <text
+              x="998"
+              y="367"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Clay/Sand with Fine Gravel
+            </text>
+            <text
+              x="998"
+              y="390"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Clay/Sand with Medium Gravel
+            </text>
+            <text
+              x="998"
+              y="413"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Clay/Sand with Coarse Gravel
+            </text>
+            <text
+              x="8.000000000000004"
+              y="18.99999999999999"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              (ft)
+            </text>
+            <g class="axis" transform="translate(0,441)">
+              <g class="tick" transform="translate(24,0)" style="opacity: 1">
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  0
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(199.87548638132296,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  2,000
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(375.7509727626459,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  4,000
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(551.6264591439689,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  6,000
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(727.501945525292,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  8,000
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(903.3774319066148,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  10,000
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(1079.2529182879377,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  12,000
+                </text>
+              </g>
+              <path class="domain" d="M24,6V0H1154V6"></path>
+            </g>
+            <g class="axis" transform="translate(10,0)">
+              <g
+                class="tick"
+                transform="translate(0,389.63829787234044)"
+                style="opacity: 1"
+              >
+                <line x2="-6" y2="0"></line>
+                <text dy=".32em" x="3" y="0" style="text-anchor: start">
+                  450
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(0,300.9148936170213)"
+                style="opacity: 1"
+              >
+                <line x2="-6" y2="0"></line>
+                <text dy=".32em" x="3" y="0" style="text-anchor: start">
+                  500
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(0,212.19148936170214)"
+                style="opacity: 1"
+              >
+                <line x2="-6" y2="0"></line>
+                <text dy=".32em" x="3" y="0" style="text-anchor: start">
+                  550
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(0,123.468085106383)"
+                style="opacity: 1"
+              >
+                <line x2="-6" y2="0"></line>
+                <text dy=".32em" x="3" y="0" style="text-anchor: start">
+                  600
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(0,34.744680851063805)"
+                style="opacity: 1"
+              >
+                <line x2="-6" y2="0"></line>
+                <text dy=".32em" x="3" y="0" style="text-anchor: start">
+                  650
+                </text>
+              </g>
+              <path class="domain" d="M-6,17H0V434H-6"></path>
+            </g></svg
+          ><svg id="chart" width="1200" height="180">
+            <g class="display" transform="translate(56,18)"></g>
+          </svg>
+        </div>
+        <div data-v-62ef1d36=""></div>
+        <div
+          data-v-62ef1d36=""
+          id="tooltip"
+          style="
+            display: none;
+            position: absolute;
+            z-index: 1001;
+            background-color: gray;
+          "
+        ></div>
+      </div>
+    </div>
+    <script src="./s2bb_mr_files/framework.ad59bfd0.bundle.js"></script>
+    <script src="./s2bb_mr_files/vendor.13f8c66f.bundle.js"></script>
+    <script src="./s2bb_mr_files/s2bb_mr.49cdbb17.bundle.js"></script>
+    <div></div>
+  </body>
+</html>

@@ -1,5 +1,534 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="https://app.nuglobalsolutions.com/AFP4/static/img/favicon.png"><link href="./s2cc_mr_files/css2" rel="stylesheet"><title>AFP4</title><link href="./s2cc_mr_files/1.e0aa836c745b89bab7d2.css" rel="stylesheet"><link href="./s2cc_mr_files/s2cc_mr.e0aa836c745b89bab7d2.css" rel="stylesheet"></head><body><div id="app"><div data-v-31e29152="" id="div_container"><div data-v-31e29152="" id="header"></div> <br data-v-31e29152=""> <div data-v-31e29152="" class="styled-select"><font data-v-31e29152="" face="Arial" color="grey" size="2">&nbsp;&nbsp;Please choose a data display option:&nbsp;</font> <select data-v-31e29152="" onchange="window.location.href=this.value" class="custom-dropdown2"><option data-v-31e29152="" value="s2cc_mr.html">Most Recent</option> <option data-v-31e29152="" value="s2cc_max.html">Maximum Value</option></select>&nbsp;&nbsp;
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://app.nuglobalsolutions.com/AFP4/static/img/favicon.png"
+    />
+    <link href="./s2cc_mr_files/css2" rel="stylesheet" />
+    <title>AFP4</title>
+    <link href="./s2cc_mr_files/1.e0aa836c745b89bab7d2.css" rel="stylesheet" />
+    <link
+      href="./s2cc_mr_files/s2cc_mr.e0aa836c745b89bab7d2.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div data-v-31e29152="" id="div_container">
+        <div data-v-31e29152="" id="header"></div>
+        <br data-v-31e29152="" />
+        <div data-v-31e29152="" class="styled-select">
+          <font data-v-31e29152="" face="Arial" color="grey" size="2"
+            >&nbsp;&nbsp;Please choose a data display option:&nbsp;</font
+          >
+          <select
+            data-v-31e29152=""
+            onchange="window.location.href=this.value"
+            class="custom-dropdown2"
+          >
+            <option data-v-31e29152="" value="s2cc_mr.html">Most Recent</option>
+            <option data-v-31e29152="" value="s2cc_max.html">
+              Maximum Value
+            </option></select
+          >&nbsp;&nbsp;
 
-
-    <font data-v-31e29152="" face="Arial" color="grey" size="2">and choose an analyte:&nbsp;</font> <select data-v-31e29152="" name="chem" id="chemList" class="custom-dropdown"><option data-v-31e29152="" value="clear">none</option> <option data-v-31e29152="" value="Trichloroethylene">Trichloroethylene</option> <option data-v-31e29152="" value="cis-1,2-Dichloroethylene">cis-1,2-Dichloroethylene</option> <option data-v-31e29152="" value="Vinyl chloride">Vinyl chloride</option></select> <font data-v-31e29152="" face="Arial" color="grey" size="2">&nbsp;&nbsp; go back to <a data-v-31e29152="" href="/">Map View</a> &nbsp;</font></div> <br data-v-31e29152=""> <div data-v-31e29152="" id="the_chart"><div data-v-31e29152="" class="bg" style="background-image: url(&quot;/AFP4/static/img/CC2.png&quot;); background-repeat: no-repeat;"></div><svg width="1300" height="500"><text id="coords" x="25.883333333333333" y="146.03448275862067" fill="red" font-family="sans-serif" font-size="20px"></text><text id="scales" x="25.883333333333333" y="199.62068965517244" fill="red" font-family="sans-serif" font-size="20px"></text><text id="label" x="20" y="49" text-anchor="start" transform=" rotate(-45,36, 49)" fill="grey" font-family="sans-serif" font-size="10px">USGS01T</text><text id="label" x="165" y="54.999999999999986" text-anchor="start" transform=" rotate(-45,181, 54.999999999999986)" fill="grey" font-family="sans-serif" font-size="10px">GMI-22-07M</text><text id="label" x="217" y="53" text-anchor="start" transform=" rotate(-45,233, 53)" fill="grey" font-family="sans-serif" font-size="10px">WITCTA006</text><text id="label" x="237" y="53" text-anchor="start" transform=" rotate(-45,253, 53)" fill="grey" font-family="sans-serif" font-size="10px">WITCTA007</text><text id="label" x="302.00000000000006" y="54.999999999999986" text-anchor="start" transform=" rotate(-45,318.00000000000006, 54.999999999999986)" fill="grey" font-family="sans-serif" font-size="10px">WITCTA010</text><text id="label" x="361" y="54.999999999999986" text-anchor="start" transform=" rotate(-45,377, 54.999999999999986)" fill="grey" font-family="sans-serif" font-size="10px">WITCTA012</text><text id="label" x="396.00000000000006" y="52" text-anchor="start" transform=" rotate(-45,412.00000000000006, 52)" fill="grey" font-family="sans-serif" font-size="10px">GMI-22-06M</text><text id="label" x="469" y="41.999999999999986" text-anchor="start" transform=" rotate(-45,485, 41.999999999999986)" fill="grey" font-family="sans-serif" font-size="10px">WITCTA016</text><text id="label" x="580.0000000000001" y="44.000000000000014" text-anchor="start" transform=" rotate(-45,596.0000000000001, 44.000000000000014)" fill="grey" font-family="sans-serif" font-size="10px">GMI-22-01M</text><text id="label" x="709" y="44.000000000000014" text-anchor="start" transform=" rotate(-45,725, 44.000000000000014)" fill="grey" font-family="sans-serif" font-size="10px">USGS06T</text><text id="label" x="780" y="35" text-anchor="start" transform=" rotate(-45,796, 35)" fill="grey" font-family="sans-serif" font-size="10px">MW-21</text><text id="label" x="792" y="36" text-anchor="start" transform=" rotate(-45,808, 36)" fill="grey" font-family="sans-serif" font-size="10px">MW-20</text><text id="label" x="930" y="51" text-anchor="start" transform=" rotate(-45,946, 51)" fill="grey" font-family="sans-serif" font-size="10px">LF05-14</text><text id="label" x="958" y="36" text-anchor="start" transform=" rotate(-45,974, 36)" fill="grey" font-family="sans-serif" font-size="10px">LF05-5G</text><text id="label" x="1015" y="20" text-anchor="start" transform=" rotate(-45,1031, 20)" fill="grey" font-family="sans-serif" font-size="10px">LF04-02</text><text id="label" x="1074" y="27.999999999999986" text-anchor="start" transform=" rotate(-45,1090, 27.999999999999986)" fill="grey" font-family="sans-serif" font-size="10px">FT09-12D</text><text id="label" x="1094" y="29.000000000000014" text-anchor="start" transform=" rotate(-45,1110, 29.000000000000014)" fill="grey" font-family="sans-serif" font-size="10px">FT09-12B</text><text id="label" x="1143" y="23.999999999999993" text-anchor="start" transform=" rotate(-45,1159, 23.999999999999993)" fill="grey" font-family="sans-serif" font-size="10px">USGS07T</text><rect x="800.9999999999999" y="133" width="25" height="15" stroke="grey" fill="#80fcc2"></rect><rect x="800.9999999999999" y="156" width="25" height="15" stroke="grey" fill="#d1f98b"></rect><rect x="800.9999999999999" y="179" width="25" height="15" stroke="grey" fill="#4cc9ff"></rect><rect x="800.9999999999999" y="202" width="25" height="15" stroke="grey" fill="#ffaf84"></rect><rect x="800.9999999999999" y="225" width="25" height="15" stroke="grey" fill="#e8a725"></rect><rect x="800.9999999999999" y="248" width="25" height="15" stroke="grey" fill="#e23e2f"></rect><text x="830.9999999999999" y="145" fill="grey" font-family="sans-serif" font-size="10px">Silt</text><text x="830.9999999999999" y="168" fill="grey" font-family="sans-serif" font-size="10px">Sandy Silt</text><text x="830.9999999999999" y="191" fill="grey" font-family="sans-serif" font-size="10px">Clayey Sand</text><text x="830.9999999999999" y="214" fill="grey" font-family="sans-serif" font-size="10px">Clay/Sand with Fine Gravel</text><text x="830.9999999999999" y="237" fill="grey" font-family="sans-serif" font-size="10px">Clay/Sand with Medium Gravel</text><text x="830.9999999999999" y="260" fill="grey" font-family="sans-serif" font-size="10px">Clay/Sand with Coarse Gravel</text><text x="8.000000000000004" y="19.000000000000004" fill="grey" font-family="sans-serif" font-size="10px">(ft)</text><g class="axis" transform="translate(0,291)"><g class="tick" transform="translate(24,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">0</text></g><g class="tick" transform="translate(212.33333333333331,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2,000</text></g><g class="tick" transform="translate(400.66666666666663,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">4,000</text></g><g class="tick" transform="translate(589,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">6,000</text></g><g class="tick" transform="translate(777.3333333333333,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">8,000</text></g><g class="tick" transform="translate(965.6666666666667,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">10,000</text></g><g class="tick" transform="translate(1154,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">12,000</text></g><path class="domain" d="M24,6V0H1154V6"></path></g><g class="axis" transform="translate(7,0)"><g class="tick" transform="translate(0,253.20689655172416)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="3" y="0" style="text-anchor: start;">500</text></g><g class="tick" transform="translate(0,163.89655172413794)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="3" y="0" style="text-anchor: start;">550</text></g><g class="tick" transform="translate(0,74.58620689655172)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="3" y="0" style="text-anchor: start;">600</text></g><path class="domain" d="M-6,21H0V280H-6"></path></g></svg><svg id="chart" width="1200" height="180"><g class="display" transform="translate(56,18)"></g></svg></div> <div data-v-31e29152=""></div> <div data-v-31e29152="" id="tooltip" style="display: none; position: absolute; z-index: 1001; background-color: gray;"></div></div></div><script src="./s2cc_mr_files/framework.ad59bfd0.bundle.js"></script><script src="./s2cc_mr_files/vendor.13f8c66f.bundle.js"></script><script src="./s2cc_mr_files/s2cc_mr.0874c028.bundle.js"></script><div></div></body></html>
+          <font data-v-31e29152="" face="Arial" color="grey" size="2"
+            >and choose an analyte:&nbsp;</font
+          >
+          <select
+            data-v-31e29152=""
+            name="chem"
+            id="chemList"
+            class="custom-dropdown"
+          >
+            <option data-v-31e29152="" value="clear">none</option>
+            <option data-v-31e29152="" value="Trichloroethylene">
+              Trichloroethylene
+            </option>
+            <option data-v-31e29152="" value="cis-1,2-Dichloroethylene">
+              cis-1,2-Dichloroethylene
+            </option>
+            <option data-v-31e29152="" value="Vinyl chloride">
+              Vinyl chloride
+            </option>
+          </select>
+          <font data-v-31e29152="" face="Arial" color="grey" size="2"
+            >&nbsp;&nbsp; go back to
+            <a data-v-31e29152="" href="/">Map View</a> &nbsp;</font
+          >
+        </div>
+        <br data-v-31e29152="" />
+        <div data-v-31e29152="" id="the_chart">
+          <div
+            data-v-31e29152=""
+            class="bg"
+            style="
+              background-image: url('/AFP4/static/img/CC2.png');
+              background-repeat: no-repeat;
+            "
+          ></div>
+          <svg width="1300" height="500">
+            <text
+              id="coords"
+              x="25.883333333333333"
+              y="146.03448275862067"
+              fill="red"
+              font-family="sans-serif"
+              font-size="20px"
+            ></text>
+            <text
+              id="scales"
+              x="25.883333333333333"
+              y="199.62068965517244"
+              fill="red"
+              font-family="sans-serif"
+              font-size="20px"
+            ></text>
+            <text
+              id="label"
+              x="20"
+              y="49"
+              text-anchor="start"
+              transform=" rotate(-45,36, 49)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              USGS01T
+            </text>
+            <text
+              id="label"
+              x="165"
+              y="54.999999999999986"
+              text-anchor="start"
+              transform=" rotate(-45,181, 54.999999999999986)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              GMI-22-07M
+            </text>
+            <text
+              id="label"
+              x="217"
+              y="53"
+              text-anchor="start"
+              transform=" rotate(-45,233, 53)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              WITCTA006
+            </text>
+            <text
+              id="label"
+              x="237"
+              y="53"
+              text-anchor="start"
+              transform=" rotate(-45,253, 53)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              WITCTA007
+            </text>
+            <text
+              id="label"
+              x="302.00000000000006"
+              y="54.999999999999986"
+              text-anchor="start"
+              transform=" rotate(-45,318.00000000000006, 54.999999999999986)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              WITCTA010
+            </text>
+            <text
+              id="label"
+              x="361"
+              y="54.999999999999986"
+              text-anchor="start"
+              transform=" rotate(-45,377, 54.999999999999986)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              WITCTA012
+            </text>
+            <text
+              id="label"
+              x="396.00000000000006"
+              y="52"
+              text-anchor="start"
+              transform=" rotate(-45,412.00000000000006, 52)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              GMI-22-06M
+            </text>
+            <text
+              id="label"
+              x="469"
+              y="41.999999999999986"
+              text-anchor="start"
+              transform=" rotate(-45,485, 41.999999999999986)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              WITCTA016
+            </text>
+            <text
+              id="label"
+              x="580.0000000000001"
+              y="44.000000000000014"
+              text-anchor="start"
+              transform=" rotate(-45,596.0000000000001, 44.000000000000014)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              GMI-22-01M
+            </text>
+            <text
+              id="label"
+              x="709"
+              y="44.000000000000014"
+              text-anchor="start"
+              transform=" rotate(-45,725, 44.000000000000014)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              USGS06T
+            </text>
+            <text
+              id="label"
+              x="780"
+              y="35"
+              text-anchor="start"
+              transform=" rotate(-45,796, 35)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              MW-21
+            </text>
+            <text
+              id="label"
+              x="792"
+              y="36"
+              text-anchor="start"
+              transform=" rotate(-45,808, 36)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              MW-20
+            </text>
+            <text
+              id="label"
+              x="930"
+              y="51"
+              text-anchor="start"
+              transform=" rotate(-45,946, 51)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              LF05-14
+            </text>
+            <text
+              id="label"
+              x="958"
+              y="36"
+              text-anchor="start"
+              transform=" rotate(-45,974, 36)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              LF05-5G
+            </text>
+            <text
+              id="label"
+              x="1015"
+              y="20"
+              text-anchor="start"
+              transform=" rotate(-45,1031, 20)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              LF04-02
+            </text>
+            <text
+              id="label"
+              x="1074"
+              y="27.999999999999986"
+              text-anchor="start"
+              transform=" rotate(-45,1090, 27.999999999999986)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              FT09-12D
+            </text>
+            <text
+              id="label"
+              x="1094"
+              y="29.000000000000014"
+              text-anchor="start"
+              transform=" rotate(-45,1110, 29.000000000000014)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              FT09-12B
+            </text>
+            <text
+              id="label"
+              x="1143"
+              y="23.999999999999993"
+              text-anchor="start"
+              transform=" rotate(-45,1159, 23.999999999999993)"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              USGS07T
+            </text>
+            <rect
+              x="800.9999999999999"
+              y="133"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#80fcc2"
+            ></rect>
+            <rect
+              x="800.9999999999999"
+              y="156"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#d1f98b"
+            ></rect>
+            <rect
+              x="800.9999999999999"
+              y="179"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#4cc9ff"
+            ></rect>
+            <rect
+              x="800.9999999999999"
+              y="202"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#ffaf84"
+            ></rect>
+            <rect
+              x="800.9999999999999"
+              y="225"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#e8a725"
+            ></rect>
+            <rect
+              x="800.9999999999999"
+              y="248"
+              width="25"
+              height="15"
+              stroke="grey"
+              fill="#e23e2f"
+            ></rect>
+            <text
+              x="830.9999999999999"
+              y="145"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Silt
+            </text>
+            <text
+              x="830.9999999999999"
+              y="168"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Sandy Silt
+            </text>
+            <text
+              x="830.9999999999999"
+              y="191"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Clayey Sand
+            </text>
+            <text
+              x="830.9999999999999"
+              y="214"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Clay/Sand with Fine Gravel
+            </text>
+            <text
+              x="830.9999999999999"
+              y="237"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Clay/Sand with Medium Gravel
+            </text>
+            <text
+              x="830.9999999999999"
+              y="260"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              Clay/Sand with Coarse Gravel
+            </text>
+            <text
+              x="8.000000000000004"
+              y="19.000000000000004"
+              fill="grey"
+              font-family="sans-serif"
+              font-size="10px"
+            >
+              (ft)
+            </text>
+            <g class="axis" transform="translate(0,291)">
+              <g class="tick" transform="translate(24,0)" style="opacity: 1">
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  0
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(212.33333333333331,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  2,000
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(400.66666666666663,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  4,000
+                </text>
+              </g>
+              <g class="tick" transform="translate(589,0)" style="opacity: 1">
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  6,000
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(777.3333333333333,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  8,000
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(965.6666666666667,0)"
+                style="opacity: 1"
+              >
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  10,000
+                </text>
+              </g>
+              <g class="tick" transform="translate(1154,0)" style="opacity: 1">
+                <line y2="6" x2="0"></line>
+                <text dy=".71em" y="9" x="0" style="text-anchor: middle">
+                  12,000
+                </text>
+              </g>
+              <path class="domain" d="M24,6V0H1154V6"></path>
+            </g>
+            <g class="axis" transform="translate(7,0)">
+              <g
+                class="tick"
+                transform="translate(0,253.20689655172416)"
+                style="opacity: 1"
+              >
+                <line x2="-6" y2="0"></line>
+                <text dy=".32em" x="3" y="0" style="text-anchor: start">
+                  500
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(0,163.89655172413794)"
+                style="opacity: 1"
+              >
+                <line x2="-6" y2="0"></line>
+                <text dy=".32em" x="3" y="0" style="text-anchor: start">
+                  550
+                </text>
+              </g>
+              <g
+                class="tick"
+                transform="translate(0,74.58620689655172)"
+                style="opacity: 1"
+              >
+                <line x2="-6" y2="0"></line>
+                <text dy=".32em" x="3" y="0" style="text-anchor: start">
+                  600
+                </text>
+              </g>
+              <path class="domain" d="M-6,21H0V280H-6"></path>
+            </g></svg
+          ><svg id="chart" width="1200" height="180">
+            <g class="display" transform="translate(56,18)"></g>
+          </svg>
+        </div>
+        <div data-v-31e29152=""></div>
+        <div
+          data-v-31e29152=""
+          id="tooltip"
+          style="
+            display: none;
+            position: absolute;
+            z-index: 1001;
+            background-color: gray;
+          "
+        ></div>
+      </div>
+    </div>
+    <script src="./s2cc_mr_files/framework.ad59bfd0.bundle.js"></script>
+    <script src="./s2cc_mr_files/vendor.13f8c66f.bundle.js"></script>
+    <script src="./s2cc_mr_files/s2cc_mr.0874c028.bundle.js"></script>
+    <div></div>
+  </body>
+</html>

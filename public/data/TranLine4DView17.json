@@ -1,1 +1,141 @@
-{"type":"FeatureCollection","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"name":"Location of Cross Sections: Plan View","urlhtml":"media\/Image1.png"},"geometry":{"type":"Point","coordinates":[-97.447220346720556,32.781352896571661]}},{"type":"Feature","properties":{"name":"Stratigraphic Surfaces: Looking North at 30 Degree","urlhtml":"media\/Image2.jpg"},"geometry":{"type":"Point","coordinates":[-97.442726272873742,32.779214936368888]}},{"type":"Feature","properties":{"name":"Stratigraphic Surfaces: Looking North at 0 Degree","urlhtml":"media\/Image3.jpg"},"geometry":{"type":"Point","coordinates":[-97.43789121597419,32.777264793673055]}},{"type":"Feature","properties":{"name":"Top of Walnut: Looking North","urlhtml":"media\/Image4.jpg"},"geometry":{"type":"Point","coordinates":[-97.432721480352953,32.774977523977299]}},{"type":"Feature","properties":{"name":"Top of Walnut: Looking Northeast","urlhtml":"media\/Image5.jpg"},"geometry":{"type":"Point","coordinates":[-97.446122490785783,32.773898735530473]}},{"type":"Feature","properties":{"name":"Top of Walnut: Looking North","urlhtml":"media\/Image6.jpg"},"geometry":{"type":"Point","coordinates":[-97.428092631624096,32.765345267965529]}},{"type":"Feature","properties":{"name":"Top of Walnut: Looking Northwest","urlhtml":"media\/Image7.jpg"},"geometry":{"type":"Point","coordinates":[-97.422332121220379,32.769924663268704]}},{"type":"Feature","properties":{"name":"Structure Contour: Top of Paluxy","urlhtml":"media\/Image8.jpg"},"geometry":{"type":"Point","coordinates":[-97.427273633588428,32.7723535726508]}},{"type":"Feature","properties":{"name":"Top of Paluxy: Looking North","urlhtml":"media\/Image9.jpg"},"geometry":{"type":"Point","coordinates":[-97.451007825876232,32.776373940891297]}},{"type":"Feature","properties":{"name":"Top of Paluxy: Looking Northeast","urlhtml":"media\/Image10.jpg"},"geometry":{"type":"Point","coordinates":[-97.44050600682553,32.77117849007179]}},{"type":"Feature","properties":{"name":"Top of Paluxy: Looking North","urlhtml":"media\/Image11.jpg"},"geometry":{"type":"Point","coordinates":[-97.434835677535304,32.768266631940882]}},{"type":"Feature","properties":{"name":"Top of Paluxy: Looking Northwest","urlhtml":"media\/Image12.jpg"},"geometry":{"type":"Point","coordinates":[-97.455719480003964,32.779229280570078]}}]}
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Location of Cross Sections: Plan View",
+        "urlhtml": "media/Image1.png"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.447220346720556, 32.781352896571661]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stratigraphic Surfaces: Looking North at 30 Degree",
+        "urlhtml": "media/Image2.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.442726272873742, 32.779214936368888]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stratigraphic Surfaces: Looking North at 0 Degree",
+        "urlhtml": "media/Image3.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.43789121597419, 32.777264793673055]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Top of Walnut: Looking North",
+        "urlhtml": "media/Image4.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.432721480352953, 32.774977523977299]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Top of Walnut: Looking Northeast",
+        "urlhtml": "media/Image5.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.446122490785783, 32.773898735530473]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Top of Walnut: Looking North",
+        "urlhtml": "media/Image6.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.428092631624096, 32.765345267965529]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Top of Walnut: Looking Northwest",
+        "urlhtml": "media/Image7.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.422332121220379, 32.769924663268704]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Structure Contour: Top of Paluxy",
+        "urlhtml": "media/Image8.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.427273633588428, 32.7723535726508]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Top of Paluxy: Looking North",
+        "urlhtml": "media/Image9.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.451007825876232, 32.776373940891297]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Top of Paluxy: Looking Northeast",
+        "urlhtml": "media/Image10.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.44050600682553, 32.77117849007179]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Top of Paluxy: Looking North",
+        "urlhtml": "media/Image11.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.434835677535304, 32.768266631940882]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Top of Paluxy: Looking Northwest",
+        "urlhtml": "media/Image12.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-97.455719480003964, 32.779229280570078]
+      }
+    }
+  ]
+}
