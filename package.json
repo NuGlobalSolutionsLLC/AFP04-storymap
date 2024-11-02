@@ -6,6 +6,9 @@
   "author": "Marc Compte <marc@braquets.cat>",
   "private": true,
   "scripts": {
+    "dev": "quasar dev",
+    "clean": "quasar clean",
+    "build": "quasar build",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
