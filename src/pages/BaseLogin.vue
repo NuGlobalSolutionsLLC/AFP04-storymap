@@ -69,41 +69,34 @@ export default defineComponent({
       errors.value = "";
       loginDisabled.value = true;
       // Login using the AFP4 Deta.sh backend
-      const url = [
-        "https://database.deta.sh/v1",
-        $store.DETA_ID,
-        $store.DETA_NAME,
-        "items",
-        username.value,
-      ].join("/");
-      const response = await fetch(url, {
-        method: "GET",
+      const url = `https://culkcka9db.execute-api.us-east-2.amazonaws.com/Prod/auth?namespace=${$store.AUTH_NAMESPACE}`;
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
+          username: username.value,
+          password: password.value,
+        }),
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          "X-API-Key": $store.DETA_KEY,
         },
-      });
-      if (response.ok) {
-        const json = await response.json();
-        if (json) {
-          sha256(password.value).then((hash) => {
-            if (json.password === hash) {
-              $store.saveLoginState(username.value);
-              router.push("/");
-            } else {
-              errors.value = errorMessage;
-              loginDisabled.value = false;
-            }
-          });
-        } else {
-          errors.value = "Unknown error";
-          loginDisabled.value = false;
-        }
-      } else {
-        errors.value = "Unknown error";
-        loginDisabled.value = false;
-      }
+      })
+        .then((response) => {
+          if (response.ok) return response.json();
+          else if (response.status === 404) {
+            errors.value = errorMessage;
+            loginDisabled.value = false;
+          }
+        })
+        .then((json) => {
+          if (json.success) {
+            $store.saveLoginState(username.value);
+            router.push("/");
+          } else {
+            errors.value = errorMessage;
+            loginDisabled.value = false;
+          }
+        });
     };
     return {
       changePasswordvisibility() {
