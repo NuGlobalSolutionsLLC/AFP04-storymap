@@ -64,6 +64,7 @@ import {
   computed,
   ref,
   watchEffect,
+  toRaw,
 } from "vue";
 import {
   LMap,
@@ -346,8 +347,10 @@ export default defineComponent({
         resizeMap();
         setTimeout(() => {
           if (mapRef.value) {
-            map = mapRef.value.leafletObject;
-            map.invalidateSize();
+            map = toRaw(mapRef.value.leafletObject);
+            if (map && typeof map.invalidateSize === "function") {
+              map.invalidateSize();
+            }
           }
           getGeoJsons();
         }, 300);
@@ -355,7 +358,7 @@ export default defineComponent({
     });
 
     const move = (duration) => {
-      if (map) {
+      if (map && typeof map.invalidateSize === "function") {
         map.invalidateSize();
       }
       if (duration > 0) {
