@@ -9,6 +9,7 @@
       :min-zoom="12"
       :max-zoom="19"
       :options="mapOptions"
+      @ready="onMapReady"
     >
       <l-control-attribution
         position="bottomright"
@@ -53,7 +54,6 @@ import {
   onBeforeMount,
   onMounted,
   computed,
-  // reactive,
   ref,
   watchEffect,
   toRaw,
@@ -120,9 +120,20 @@ export default defineComponent({
     let lastSlide = null;
 
     const getActiveSlide = () => {
-      if (map) document.querySelector(".leaflet-tooltip-pane").innerHTML = "";
+      if (map) {
+        const tooltipPane = document.querySelector(".leaflet-tooltip-pane");
+        if (tooltipPane) {
+          tooltipPane.innerHTML = "";
+        }
+      }
       const slide = $store.slides.find((_slide) => _slide.active);
-      if ("bounds" in slide && slide.bounds && lastSlide !== slide) {
+      if (
+        slide &&
+        map &&
+        "bounds" in slide &&
+        slide.bounds &&
+        lastSlide !== slide
+      ) {
         map.flyToBounds(slide.bounds);
         lastSlide = slide;
       }
@@ -221,13 +232,15 @@ export default defineComponent({
 
         let latLng = leafletLayer._latlng || leafletLayer._latlngs[0];
         while (typeof latLng.length !== "undefined") latLng = latLng[0];
-        map.openTooltip(tooltip, latLng, {
-          permanent: true,
-          opacity: 1,
-          direction: "center",
-          offset: new L.Point(...feature.properties.layer.tooltipOffset),
-          file: $store.lastClickedLayer + "",
-        });
+        if (map) {
+          map.openTooltip(tooltip, latLng, {
+            permanent: true,
+            opacity: 1,
+            direction: "center",
+            offset: new L.Point(...feature.properties.layer.tooltipOffset),
+            file: $store.lastClickedLayer + "",
+          });
+        }
       }
     };
 
@@ -259,14 +272,16 @@ export default defineComponent({
             leafletLayer.setStyle(feature.properties.layer.style(feature));
           }
           leafletLayer.on("remove", () => {
-            map.eachLayer((_layer) => {
-              if (
-                _layer.options.pane === "tooltipPane" &&
-                _layer.options.file === $store.lastRemovedLayer
-              ) {
-                _layer.removeFrom(map);
-              }
-            });
+            if (map) {
+              map.eachLayer((_layer) => {
+                if (
+                  _layer.options.pane === "tooltipPane" &&
+                  _layer.options.file === $store.lastRemovedLayer
+                ) {
+                  _layer.removeFrom(map);
+                }
+              });
+            }
           });
           let popup, tooltip;
           leafletLayer.on("mouseover", function (event) {
@@ -290,8 +305,10 @@ export default defineComponent({
                 else latlng = event.target.getCenter();
                 tooltip = L.popup({ autoClose: true })
                   .setLatLng(latlng)
-                  .setContent(tooltipFunc(event.target))
-                  .openOn(map);
+                  .setContent(tooltipFunc(event.target));
+                if (map) {
+                  tooltip.openOn(map);
+                }
               }
             }
           });
@@ -311,7 +328,7 @@ export default defineComponent({
                   this.setStyle(getFeatureStyle(feature));
                 }
               }
-              if (params.tooltip) {
+              if (params.tooltip && tooltip) {
                 tooltip.close();
               }
             }
@@ -341,15 +358,13 @@ export default defineComponent({
               else latlng = event.target.getCenter();
               popup = L.popup(popupOptions)
                 .setLatLng(latlng)
-                // .setContent('<button id="close">x</button>' + event.target.options.popup({feature}))
-                .setContent(popupFunc({ feature }))
-                .openOn(map);
-              const px = map.project(latlng);
-              px.y -= popup._container.clientHeight / 2;
-              map.panTo(map.unproject(px), { animate: true });
-              // popup._container.querySelector('#close').addEventListener('pointerup', event => {
-              //   popup.close()
-              // })
+                .setContent(popupFunc({ feature }));
+              if (map) {
+                popup.openOn(map);
+                const px = map.project(latlng);
+                px.y -= popup._container.clientHeight / 2;
+                map.panTo(map.unproject(px), { animate: true });
+              }
             } else if (
               event.target.feature.properties.layer.template &&
               event.target.feature.properties.layer.template.analyte
@@ -434,7 +449,7 @@ export default defineComponent({
     const geoJsons = computed(() => {
       const slide = getActiveSlide();
       const layers = [];
-      if ("contextLayers" in slide && slide.contextLayers) {
+      if (slide && "contextLayers" in slide && slide.contextLayers) {
         slide.contextLayers.forEach((layer) => {
           if (layer.data) {
             layer.data.options = makeOptions(layer, {
@@ -446,7 +461,7 @@ export default defineComponent({
           }
         });
       }
-      if ("layers" in slide && slide.layers) {
+      if (slide && "layers" in slide && slide.layers) {
         slide.layers.forEach((layer) => {
           if ("dependencies" in layer && layer.dependencies) {
             layer.data.dependencies = layer.dependencies;
@@ -520,6 +535,14 @@ export default defineComponent({
       circle = circleMarker;
     });
 
+    const onMapReady = (leafletMap) => {
+      map = leafletMap;
+      if (map && typeof map.invalidateSize === "function") {
+        map.invalidateSize();
+      }
+      getGeoJsons();
+    };
+
     onMounted(() => {
       setTimeout(() => {
         resizeMap();
@@ -576,6 +599,7 @@ export default defineComponent({
       mapRef,
       pageRef,
       selected,
+      onMapReady,
     };
   },
 });
