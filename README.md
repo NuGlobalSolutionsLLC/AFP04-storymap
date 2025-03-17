@@ -93,3 +93,58 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 https://app.nuglobalsolutions.com/storymap/afp4/  
 Login: guest  
 Pass: WsN0Ye
+
+# Deploy Vue App to EC2
+
+This guide provides instructions on how to build and deploy a Vue.js application to an EC2 instance. The application will be copied to the Apache web server directory.
+
+## Step-by-Step Instructions
+
+### 1. Build the Vue.js Application
+
+First, navigate to the project directory and run the build command:
+
+- Using npm:
+  ```bash
+  npm run build
+  ```
+- Using yarn:
+  ```bash
+  yarn build
+  ```
+
+After the command completes, the compiled files will be generated in the `./dist/spa` folder.
+
+### 2. Copy Files to EC2
+
+To deploy the generated files to an EC2 instance, copy the contents of the `./dist/spa` directory to `/var/www/html/apps/storymap/afp4` on the EC2 server.
+
+Use `scp` to securely copy the files:
+
+```bash
+scp -r ./dist/spa/* <your-username>@<ec2-ip>:/var/www/html/apps/storymap/afp4
+```
+
+Replace `<your-username>` and `<ec2-ip>` with the appropriate values for your EC2 instance.
+
+### 3. Update ownership
+
+After the files are copied, update the ownership and access permission:
+
+```
+chmown -R www-data:www-data ./storymap; chmod -R 777 ./storymap
+```
+
+### 4. Verify Deployment
+
+After the files are updated, verify that the application is accessible by visiting:
+
+```
+http://<ec2-ip>/apps/storymap/afp4
+```
+
+Make sure the Nginx web server is running on your EC2 instance:
+
+```bash
+sudo systemctl restart nginx
+```
