@@ -11,7 +11,7 @@
             />
           </a>
           <div>
-            <div class="title">Air Force Plan 4</div>
+            <div class="title">Air Force Plant 4</div>
             <div class="subtitle">NuGlobal Solutions, LLC</div>
           </div>
         </q-toolbar-title>

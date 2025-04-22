@@ -796,7 +796,7 @@ export const useStorymapStore = defineStore("storymap-store", {
     activeTooltips: [],
     slides: [
       {
-        title: "Air Force Plan 4. <br>A Walk Through",
+        title: "Air Force Plant 4. <br>A Walk Through",
         buttons: [
           {
             label: "Start",
