@@ -197,22 +197,44 @@ export default defineComponent({
           },
           onEachFeature: function (feature, leafletLayer) {
             const layer = feature.properties.layer;
-            let popup, tooltip;
+            let popup, hoverTooltip;
             let params = Object.assign({}, $store.sections[layer.class]);
             leafletLayer.on("mouseover", function (event) {
               params = Object.assign(params, event.target.options);
               this.setStyle(params.hoverStyle);
               event.target.bringToFront();
-              let tooltipFunc =
+              const tooltipFunc =
                 params.tooltip || (layer.options && layer.options.tooltip);
-              if (tooltipFunc) {
-                let latlng;
-                if (event.target._latlng) latlng = event.target._latlng;
-                else latlng = event.target.getCenter();
-                tooltip = L.popup({ autoClose: true })
-                  .setLatLng(latlng)
-                  .setContent(tooltipFunc(event.target))
-                  .openOn(map);
+              if (tooltipFunc && map) {
+                const content = tooltipFunc(event.target);
+                if (content !== undefined && content !== null && content !== "") {
+                  if (hoverTooltip) {
+                    map.removeLayer(hoverTooltip);
+                    hoverTooltip = null;
+                  }
+                  let latlng;
+                  if (event.target.getLatLng) {
+                    latlng = event.target.getLatLng();
+                  } else if (event.target.getCenter) {
+                    latlng = event.target.getCenter();
+                  } else if (event.latlng) {
+                    latlng = event.latlng;
+                  } else {
+                    latlng = null;
+                  }
+                  if (latlng) {
+                    hoverTooltip = L.tooltip({
+                      direction: "top",
+                      offset: [0, -8],
+                      opacity: 0.95,
+                      sticky: true,
+                      className: "layer-tooltip",
+                    })
+                      .setLatLng(latlng)
+                      .setContent(content)
+                      .addTo(map);
+                  }
+                }
               }
             });
             leafletLayer.on("mouseout", function (event) {
@@ -224,8 +246,9 @@ export default defineComponent({
               } else {
                 this.setStyle(getFeatureStyle(feature));
               }
-              if (params.tooltip) {
-                tooltip.close();
+              if (hoverTooltip && map) {
+                map.removeLayer(hoverTooltip);
+                hoverTooltip = null;
               }
             });
             leafletLayer.on("click", function (event) {
@@ -453,5 +476,13 @@ export default defineComponent({
 }
 :deep(.leaflet-popup.east-parking-lot-transect) p {
   font-size: 1.2em;
+}
+:deep(.leaflet-tooltip.layer-tooltip) {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #1c1c1c;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 4px 8px;
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 </style>

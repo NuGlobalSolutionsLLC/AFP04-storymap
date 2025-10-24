@@ -222,22 +222,36 @@ export default defineComponent({
           label = label(feature);
         }
 
+        let strokeColor = "#000";
+        if (
+          feature.properties.layer.style &&
+          typeof feature.properties.layer.style === "function"
+        ) {
+          const layerStyle = feature.properties.layer.style(feature) || {};
+          strokeColor = layerStyle.color || strokeColor;
+        }
+
         const tooltip = `
           <span data-id="${
             feature.properties.layer.label
           }" style="position: relative; color: white; -webkit-text-stroke: 1px ${
-          feature.properties.layer.style(feature).color
+          strokeColor
         }">${label}</span>
         `;
 
         let latLng = leafletLayer._latlng || leafletLayer._latlngs[0];
         while (typeof latLng.length !== "undefined") latLng = latLng[0];
         if (map) {
+          const offset =
+            feature.properties.layer.tooltipOffset &&
+            Array.isArray(feature.properties.layer.tooltipOffset)
+              ? feature.properties.layer.tooltipOffset
+              : [0, 0];
           map.openTooltip(tooltip, latLng, {
             permanent: true,
             opacity: 1,
             direction: "center",
-            offset: new L.Point(...feature.properties.layer.tooltipOffset),
+            offset: new L.Point(...offset),
             file: $store.lastClickedLayer + "",
           });
         }
@@ -283,7 +297,7 @@ export default defineComponent({
               });
             }
           });
-          let popup, tooltip;
+          let popup, hoverTooltip;
           leafletLayer.on("mouseover", function (event) {
             if ("setStyle" in this) {
               params = Object.assign(params, event.target.options);
@@ -295,19 +309,39 @@ export default defineComponent({
               } else {
                 event.target.bringToBack();
               }
-              let tooltipFunc =
+              const tooltipFunc =
                 params.tooltip ||
                 (feature.properties.layer.options &&
                   feature.properties.layer.options.tooltip);
-              if (tooltipFunc) {
-                let latlng;
-                if (event.target._latlng) latlng = event.target._latlng;
-                else latlng = event.target.getCenter();
-                tooltip = L.popup({ autoClose: true })
-                  .setLatLng(latlng)
-                  .setContent(tooltipFunc(event.target));
-                if (map) {
-                  tooltip.openOn(map);
+              if (tooltipFunc && map) {
+                const content = tooltipFunc(event.target);
+                if (content !== undefined && content !== null && content !== "") {
+                  if (hoverTooltip) {
+                    map.removeLayer(hoverTooltip);
+                    hoverTooltip = null;
+                  }
+                  let latlng;
+                  if (event.target.getLatLng) {
+                    latlng = event.target.getLatLng();
+                  } else if (event.target.getCenter) {
+                    latlng = event.target.getCenter();
+                  } else if (event.latlng) {
+                    latlng = event.latlng;
+                  } else {
+                    latlng = null;
+                  }
+                  if (latlng) {
+                    hoverTooltip = L.tooltip({
+                      direction: "top",
+                      offset: [0, -8],
+                      opacity: 0.95,
+                      sticky: true,
+                      className: "layer-tooltip",
+                    })
+                      .setLatLng(latlng)
+                      .setContent(content)
+                      .addTo(map);
+                  }
                 }
               }
             }
@@ -328,8 +362,9 @@ export default defineComponent({
                   this.setStyle(getFeatureStyle(feature));
                 }
               }
-              if (params.tooltip && tooltip) {
-                tooltip.close();
+              if (hoverTooltip && map) {
+                map.removeLayer(hoverTooltip);
+                hoverTooltip = null;
               }
             }
           });
@@ -675,5 +710,16 @@ export default defineComponent({
   text-shadow: 1px 1px 10px #fff, 5px 5px 10px #ccc;
   font-size: 1.6em;
   font-weight: bold;
+}
+:deep(.leaflet-tooltip.layer-tooltip) {
+  width: auto;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  color: #1c1c1c;
+  text-shadow: none;
+  padding: 4px 8px;
+  font-size: 1em;
 }
 </style>
