@@ -542,7 +542,7 @@ const LAYERS = {
     }
   ),
   Terrace_TCE: Object.assign(
-    makeLayer("Terrace TCE 2023", "storymap/s4_Terrace_TCE_2023.json"),
+    makeLayer("Terrace TCE 2025", "storymap/s4_Terrace_TCE_2025.json"),
     {
       class: "plumes",
       style: () => {
@@ -553,7 +553,7 @@ const LAYERS = {
     }
   ),
   Terrace_cDCE: Object.assign(
-    makeLayer("Terrace cDCE 2023", "storymap/s4_Terrace_cDCE_2023.json"),
+    makeLayer("Terrace cDCE 2025", "storymap/s4_Terrace_cDCE_2025.json"),
     {
       class: "plumes",
       style: () => {
@@ -564,7 +564,7 @@ const LAYERS = {
     }
   ),
   Terrace_VC: Object.assign(
-    makeLayer("Terrace VC 2023", "storymap/s4_Terrace_VC_2023.json"),
+    makeLayer("Terrace VC 2025", "storymap/s4_Terrace_VC_2025.json"),
     {
       class: "plumes",
       style: () => {
@@ -575,7 +575,7 @@ const LAYERS = {
     }
   ),
   SC_TCE: Object.assign(
-    makeLayer("Sand Channel TCE 2023", "storymap/s4_SandChannel_TCE_2023.json"),
+    makeLayer("Sand Channel TCE 2025", "storymap/s4_SandChannel_TCE_2025.json"),
     {
       class: "plumes",
       style: () => {
@@ -586,7 +586,7 @@ const LAYERS = {
     }
   ),
   SC_VC: Object.assign(
-    makeLayer("Sand Channel VC 2023", "storymap/s4_SandChannel_VC_2023.json"),
+    makeLayer("Sand Channel VC 2025", "storymap/s4_SandChannel_VC_2025.json"),
     {
       class: "plumes",
       style: () => {
@@ -598,8 +598,8 @@ const LAYERS = {
   ),
   SC_cDCE: Object.assign(
     makeLayer(
-      "Sand Channel cDCE 2023",
-      "storymap/s4_SandChannel_cDCE_2023.json"
+      "Sand Channel cDCE 2025",
+      "storymap/s4_SandChannel_cDCE_2025.json"
     ),
     {
       class: "plumes",
@@ -611,7 +611,7 @@ const LAYERS = {
     }
   ),
   Paluxy_TCE: Object.assign(
-    makeLayer("Paluxy TCE 2023", "storymap/s4_Paluxy_TCE_2023.json"),
+    makeLayer("Paluxy TCE 2025", "storymap/s4_Paluxy_TCE_2025.json"),
     {
       class: "plumes",
       style: () => {
@@ -622,7 +622,7 @@ const LAYERS = {
     }
   ),
   Paluxy_VC: Object.assign(
-    makeLayer("Paluxy VC 2023", "storymap/s4_Paluxy_VC_2023.json"),
+    makeLayer("Paluxy VC 2025", "storymap/s4_Paluxy_VC_2025.json"),
     {
       class: "plumes",
       style: () => {
@@ -633,7 +633,7 @@ const LAYERS = {
     }
   ),
   Paluxy_cDCE: Object.assign(
-    makeLayer("Paluxy cDCE 2023", "storymap/s4_Paluxy_cDCE_2023.json"),
+    makeLayer("Paluxy cDCE 2025", "storymap/s4_Paluxy_cDCE_2025.json"),
     {
       class: "plumes",
       style: () => {
