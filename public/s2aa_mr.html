@@ -1,78 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/png" href="/favicon_v2.png" />
-    <link href="./s2aa_mr_files/css2" rel="stylesheet" />
-    <title>AFP4</title>
-    <link href="./s2aa_mr_files/1.e0aa836c745b89bab7d2.css" rel="stylesheet" />
-    <link
-      href="./s2aa_mr_files/s2aa_mr.e0aa836c745b89bab7d2.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="app">
-      <div data-v-463a6e6b="" id="div_container">
-        <div data-v-463a6e6b="" id="header"></div>
-        <br data-v-463a6e6b="" />
-        <div data-v-463a6e6b="" class="styled-select">
-          <font data-v-463a6e6b="" face="Arial" color="grey" size="2"
-            >&nbsp;&nbsp;Please choose a data display option:&nbsp;</font
-          >
-          <select
-            data-v-463a6e6b=""
-            onchange="window.location.href=this.value"
-            class="custom-dropdown2"
-          >
-            <option data-v-463a6e6b="" value="s2aa_mr.html">Most Recent</option>
-            <option data-v-463a6e6b="" value="s2aa_max.html">
-              Maximum Value
-            </option></select
-          >&nbsp;&nbsp;
-
-          <font data-v-463a6e6b="" face="Arial" color="grey" size="2"
-            >and choose an analyte:&nbsp;</font
-          >
-          <select
-            data-v-463a6e6b=""
-            name="chem"
-            id="chemList"
-            class="custom-dropdown"
-          >
-            <option data-v-463a6e6b="" value="clear">none</option>
-            <option data-v-463a6e6b="" value="Trichloroethylene">
-              Trichloroethylene
-            </option>
-            <option data-v-463a6e6b="" value="cis-1,2-Dichloroethylene">
-              cis-1,2-Dichloroethylene
-            </option>
-            <option data-v-463a6e6b="" value="Vinyl chloride">
-              Vinyl chloride
-            </option>
-          </select>
-          <font data-v-463a6e6b="" face="Arial" color="grey" size="2"
-            >&nbsp;&nbsp; go back to
-            <a data-v-463a6e6b="" href="https://app.nuglobalsolutions.com/AFP4/"
-              >Map View</a
-            >
-            &nbsp;</font
-          >
-        </div>
-        <br data-v-463a6e6b="" />
-        <div data-v-463a6e6b="" id="the_chart">
-          <div
-            data-v-463a6e6b=""
-            class="bg"
-            style="
-              background-image: url('/AFP4/static/img/AA2.png');
-              background-repeat: no-repeat;
-            "
-          ></div>
-          <svg width="1300" height="500">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AFP4 transect A–A — Most Recent</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="transects-assets/style.6e1f43d0450b1dff.css"></head>
+<body data-section="AA" data-mode="mr" data-source="transects-assets/AA.fb61a1415d276741.json">
+<header><h1>Transect A–A</h1><a href="./" id="map-link">Map View</a></header>
+<p class="preview">Updated transect data — screen positioning is awaiting GIS review. Original diagrams are unchanged.</p>
+<div class="controls"><label>Data display <select id="mode"><option value="mr" selected>Most Recent</option><option value="max">Maximum Value</option></select></label>
+<label>Analyte <select id="analyte"><option value="">Choose an analyte</option><option value="TCE">Trichloroethylene</option><option value="CIS12DCE">cis-1,2-Dichloroethylene</option><option value="VC">Vinyl chloride</option></select></label>
+<label>Position comparison <select id="position"><option value="shape">Exported screen geometry</option><option value="joined">Joined coordinate fields</option></select></label></div>
+<p id="status" role="status">Loading transect data…</p><p id="warning" class="warning" hidden></p>
+<main><div class="diagram"><svg id="profile" viewBox="0 0 1300.0 500.0" aria-label="Transect AA diagram"><image href="transects-assets/AA.40f5e34a085bac27.png" width="1200" height="414" opacity="0.4"/>
             <text
-              id="coords"
               x="27.659701492537316"
               y="182.90909090909093"
               fill="red"
@@ -80,7 +19,6 @@
               font-size="20px"
             ></text>
             <text
-              id="scales"
               x="27.659701492537316"
               y="232.68181818181816"
               fill="red"
@@ -88,7 +26,6 @@
               font-size="20px"
             ></text>
             <text
-              id="label"
               x="32"
               y="43.000000000000014"
               text-anchor="start"
@@ -100,7 +37,6 @@
               USGS08PL
             </text>
             <text
-              id="label"
               x="192"
               y="22.00000000000002"
               text-anchor="start"
@@ -112,7 +48,6 @@
               HM-106
             </text>
             <text
-              id="label"
               x="250"
               y="17"
               text-anchor="start"
@@ -124,7 +59,6 @@
               HM-73
             </text>
             <text
-              id="label"
               x="313"
               y="15.999999999999963"
               text-anchor="start"
@@ -136,7 +70,6 @@
               HM-72
             </text>
             <text
-              id="label"
               x="393"
               y="30.999999999999982"
               text-anchor="start"
@@ -148,7 +81,6 @@
               RSB-14
             </text>
             <text
-              id="label"
               x="408"
               y="30.999999999999982"
               text-anchor="start"
@@ -160,7 +92,6 @@
               HM-98
             </text>
             <text
-              id="label"
               x="493.99999999999994"
               y="47"
               text-anchor="start"
@@ -172,7 +103,6 @@
               HM-117
             </text>
             <text
-              id="label"
               x="505"
               y="48.99999999999999"
               text-anchor="start"
@@ -184,7 +114,6 @@
               RSB-46
             </text>
             <text
-              id="label"
               x="544.9999999999999"
               y="48.99999999999999"
               text-anchor="start"
@@ -196,7 +125,6 @@
               WCHMHTA004
             </text>
             <text
-              id="label"
               x="590"
               y="50.99999999999998"
               text-anchor="start"
@@ -208,7 +136,6 @@
               HM-121
             </text>
             <text
-              id="label"
               x="600"
               y="53.000000000000014"
               text-anchor="start"
@@ -220,7 +147,6 @@
               RSB-63
             </text>
             <text
-              id="label"
               x="630"
               y="57.99999999999999"
               text-anchor="start"
@@ -232,7 +158,6 @@
               WCHMHTA007
             </text>
             <text
-              id="label"
               x="690"
               y="70.99999999999999"
               text-anchor="start"
@@ -244,7 +169,6 @@
               GMI-22-02M
             </text>
             <text
-              id="label"
               x="717"
               y="72.00000000000001"
               text-anchor="start"
@@ -256,7 +180,6 @@
               SPOT35-7
             </text>
             <text
-              id="label"
               x="781"
               y="73.00000000000001"
               text-anchor="start"
@@ -268,7 +191,6 @@
               MW-59
             </text>
             <text
-              id="label"
               x="790"
               y="80.99999999999999"
               text-anchor="start"
@@ -280,7 +202,6 @@
               MW-58
             </text>
             <text
-              id="label"
               x="807"
               y="78.99999999999999"
               text-anchor="start"
@@ -292,7 +213,6 @@
               WITCTA014
             </text>
             <text
-              id="label"
               x="882"
               y="91.00000000000003"
               text-anchor="start"
@@ -304,7 +224,6 @@
               WITCTA016
             </text>
             <text
-              id="label"
               x="912"
               y="91.00000000000003"
               text-anchor="start"
@@ -316,7 +235,6 @@
               WITCTA015
             </text>
             <text
-              id="label"
               x="926.9999999999999"
               y="92.00000000000001"
               text-anchor="start"
@@ -328,7 +246,6 @@
               GMI-22-03M
             </text>
             <text
-              id="label"
               x="965"
               y="91.00000000000003"
               text-anchor="start"
@@ -340,7 +257,6 @@
               WITCTA024
             </text>
             <text
-              id="label"
               x="1027.9999999999998"
               y="123"
               text-anchor="start"
@@ -352,7 +268,6 @@
               WITCTA026
             </text>
             <text
-              id="label"
               x="1052"
               y="141.00000000000003"
               text-anchor="start"
@@ -364,7 +279,6 @@
               USGS05P
             </text>
             <text
-              id="label"
               x="1089"
               y="161.00000000000003"
               text-anchor="start"
@@ -376,7 +290,6 @@
               BSS-A
             </text>
             <text
-              id="label"
               x="1119"
               y="167"
               text-anchor="start"
@@ -388,7 +301,6 @@
               MW-8-CRSWL
             </text>
             <text
-              id="label"
               x="1146"
               y="167.99999999999997"
               text-anchor="start"
@@ -628,26 +540,9 @@
               </g>
               <path class="domain" d="M-6,17H0V382H-6"></path>
             </g></svg
-          ><svg id="chart" width="1200" height="180">
-            <g class="display" transform="translate(56,18)"></g>
-          </svg>
-        </div>
-        <div data-v-463a6e6b=""></div>
-        <div
-          data-v-463a6e6b=""
-          id="tooltip"
-          style="
-            display: none;
-            position: absolute;
-            z-index: 1001;
-            background-color: gray;
-          "
-        ></div>
-      </div>
-    </div>
-    <script src="./s2aa_mr_files/framework.ad59bfd0.bundle.js"></script>
-    <script src="./s2aa_mr_files/vendor.13f8c66f.bundle.js"></script>
-    <script src="./s2aa_mr_files/s2aa_mr.4a364ccb.bundle.js"></script>
-    <div></div>
-  </body>
-</html>
+          ></div><div id="legend" class="legend" aria-label="Concentration legend"></div>
+<section aria-labelledby="history-title"><h2 id="history-title">Well history</h2><p id="detail">Choose an analyte, then click a screen or a well in the table.</p>
+<svg id="history" viewBox="0 0 1200 230" role="img" aria-label="Sample history chart"></svg>
+<details id="history-records" hidden><summary>Exact plotted sample values</summary><table><thead><tr><th>Date</th><th>Result (µg/L)</th></tr></thead><tbody id="history-body"></tbody></table></details></section>
+<section aria-labelledby="results-title"><h2 id="results-title">Displayed results</h2><div class="table-wrap"><table><thead><tr><th>Well</th><th>Sample date(s)</th><th>Result (µg/L)</th><th>Position check</th></tr></thead><tbody id="results"></tbody></table></div></section>
+</main><script type="module" src="transects-assets/app.227760718b214cc3.js"></script></body></html>
