@@ -1,85 +1,17 @@
-<!DOCTYPE html>
-<!-- saved from url=(0052)https://app.nuglobalsolutions.com/AFP4/s2ee_max.html -->
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://app.nuglobalsolutions.com/AFP4/static/img/favicon.png"
-    />
-    <link href="./s2ee_max_files/css2" rel="stylesheet" />
-    <title>AFP4</title>
-    <link href="./s2ee_max_files/1.e0aa836c745b89bab7d2.css" rel="stylesheet" />
-    <link
-      href="./s2ee_max_files/s2ee_max.e0aa836c745b89bab7d2.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="app">
-      <div data-v-4132143e="" id="div_container">
-        <div data-v-4132143e="" id="header"></div>
-        <br data-v-4132143e="" />
-        <div data-v-4132143e="" class="styled-select">
-          <font data-v-4132143e="" face="Arial" color="grey" size="2"
-            >&nbsp;&nbsp;Please choose a data display option:&nbsp;</font
-          >
-          <select
-            data-v-4132143e=""
-            onchange="window.location.href=this.value"
-            class="custom-dropdown2"
-          >
-            <option data-v-4132143e="" value="s2ee_max.html">
-              Maximum Value
-            </option>
-            <option data-v-4132143e="" value="s2ee_mr.html">
-              Most Recent
-            </option></select
-          >&nbsp;&nbsp;
-
-          <font data-v-4132143e="" face="Arial" color="grey" size="2"
-            >and choose an analyte:&nbsp;</font
-          >
-          <select
-            data-v-4132143e=""
-            name="chem"
-            id="chemList"
-            class="custom-dropdown"
-          >
-            <option data-v-4132143e="" value="clear">none</option>
-            <option data-v-4132143e="" value="Trichloroethylene">
-              Trichloroethylene
-            </option>
-            <option data-v-4132143e="" value="cis-1,2-Dichloroethylene">
-              cis-1,2-Dichloroethylene
-            </option>
-            <option data-v-4132143e="" value="Vinyl chloride">
-              Vinyl chloride
-            </option>
-          </select>
-          <font data-v-4132143e="" face="Arial" color="grey" size="2"
-            >&nbsp;&nbsp; go back to
-            <a data-v-4132143e="" href="https://app.nuglobalsolutions.com/AFP4/"
-              >Map View</a
-            >
-            &nbsp;</font
-          >
-        </div>
-        <br data-v-4132143e="" />
-        <div data-v-4132143e="" id="the_chart">
-          <div
-            data-v-4132143e=""
-            class="bg"
-            style="
-              background-image: url('/AFP4/static/img/EE2.png');
-              background-repeat: no-repeat;
-            "
-          ></div>
-          <svg width="1300" height="690">
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AFP4 transect E–E — Maximum Value</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="transects-assets/style.b8c0471d14132686.css"></head>
+<body data-section="EE" data-mode="max" data-source="transects-assets/EE.0106040986a6336f.json" data-review-banners="hidden">
+<header><h1>Transect E–E</h1><a href="./" id="map-link">Map View</a></header>
+<p class="preview">Updated transect data — screen positioning is awaiting GIS review. Original diagrams are unchanged.</p>
+<div class="controls"><label>Data display <select id="mode"><option value="mr">Most Recent</option><option value="max" selected>Maximum Value</option></select></label>
+<label>Analyte <select id="analyte"><option value="">Choose an analyte</option><option value="TCE">Trichloroethylene</option><option value="CIS12DCE">cis-1,2-Dichloroethylene</option><option value="VC">Vinyl chloride</option></select></label>
+<label>Position comparison <select id="position"><option value="shape">Exported screen geometry</option><option value="joined">Joined coordinate fields</option></select></label></div>
+<p id="status" role="status">Loading transect data…</p><p id="warning" class="warning" hidden></p>
+<main><div class="diagram"><svg id="profile" viewBox="0 0 1300.0 690.0" aria-label="Transect EE diagram"><image href="transects-assets/EE.28c3475098dc031c.png" width="1200" height="1810" opacity="0.4"/>
             <text
-              id="coords"
               x="32.017391304347825"
               y="336.605504587156"
               fill="red"
@@ -87,7 +19,6 @@
               font-size="20px"
             ></text>
             <text
-              id="scales"
               x="32.017391304347825"
               y="397.9266055045872"
               fill="red"
@@ -95,7 +26,6 @@
               font-size="20px"
             ></text>
             <text
-              id="label"
               x="37"
               y="66.99999999999999"
               text-anchor="start"
@@ -107,7 +37,6 @@
               WS-6P
             </text>
             <text
-              id="label"
               x="513"
               y="118.99999999999997"
               text-anchor="start"
@@ -119,7 +48,6 @@
               WS-2T
             </text>
             <text
-              id="label"
               x="624"
               y="172"
               text-anchor="start"
@@ -131,7 +59,6 @@
               P-29M
             </text>
             <text
-              id="label"
               x="662"
               y="168.99999999999997"
               text-anchor="start"
@@ -143,7 +70,6 @@
               P-22U
             </text>
             <text
-              id="label"
               x="673.0000000000001"
               y="174.99999999999997"
               text-anchor="start"
@@ -155,7 +81,6 @@
               P-22M
             </text>
             <text
-              id="label"
               x="709.9999999999999"
               y="138"
               text-anchor="start"
@@ -167,7 +92,6 @@
               P-4
             </text>
             <text
-              id="label"
               x="751.9999999999999"
               y="121.00000000000001"
               text-anchor="start"
@@ -179,7 +103,6 @@
               P-5M
             </text>
             <text
-              id="label"
               x="762.0000000000001"
               y="125.99999999999997"
               text-anchor="start"
@@ -191,7 +114,6 @@
               P-5U
             </text>
             <text
-              id="label"
               x="772"
               y="131"
               text-anchor="start"
@@ -203,7 +125,6 @@
               P-5UN
             </text>
             <text
-              id="label"
               x="854"
               y="128.00000000000003"
               text-anchor="start"
@@ -215,7 +136,6 @@
               AC-5
             </text>
             <text
-              id="label"
               x="970"
               y="138.99999999999997"
               text-anchor="start"
@@ -227,7 +147,6 @@
               RW-1U
             </text>
             <text
-              id="label"
               x="992.0000000000001"
               y="142.00000000000003"
               text-anchor="start"
@@ -239,7 +158,6 @@
               RW-11U
             </text>
             <text
-              id="label"
               x="1047"
               y="146.99999999999997"
               text-anchor="start"
@@ -251,7 +169,6 @@
               HM-95
             </text>
             <text
-              id="label"
               x="1056"
               y="152"
               text-anchor="start"
@@ -263,7 +180,6 @@
               P-18US
             </text>
             <text
-              id="label"
               x="1152"
               y="164.00000000000003"
               text-anchor="start"
@@ -507,26 +423,9 @@
               </g>
               <path class="domain" d="M-6,30H0V587H-6"></path>
             </g></svg
-          ><svg id="chart" width="1200" height="180">
-            <g class="display" transform="translate(56,18)"></g>
-          </svg>
-        </div>
-        <div data-v-4132143e=""></div>
-        <div
-          data-v-4132143e=""
-          id="tooltip"
-          style="
-            display: none;
-            position: absolute;
-            z-index: 1001;
-            background-color: gray;
-          "
-        ></div>
-      </div>
-    </div>
-    <script src="./s2ee_max_files/framework.ad59bfd0.bundle.js"></script>
-    <script src="./s2ee_max_files/vendor.13f8c66f.bundle.js"></script>
-    <script src="./s2ee_max_files/s2ee_max.e7f59011.bundle.js"></script>
-    <div></div>
-  </body>
-</html>
+          ></div><div id="legend" class="legend" aria-label="Concentration legend"></div>
+<section aria-labelledby="history-title"><h2 id="history-title">Well history</h2><p id="detail">Choose an analyte, then click a screen or a well in the table.</p>
+<svg id="history" viewBox="0 0 1200 230" role="img" aria-label="Sample history chart"></svg>
+<details id="history-records" hidden><summary>Exact plotted sample values</summary><table><thead><tr><th>Date</th><th>Result (µg/L)</th></tr></thead><tbody id="history-body"></tbody></table></details></section>
+<section aria-labelledby="results-title"><h2 id="results-title">Displayed results</h2><div class="table-wrap"><table><thead><tr><th>Well</th><th>Sample date(s)</th><th>Result (µg/L)</th><th>Position check</th></tr></thead><tbody id="results"></tbody></table></div></section>
+</main><script type="module" src="transects-assets/app.227760718b214cc3.js"></script></body></html>
