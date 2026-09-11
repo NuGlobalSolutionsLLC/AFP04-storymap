@@ -24,7 +24,7 @@
             </template>
           </q-input>
         </fieldset>
-        <div class="errors" v-show="errors">
+        <div class="errors" v-show="errors" role="alert">
           {{ errors }}
         </div>
         <div class="buttons">
@@ -34,6 +34,7 @@
             color="primary"
             class="full-width"
             :disabled="loginDisabled"
+            :loading="loginDisabled"
           />
         </div>
       </q-form>
@@ -65,38 +66,68 @@ export default defineComponent({
     };
 
     const doLogin = async () => {
-      const errorMessage = "Username and password do not match.";
+      if (loginDisabled.value) return;
       errors.value = "";
+      const submittedUsername = username.value;
+      const submittedPassword = password.value;
+      if (!submittedUsername?.trim() || !submittedPassword) {
+        errors.value = "Please enter your username and password.";
+        return;
+      }
+
       loginDisabled.value = true;
-      // Login using the AFP4 Deta.sh backend
-      const url = `https://culkcka9db.execute-api.us-east-2.amazonaws.com/Prod/auth?namespace=${$store.AUTH_NAMESPACE}`;
-      fetch(url, {
-        method: "POST",
-        body: JSON.stringify({
-          username: username.value,
-          password: password.value,
-        }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.ok) return response.json();
-          else if (response.status === 404) {
-            errors.value = errorMessage;
-            loginDisabled.value = false;
-          }
-        })
-        .then((json) => {
-          if (json.success) {
-            $store.saveLoginState(username.value);
-            router.push("/");
-          } else {
-            errors.value = errorMessage;
-            loginDisabled.value = false;
-          }
+      const errorMessage = "Username and password do not match.";
+      const serviceErrorMessage =
+        "Unable to sign in right now. Please try again.";
+      let response;
+      let timeout;
+      try {
+        const controller = new AbortController();
+        timeout = setTimeout(() => controller.abort(), 15000);
+        const url = `https://culkcka9db.execute-api.us-east-2.amazonaws.com/Prod/auth?namespace=${$store.AUTH_NAMESPACE}`;
+        response = await fetch(url, {
+          method: "POST",
+          body: JSON.stringify({
+            username: submittedUsername,
+            password: submittedPassword,
+          }),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          signal: controller.signal,
         });
+
+        if (response.status === 401 || response.status === 403) {
+          errors.value = errorMessage;
+          return;
+        }
+        if (!response.ok) {
+          errors.value = serviceErrorMessage;
+          return;
+        }
+
+        const json = await response.json();
+        if (json?.success === true) {
+          await $store.saveLoginState(submittedUsername);
+          await router.push("/");
+        } else if (json?.success === false) {
+          errors.value = errorMessage;
+        } else {
+          errors.value = serviceErrorMessage;
+        }
+      } catch (error) {
+        if (error?.name === "AbortError") {
+          errors.value = "Login timed out. Please try again.";
+        } else {
+          errors.value = response
+            ? serviceErrorMessage
+            : "Could not reach the login service. Check your connection and try again.";
+        }
+      } finally {
+        clearTimeout(timeout);
+        loginDisabled.value = false;
+      }
     };
     return {
       changePasswordvisibility() {
