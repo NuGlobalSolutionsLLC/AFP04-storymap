@@ -267,13 +267,7 @@ export default defineComponent({
         options.pointToLayer = (feature, latLng) => {
           const featureParams = getFeatureStyle(feature);
           featureParams.riseOnHover = true;
-          if (feature.properties.Result === 0) {
-            return L.marker(latLng, {
-              icon: L.divIcon({ className: "arrow-up" }),
-            });
-          } else {
-            return circle(latLng, featureParams);
-          }
+          return circle(latLng, featureParams);
         };
         options.onEachFeature = function (feature, leafletLayer) {
           addTooltip(feature, leafletLayer);
@@ -641,13 +635,6 @@ export default defineComponent({
 </script>
 
 <style type="scss" scoped>
-:deep(.arrow-up) {
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 14px solid #910000a1;
-}
 .q-page-container,
 :deep(.q-page-container),
 .q-page,
